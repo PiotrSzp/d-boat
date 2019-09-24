@@ -1,0 +1,50 @@
+.slider-wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  background-color: #333; //dev colors - 2 B changed
+  color: white; //dev colors - 2 B changed
+
+
+  .slider-nav {
+    text-decoration: none;
+    position: absolute;
+    display: flex;
+    width: 15%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    &.right {
+      right: 0;
+      color: red;
+    }
+
+    &.left {
+      left: 0;
+      color: green;
+    }
+
+    .slider-button {
+      border: none;
+      background: none;
+    }
+  }
+
+  .slider-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .slider-img {
+      width: 80%;
+    }
+
+    .slider-text {
+      text-align: center;
+    }
+  }
+}

@@ -3,12 +3,17 @@ import ReactDOM from 'react-dom';
 import Nav from './components/nav'
 import './styles.scss'
 
-function App(){
+
+import Slider from "./components/Slider/Slider";
+
+function App() {
     return (
-        <Nav/>
+        <>
+            <Nav />
+            <Slider />
+        </>
     )
 }
-
 
 
 ReactDOM.render(<App />, document.getElementById('root'));

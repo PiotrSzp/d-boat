@@ -60,6 +60,29 @@ const copy = {
                 github: 'https://github.com/ol3kjak',
             },
         ],
+        slider: [
+            {
+                id: 1,
+                src: 'sample-boat-slide.png',
+                title: 'Slide 1',
+                description: 'This is desc of slide 1',
+                active: true
+            },
+            {
+                id: 2,
+                src: 'sample-boat-slide.png',
+                title: 'Slide 2',
+                description: 'This is desc of slide 2',
+                active: false
+            },
+            {
+                id: 3,
+                src: 'sample-boat-slide.png',
+                title: 'Slide 3',
+                description: 'This is desc of slide 3',
+                active: false
+            },
+        ]
     },
     Polski: {
         menu: {
