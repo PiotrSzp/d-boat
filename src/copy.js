@@ -94,7 +94,8 @@ const copy = {
         ],
         buttton: {
             submit: 'SUBMIT',
-        }
+        },
+        otther:{},
     },
 };
 
