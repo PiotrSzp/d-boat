@@ -1,1 +1,12 @@
-$primaryColor: #bada55;
+@font-face {
+  font-family:'Panton';
+  src: url("./assets/fonts/panton.otf");
+  src:
+          local('Panton'),
+          local('Panton'),
+          url('./assets/fonts/panton.otf')
+          format('opentype');
+}
+$primaryColor: #000;
+$secondaryColor: #bada55;
+$textColor: #fff;
