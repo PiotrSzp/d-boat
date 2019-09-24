@@ -1,44 +1,44 @@
 import React, { Component } from 'react';
+import copy from "../../copy";
 import SlideItem from "./SlideItem";
 
-let slides_array = [
-    {
-        id: 1,
-        src: 'https://via.placeholder.com/150',
-        title: 'Slide 1',
-        description: 'This is desc of slide 1',
-        active: true
-    },
-    {
-        id: 2,
-        src: 'https://via.placeholder.com/150',
-        title: 'Slide 2',
-        description: 'This is desc of slide 2',
-        active: false
-    },
-    {
-        id: 3,
-        src: 'https://via.placeholder.com/150',
-        title: 'Slide 3',
-        description: 'This is desc of slide 3',
-        active: false
-    },
-];
-
 class Slider extends Component {
-    slides_array = [...slides_array];
-
-    next_slide = e => {
-        e.preventDefault();
-        console.log('next');
+    state = {
+        slides_array: [...copy.English.slider],
+        activeSlide: 0,
     };
+
 
     prev_slide = e => {
         e.preventDefault();
-        console.log('prev');
+        this.setState({
+            activeSlide: this.state.activeSlide - 1 < 0 ? this.state.slides_array.length - 1 : this.state.activeSlide - 1
+        });
+        let newSlidesArr = this.state.slides_array.map((slide, index) => ({
+            ...slide,
+            active: index === this.state.activeSlide
+        }));
+        this.setState({
+            slides_array: newSlidesArr
+        });
     };
 
-    
+
+    next_slide = e => {
+        e.preventDefault();
+        this.setState({
+            activeSlide: this.state.activeSlide + 1 > this.state.slides_array.length - 1 ? 0 : this.state.activeSlide + 1
+        });
+        let newSlidesArr = this.state.slides_array.map((slide, index) => ({
+            ...slide,
+            active: index === this.state.activeSlide
+        }));
+        this.setState({
+            slides_array: newSlidesArr
+        });
+    };
+
+
     render() {
         return (<div className='slider-wrapper'>
                 <div className='slider-nav left'>
@@ -48,7 +48,7 @@ class Slider extends Component {
                     <button className='slider-button next' id='slider-button-right' onClick={ this.next_slide }>PRAWO</button>
                 </div>
                 {
-                    this.slides_array.map(slide => <SlideItem key={ slide.id } slide={ slide } />
+                    this.state.slides_array.map((slide, index) => <SlideItem key={ slide.id } slide={ slide } active={ index === this.state.activeSlide }/>
                     )
                 }
             </div>
