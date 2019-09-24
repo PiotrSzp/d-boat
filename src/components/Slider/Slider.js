@@ -23,7 +23,6 @@ let slides_array = [
         description: 'This is desc of slide 3',
         active: false
     },
-
 ];
 
 class Slider extends Component {
