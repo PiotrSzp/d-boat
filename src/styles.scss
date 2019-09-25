@@ -1,6 +1,7 @@
 @import "sass/variables.scss";
 @import "sass/slider.scss";
 @import "sass/nav.scss";
+@import "sass/header.scss";
 
 
 * {
@@ -8,6 +9,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body{
+  background-color: $primaryColor;
+}
+
+
+
 
 
 
