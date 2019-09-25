@@ -1,10 +1,16 @@
+$background_color: #333;
+$text_color: gray;
+$borders_color: #ddd;
+
+
 .slider-wrapper {
   width: 100%;
+  height: 500px;
   position: relative;
   display: flex;
   overflow: hidden;
-  background-color: #333; //dev colors - 2 B changed
-  color: white; //dev colors - 2 B changed
+  background-color: $background_color;
+  color: $text_color;
 
 
   .slider-nav {
@@ -15,29 +21,80 @@
     height: 100%;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    z-index: 1;
 
-    &.right {
+    &.next {
       right: 0;
       color: red;
     }
 
-    &.left {
+    &.prev {
       left: 0;
       color: green;
     }
 
     .slider-button {
-      border: none;
+      border: 2px solid $borders_color;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
       background: none;
+      position: relative;
+      outline: $background_color;
+      cursor: pointer;
+
+      &.prev {
+        transform: rotate(180deg);
+      }
+
+      &::after, &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        border: 1px solid $borders_color;
+        background-color: $borders_color;
+        width: 36%;
+        height: 0;
+        left: 13px;
+        top: 50%;
+        transform-origin: calc(100% - 1px);
+      }
+
+      &::after {
+        transform: translateY(-1px) rotate(45deg);
+      }
+
+      &::before {
+        transform: translateY(-1px) rotate(-45deg);
+      }
     }
   }
 
   .slider-item {
-    width: 100%;
-    display: flex;
+    width: 100vw;
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: transform 1s;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &.current {
+      transform: translateX(0vw);
+    }
+
+    &.next {
+      transform: translateX(100vw);
+    }
+
+    &.prev {
+      transform: translateX(-100vw);
+    }
 
     .slider-img {
       width: 80%;
