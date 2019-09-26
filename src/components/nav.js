@@ -6,7 +6,7 @@ function Nav() {
             <div className='wrapper nav-wrapper'>
                 <a href="/" className="nav-logo">
                 </a>
-                <div className="nav-menu">
+                <div className="nav-menu wrapper">
                     <li className='nav-menu-el'><a href="#" className='nav-menu-link'>Model</a></li>
                     <li className='nav-menu-el'><a href="#" className='nav-menu-link'>About</a></li>
                     <li className='nav-menu-el'><a href="#" className='nav-menu-link'>Find My dealer</a></li>
