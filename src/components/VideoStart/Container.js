@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Video from "./Video";
 import video from "../../assets/movie/IntroConv.mp4";
 import copy from "../../copy";
