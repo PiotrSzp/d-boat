@@ -9,6 +9,7 @@ function IntroPage() {
     return (
         <header className='header-video'>
             <Video imgSrc={video} muted={true}/>
+            <div className="gradient"></div>
             <div className="header-text">
                 <h4 className="header-title">{copy.English.header.title}
                     <hr/></h4>
