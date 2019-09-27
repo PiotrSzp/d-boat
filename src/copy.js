@@ -87,7 +87,11 @@ const copy = {
                 title: 'Slide 4',
                 description: 'This is desc of slide 4',
             },
-        ]
+        ],
+        mainpageText: {
+            title: 'This is a title. Like seriously.',
+            paragraphs: ['First paragraph! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quibusdam, ullam. Ad, architecto cumque deleniti, deserunt eos ex exercitationem illo neque.', 'Second paragraph! Bcaecati perferendis possimus quod suscipit temporibus! Deleniti, porro provident.']
+        }
     },
     Polski: {
         menu: {

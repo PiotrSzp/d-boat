@@ -1,0 +1,32 @@
+.main-text-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15% 0 15%;
+  background: linear-gradient(
+          rgba($primaryColor, 1),
+          rgba($primaryColor, 0.85),
+          rgba($primaryColor, 1)
+  ),
+  url('./assets/img/maintext-bck.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  .main-text-title {
+    margin-bottom: 50px;
+  }
+
+  .main-text-paragraph {
+    margin-bottom: 50px;
+    text-align: center;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+}
