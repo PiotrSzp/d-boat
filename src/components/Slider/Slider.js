@@ -1,34 +1,54 @@
 import React, { Component } from 'react';
-import copy from "../../copy";
+import PropTypes from 'prop-types';
 import SlideItem from "./SlideItem";
 
 class Slider extends Component {
     state = {
-        slides_array: [...copy.English.slider],
+        slides_array: [...this.props.slides],
         activeSlide: 0,
-        prevSlide: [...copy.English.slider].length - 1,
+        prevSlide: [...this.props.slides].length - 1,
         nextSlide: 1,
         sliderHeight: false,
+        autoSlideIntervalID: '',
     };
 
     prev_slide = e => {
         e.preventDefault();
         e.stopPropagation();
+
+        window.clearInterval(this.state.autoSlideIntervalID);
+
         this.setState(prevState => ({
             activeSlide: prevState.activeSlide - 1 < 0 ? prevState.slides_array.length - 1 : prevState.activeSlide - 1,
             prevSlide: prevState.prevSlide - 1 < 0 ? prevState.slides_array.length - 1 : prevState.prevSlide - 1,
             nextSlide: prevState.activeSlide
         }));
+
     };
 
     next_slide = e => {
         e.preventDefault();
         e.stopPropagation();
+
+        window.clearInterval(this.state.autoSlideIntervalID);
+
         this.setState(prevState => ({
             activeSlide: prevState.activeSlide + 1 > prevState.slides_array.length - 1 ? 0 : prevState.activeSlide + 1,
             prevSlide: prevState.activeSlide,
             nextSlide: prevState.nextSlide + 1 > prevState.slides_array.length - 1 ? 0 : prevState.nextSlide + 1
         }));
+    };
+
+    auto_slide = () => {
+        this.setState({
+            autoSlideIntervalID: window.setInterval(() => {
+                this.setState(prevState => ({
+                    activeSlide: prevState.activeSlide + 1 > prevState.slides_array.length - 1 ? 0 : prevState.activeSlide + 1,
+                    prevSlide: prevState.activeSlide,
+                    nextSlide: prevState.nextSlide + 1 > prevState.slides_array.length - 1 ? 0 : prevState.nextSlide + 1
+                }));
+            }, this.props.autoSlideTime)
+        });
     };
 
     determinePosition = (index) => {
@@ -41,19 +61,16 @@ class Slider extends Component {
         } else return ''
     };
 
-
-    updateHeight = height => {
-        this.setState({ sliderHeight: height });
-    };
-
-
     render() {
         const { activeSlide, nextSlide, prevSlide } = this.state;
 
         return (
-            <div
+            <section
                 className='slider-wrapper'
-                style={ { height: `${ this.state.sliderHeight }` } }>
+                style={ { height: `${ this.state.sliderHeight }` } }
+                onMouseEnter={ () => window.clearInterval(this.state.autoSlideIntervalID) }
+                onMouseLeave={ () => this.auto_slide() }
+            >
                 <div className='slider-nav prev' onClick={ this.prev_slide }>
                     <button
                         className='slider-button prev'
@@ -68,20 +85,24 @@ class Slider extends Component {
                 </div>
                 {
                     this.state.slides_array.map((slide, index) => {
-                            if (index === activeSlide || index === nextSlide || index === prevSlide) {
-                                return <SlideItem
-                                    key={ slide.id }
-                                    slide={ slide }
-                                    position={ this.determinePosition(index) }
-                                    updateParentHeight={ this.updateHeight }
-                                />
-                            } else return null;
-                        }
-                    )
+                        if (index === activeSlide || index === nextSlide || index === prevSlide) {
+                            return <SlideItem
+                                key={ slide.id }
+                                slide={ slide }
+                                position={ this.determinePosition(index) }
+                                updateParentHeight={ this.updateHeight }
+                            />
+                        } else return null;
+                    })
                 }
-            </div>
+            </section>
         );
     }
 }
+
+Slider.propTypes = {
+    slides: PropTypes.array.isRequired,
+    autoSlideTime: PropTypes.number.isRequired
+};
 
 export default Slider;

@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Nav from './components/nav'
+import './styles.scss';
+import copy from "./copy";
+
+import Nav from './components/nav';
 import IntroPage from "./components/VideoStart/Container";
-import './styles.scss'
-
-
+import MainpageText from './components/MainpageText'
 import Slider from "./components/Slider/Slider";
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
         <>
             <Nav />
             <IntroPage/>
-            <Slider />
+            <MainpageText text={copy.English.mainpageText}/>
+            <Slider slides={copy.English.slider} autoSlideTime={4000}/>
         </>
     )
 }
