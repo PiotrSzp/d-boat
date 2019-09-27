@@ -7,14 +7,16 @@ import Nav from './components/nav';
 import IntroPage from "./components/VideoStart/Container";
 import MainpageText from './components/MainpageText'
 import Slider from "./components/Slider/Slider";
+import FindRetailer from "./components/FindRetailer";
 
 function App() {
     return (
         <>
             <Nav />
-            <IntroPage/>
-            <MainpageText text={copy.English.mainpageText}/>
-            <Slider slides={copy.English.slider} autoSlideTime={4000}/>
+            <IntroPage />
+            <MainpageText texts={ copy.English.mainpageText } />
+            <Slider slides={ copy.English.slider } autoSlideTime={ 4000 } />
+            <FindRetailer texts={ copy.English.findRetailer } />
         </>
     )
 }
