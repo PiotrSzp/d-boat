@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Nav from './components/nav'
+import Nav from './components/Navigation/Nav.js'
 import IntroPage from "./components/VideoStart/Container";
 import './styles.scss'
 

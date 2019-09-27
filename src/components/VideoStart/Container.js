@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
-import Video from "./video";
+import Video from "./Video";
 import video from "../../assets/movie/IntroConv.mp4";
+import copy from "../../copy";
 
 
 
 function IntroPage() {
     return (
         <header className='header-video'>
-            <Video imgSrc={video} muted={'true'}/>
+            <Video imgSrc={video} muted={true}/>
             <div className="header-text">
-                <h4 className="header-title">Modern Luxury Boats
+                <h4 className="header-title">{copy.English.header.title}
                     <hr/></h4>
-
-                <h1 className="header-msg">Elevate Your Escape</h1>
+                <h1 className="header-msg">{copy.English.header.msg}</h1>
             </div>
 
         </header>

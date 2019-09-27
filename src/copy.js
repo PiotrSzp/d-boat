@@ -1,11 +1,13 @@
 const copy = {
     English: {
-        menu: {
-            faq: 'FAQ',
-            contact: 'Contact',
-            jumper: 'Jumper',
-            timer: 'Timer',
-            home: 'Home',
+        menu: [
+            {text: 'model', link: '#',id:1},
+            {text: 'about',link:'#',id:2},
+            {text: 'Find My Dealer',link:'#', id:3}
+        ],
+        header:{
+            title:'Modern Luxury Boats',
+            msg:'Elevate Your Escape'
         },
         section: {
             counter: {
