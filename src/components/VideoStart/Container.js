@@ -15,7 +15,6 @@ function IntroPage() {
                     <hr/></h4>
                 <h1 className="header-msg">{copy.English.header.msg}</h1>
             </div>
-
         </header>
 
     )
