@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles.scss';
-import copy from "./copy";
-
-import Nav from './components/nav';
+import Nav from './components/Navigation/Nav.js'
 import IntroPage from "./components/VideoStart/Container";
+import './styles.scss'
+import copy from "./copy";
 import MainpageText from './components/MainpageText'
 import Slider from "./components/Slider/Slider";
 import FindRetailer from "./components/FindRetailer";
