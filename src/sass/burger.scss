@@ -1,0 +1,77 @@
+.burger-menu{
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  width: 40px;
+  height: 100%;
+  margin-right: 20px;
+  cursor: pointer;
+  .burger-line{
+    height: 3px;
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 7px;
+    background-color: $textColor;
+
+  }
+  @media (min-width: 1001px) {
+    display: none;
+  }
+}
+
+.burger-active{
+  .burger-line{
+    &:nth-child(1){
+      position: relative;
+      transform: rotate(225deg);
+      top: 5px;
+      transition: transform 220ms 120ms ease-in-out;
+
+    }
+    &:nth-child(2){
+      display: none;
+    }
+    &:nth-child(3){
+      position: relative;
+      transform: rotate(-225deg);
+      top: -5px;
+      transition: transform 220ms 120ms ease-in-out;
+    }
+  }
+}
+.burger-list{
+  position: absolute;
+  list-style: none;
+  height: 100vh;
+  width: 100%;
+  padding-top: 10vh;
+  background-color: $primaryColor;
+  top: 60px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slide 1s ease-in-out;
+
+  .burger-el{
+    margin-bottom: 5vh;
+  }
+  .burger-link{
+    font-size: 3em;
+    text-transform: uppercase;
+    color: $textColor;
+    text-decoration: none;
+    width:100%;
+    height: 100%;
+    transition: 0.4s;
+    &:hover{
+      color: darken($textColor, 40%);
+    }
+  }
+}
+
+@keyframes slide {
+  0% {transform: translate(100%,0) }
+  100%{transform: translate(0,0)}
+}
+
