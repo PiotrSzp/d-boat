@@ -49,7 +49,7 @@ class FindRetailer extends Component {
 }
 
 FindRetailer.propTypes = {
-    text: PropTypes.object.isRequired,
+    texts: PropTypes.object.isRequired,
 };
 
 export default FindRetailer;
