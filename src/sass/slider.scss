@@ -1,5 +1,5 @@
 $background_color: $primaryColor;
-$text_color: gray;
+$text_color: $textColor;
 $borders_color: #ddd;
 
 
@@ -8,9 +8,20 @@ $borders_color: #ddd;
   height: 100vh;
   position: relative;
   display: flex;
+  justify-content: center;
   overflow: hidden;
   background-color: $background_color;
   color: $text_color;
+
+  @media (max-width: 768px) {
+    height: 60vh;
+  }
+
+
+  .slider-title {
+    padding-top: 60px;
+    color: $text_color;
+  }
 
 
   .slider-nav {

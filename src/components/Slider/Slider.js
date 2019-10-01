@@ -71,6 +71,7 @@ class Slider extends Component {
                 onMouseEnter={ () => window.clearInterval(this.state.autoSlideIntervalID) }
                 onMouseLeave={ () => this.auto_slide() }
             >
+                <h2 className='slider-title'>SLIDER TITLE HARDCODED</h2>
                 <div className='slider-nav prev' onClick={ this.prev_slide }>
                     <button
                         className='slider-button prev'

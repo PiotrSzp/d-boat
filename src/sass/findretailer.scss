@@ -12,6 +12,11 @@ $inputHeight: 40px;
   background-position: center bottom;
   padding-top: 60px;
 
+  @media (max-width: 768px) {
+    height: 60vh;
+    padding-top: 0;
+  }
+
   .find-retailer-container {
     width: 50%;
     height: 50%;
@@ -21,6 +26,11 @@ $inputHeight: 40px;
     align-items: center;
     border: 1px solid $textColor;
     background-color: rgba($textColor, .05);
+    
+    @media (max-width: 768px) {
+      width: 90%;
+      height: 90%;
+    }
 
     .find-retailer-form {
       width: 100%;
@@ -48,10 +58,11 @@ $inputHeight: 40px;
           padding: $inputHeight / 4;
           border-right: 1px solid $textColor;
           outline: none;
+          overflow: hidden;
         }
 
         .find-retailer-submit {
-          width: $inputHeight;
+          min-width: $inputHeight;
           height: $inputHeight;
           border: none;
           background-color:  $textColor;
@@ -70,8 +81,9 @@ $inputHeight: 40px;
     }
 
     .find-retailer-btn {
-      height: $inputHeight;
       padding: $inputHeight / 4 $inputHeight $inputHeight /4 $inputHeight;
+      margin: 0 10% 0 10%;
+      max-width: 80%;
       background: $textColor;
       color: $primaryColor;
       border: 1px solid $textColor;
