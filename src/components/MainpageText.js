@@ -5,9 +5,9 @@ class MainpageText extends Component {
     render() {
         return (
             <section className='main-text-wrapper'>
-                <h2 className='main-text-title'>{ this.props.text.title }</h2>
+                <h2 className='main-text-title'>{ this.props.texts.title }</h2>
                 {
-                    this.props.text.paragraphs.map((p, idx) => <p key={ idx } className='main-text-paragraph'>{ p }</p>)
+                    this.props.texts.paragraphs.map((p, idx) => <p key={ idx } className='main-text-paragraph'>{ p }</p>)
                 }
             </section>
         );
@@ -15,7 +15,7 @@ class MainpageText extends Component {
 }
 
 MainpageText.propTypes = {
-    text: PropTypes.object.isRequired,
+    texts: PropTypes.object.isRequired,
 };
 
 export default MainpageText;
