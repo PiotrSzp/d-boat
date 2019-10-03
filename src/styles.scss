@@ -4,17 +4,22 @@
 @import "sass/header.scss";
 @import "sass/burger.scss";
 @import "sass/mainpagetext.scss";
+@import "sass/news.scss";
 @import "sass/findretailer";
+
 //font-family: 'Lora', serif;
 //font-family: 'Open Sans Condensed', sans-serif;
+//font-family: 'Roboto Mono', monospace;
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 body{
   background-color: $primaryColor;
+  //background-image: url("./assets/img/simple_dashed/simple_dashed.png");
+  //background-size: cover;
   color: $textColor;
 }
