@@ -3,7 +3,7 @@ const copy = {
         menu: [
             {text: 'model', link: '#',id:1},
             {text: 'about',link:'#',id:2},
-            {text: 'Find My Dealer',link:'#', id:3}
+            {text: 'Find My Dealer',link:'/retailers', id:3}
         ],
         header:{
             title:'Modern Luxury Boats',
@@ -91,7 +91,12 @@ const copy = {
         mainpageText: {
             title: 'This is a title. Like seriously.',
             paragraphs: ['First paragraph! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quibusdam, ullam. Ad, architecto cumque deleniti, deserunt eos ex exercitationem illo neque.', 'Second paragraph! Bcaecati perferendis possimus quod suscipit temporibus! Deleniti, porro provident.']
-        }
+        },
+        findRetailer: {
+            title: 'Find closest retailer',
+            placeholder: 'Type in city name...',
+            button: 'See all retailers',
+        },
     },
     Polski: {
         menu: {
