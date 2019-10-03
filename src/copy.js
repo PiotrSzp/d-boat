@@ -2,7 +2,7 @@ const copy = {
     English: {
         menu: [
             {text: 'model', link: '#',id:1},
-            {text: 'about',link:'#',id:2},
+            {text: 'about',link:'/news',id:2},
             {text: 'Find My Dealer',link:'/retailers', id:3}
         ],
         header:{
