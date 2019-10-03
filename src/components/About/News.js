@@ -43,6 +43,15 @@ class NewsSection extends Component {
             .catch(error => console.error(error));
     }
 
+    textLimit = (text)=>{
+      const limit = 180;
+      const dots = '...';
+      if (text.length>limit){
+          text = text.substring(0,limit) + dots;
+      }
+      return text
+    };
+
     render() {
 
         return (
@@ -56,12 +65,12 @@ class NewsSection extends Component {
                                 return (
                                     <article key={el.id} className="post">
                                         <div className="img-container">
-                                        <img src={el.image.url} alt="picture" className="post-img"/>
+                                            <img src={el.image.url} alt="picture" className="post-img"/>
                                         </div>
                                         <p className="post-date">{el.date}</p>
                                         <h4 className="post-title">{el.title}</h4>
                                         <div className="post-text">
-                                            {el.content.text}
+                                            {this.textLimit(el.content.text)}
                                         </div>
                                         <button className="post-button">Read More</button>
                                     </article>

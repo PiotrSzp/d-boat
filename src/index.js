@@ -11,11 +11,11 @@ import NewsSection from "./components/About/News";
 function App() {
     return (
         <>
-            {/*<Nav />*/}
-            {/*<IntroPage/>*/}
-            {/*<MainpageText text={copy.English.mainpageText}/>*/}
-            {/*<Slider slides={copy.English.slider} autoSlideTime={4000}/>*/}
-            <NewsSection/>
+            <Nav />
+            <IntroPage/>
+            <MainpageText text={copy.English.mainpageText}/>
+            <Slider slides={copy.English.slider} autoSlideTime={4000}/>
+            {/*<NewsSection/>*/}
         </>
     )
 }
