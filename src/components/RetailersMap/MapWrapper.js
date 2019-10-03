@@ -1,29 +1,43 @@
-import React from 'react'
-import { render } from 'react-dom'
+import React from 'react';
+import APIkey from "./googleMapApiKey";
 
 // Import Google Map component
-import GoogleMapComponentWithMarker from './Map'
+import GoogleMapComponentWithMarker from './Map';
 
 // Some default styles
 const styles = {
     width: '60%',
-    height: '80vh',
+    height: '100%',
 };
 
-// Wrapper with Google Map componentvh
+// Wrapper with Google Map component
 class MapWrapper extends React.PureComponent {
+    clickHandler = (e) => {
+        // e.stopPropagation();
+        // e.preventDefault();
+        console.log(e);
+    };
+
+    // latitude = this.props.userPosition ? this.props.userPosition.latitude : 52.2330269;
+    // longitude = this.props.userPosition ? this.props.userPosition.longitude : 20.7810081;
+
     render() {
+        console.log(this.props.userPosition);
         return (
-            <div style={styles}>
+            <section style={ styles }>
                 <GoogleMapComponentWithMarker
-                    googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=" // paste API key here
-                    loadingElement={<div style={{ height: `100%` }} />}
-                    containerElement={<div style={{ height: `100%` }} />}
-                    mapElement={<div style={{ height: `100%` }} />}
+                    googleMapURL={ `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${ APIkey }` }
+                    loadingElement={ <div style={ { height: `100%` } } /> }
+                    containerElement={ <div style={ { height: `100%` } } /> }
+                    mapElement={ <div style={ { height: `100%` } } /> }
+                    retailers={ this.props.retailers }
+                    userPosition={ this.props.userPosition }
+                    clickHandler={ this.clickHandler }
                 />
-            </div>
-        )
+            </section>
+        );
     }
 }
+
 
 export default MapWrapper;

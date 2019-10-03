@@ -97,6 +97,12 @@ const copy = {
             placeholder: 'Type in city name...',
             button: 'See all retailers',
         },
+        retailersPage: {
+            title: 'D-Retailers nearby',
+            paragraph: "Find closest dealer and get your D-Boat today! Don't wait.",
+            locationBtn: 'Use my location',
+
+        }
     },
     Polski: {
         menu: {

@@ -12,6 +12,16 @@ const styles = {
 class Retailers extends Component {
     state = {
         retailers: [],
+        userPosition: {}
+    };
+
+    getLocation = () => {
+        const success = pos => {
+            this.setState({userPosition: pos.coords});
+            console.log(pos);
+        };
+
+        navigator.geolocation.getCurrentPosition(success);
     };
 
     componentDidMount() {
@@ -26,16 +36,17 @@ class Retailers extends Component {
                      website
                      phone
                      mail
+                     address
                      location {
                         latitude
                         longitude
                      }
+                     placeId
                    }
                  }
                `
             })
             .then(res => {
-                console.log(res);
                 this.setState({
                     retailers: res.data.dealers
                 });
@@ -48,8 +59,14 @@ class Retailers extends Component {
             <>
                 <div style={ styles } />
                 <section className='retailers-wrapper'>
-                    <MapWrapper retailers={ this.state.retailers } />
-                    <RetailersList retailers={ this.state.retailers } />
+                    <MapWrapper
+                        retailers={ this.state.retailers }
+                        userPosition={ this.state.userPosition }
+                    />
+                    <RetailersList
+                        retailers={ this.state.retailers }
+                        getLocation={this.getLocation}
+                    />
                 </section>
             </>
         );

@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 import mapMarker from '../../assets/icons/marker.svg';
-import styles from './GoogleMapStyles.json'
+import styles from './GoogleMapStyles.json';
 
-// import client from "../ApolloClient";
-// import gql from 'graphql-tag';
-
-
-const Map = withScriptjs(
-    withGoogleMap(props => (
-        <GoogleMap
-            defaultZoom={ 5 }
+const GoogleMapComponentWithMarker = withScriptjs(
+    withGoogleMap(props => {
+        return (<GoogleMap
+            defaultZoom={ 9 }
             defaultCenter={ {
                 lat: 52.2330269, // latitude for the center of the map
                 lng: 20.7810081 // longitude for the center of the map
@@ -19,20 +15,27 @@ const Map = withScriptjs(
                 disableDefaultUI: true, // disable default map UI
                 draggable: true, // make map draggable
                 keyboardShortcuts: false, // disable keyboard shortcuts
-                scaleControl: true, // allow scale controle
+                scaleControl: true, // allow scale control
                 scrollwheel: true, // allow scroll wheel
                 styles: styles // change default map styles
             } }
         >
-            <Marker
-                icon={ { url: mapMarker } }
-                position={ {
-                    lat: 52.2330269, // latitude to position the marker
-                    lng: 20.7810081 // longitude to position the marker
-                } }
-            />
-        </GoogleMap>
-    ))
+            { props.retailers.map(retailer => {
+                return (
+                    <Marker
+                        key={ retailer.id }
+                        icon={ { url: mapMarker } }
+                        position={ {
+                            lat: retailer.location.latitude, // latitude to position the marker
+                            lng: retailer.location.longitude // longitude to position the marker
+                        } }
+                        onClick={ () => console.log(retailer) }
+                        title={ retailer.name }
+                    />
+                )
+            }) }
+        </GoogleMap>);
+    })
 );
 
-export default Map;
+export default GoogleMapComponentWithMarker;

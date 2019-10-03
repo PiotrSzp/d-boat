@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import copy from "../../copy";
+
+import RetailerItem from "./RetailerItem";
 
 class RetailersList extends Component {
     state = {
@@ -7,18 +10,22 @@ class RetailersList extends Component {
         retailers: [],
     };
 
-    // inputHandler = e => {
-    //     e.preventDefault();
-    //     this.setState({ input: e.target.value });
-    // };
-
     render() {
         return (
-            <ul>
-                { this.props.retailers.map(el => {
-                    return <li key={ el.id }>{ el.name }</li>
-                }) }
-            </ul>
+            <section className='retailers-list-wrapper'>
+                <header className='retailers-header'>
+                    <h1>{ copy.English.retailersPage.title }</h1>
+                    <p>{ copy.English.retailersPage.paragraph }</p>
+                    <button
+                        onClick={ this.props.getLocation }
+                    >{ copy.English.retailersPage.locationBtn }</button>
+                </header>
+                <ul className='retailers-list'>
+                    { this.props.retailers.map(el => {
+                        return <RetailerItem key={ el.id } retailer={el}/>
+                    }) }
+                </ul>
+            </section>
         );
     }
 }
