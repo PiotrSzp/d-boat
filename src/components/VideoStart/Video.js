@@ -8,5 +8,4 @@ function Video(props) {
             </video>
     )
 }
-
 export default Video;

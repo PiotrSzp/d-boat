@@ -20,7 +20,7 @@
 
   .nav-logo {
     height: 100%;
-    width: 100px;
+    width: 115px;
     display: block;
     background-image: url("./assets/img/logo.svg");
     background-size: contain;
@@ -53,7 +53,7 @@
         text-transform: uppercase;
         color: $textColor;
         font-family: 'Panton', sans-serif;
-        font-size: 13px;
+        font-size: 15px;
         transition: .3s;
 
         &:hover {
