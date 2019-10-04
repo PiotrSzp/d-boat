@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: lighten($primaryColor, 3%);
+  //background-color: lighten($primaryColor, 3%);
   //background-image: url("./assets/img/simple_dashed/simple_dashed.png");
 
 }
@@ -28,6 +28,7 @@
     font-size: 60px;
     margin-bottom: 60px;
     text-align: center;
+    
     @media (max-width: 850px) {
       font-size: 40px;
 
