@@ -57,7 +57,7 @@
     margin-bottom: 5vh;
   }
   .burger-link{
-    font-size: 3em;
+    font-size: 2.5em;
     text-transform: uppercase;
     color: $textColor;
     text-decoration: none;
@@ -66,6 +66,9 @@
     transition: 0.4s;
     &:hover{
       color: darken($textColor, 40%);
+    }
+    @media (max-width: 540px) {
+      font-size: 1.5em;
     }
   }
 }

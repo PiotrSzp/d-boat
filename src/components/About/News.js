@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Post from "./Post";
 import client from "../ApolloClient";
 import gql from 'graphql-tag';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {Switch, Route, Link} from "react-router-dom";
 
 
 class NewsSection extends Component {
@@ -22,6 +22,7 @@ class NewsSection extends Component {
               content{
                 html
                 text
+                markdown
               }
               image{
                 id
@@ -36,7 +37,6 @@ class NewsSection extends Component {
         `
             })
             .then(res => {
-                console.log(res.data.posts);
                 this.setState({
                     posts: res.data.posts
                 });
@@ -71,14 +71,14 @@ class NewsSection extends Component {
                                         return (
                                             <article key={el.id} className="post">
                                                 <div className="img-container">
-                                                    <Link to={`/${this.linkFix(el.title)}`}>
+                                                    <Link to={`/news/${this.linkFix(el.title)}`}>
                                                         <img src={el.image.url}
-                                                             alt="picture"
+                                                             alt="post-img"
                                                              className="post-img"/>
                                                     </Link>
                                                 </div>
                                                 <p className="post-date">{el.date}</p>
-                                                <h4 className="post-title">{el.title}dasdaskdasjk</h4>
+                                                <h4 className="post-title">{el.title}</h4>
                                                 <div className="post-text">
                                                     {this.textLimit(el.content.text)}
                                                 </div>
@@ -94,9 +94,8 @@ class NewsSection extends Component {
                     </Route>
                     {this.state.posts.map((el,i) => {
                         return (
-                            // render={()=><Post key={i} post={this.state.posts}/>}
-                            <Route path={`/news/${this.linkFix(el.title)}`} >
-                                <Post key={i} post={el}/>
+                            <Route key={el.id} path={`/news/${this.linkFix(el.title)}`} >
+                                <Post key={el.id} post={el}/>
                             </Route>
                         )
                     })}

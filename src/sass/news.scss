@@ -6,6 +6,7 @@
   justify-content: center;
   flex-wrap: wrap;
   background-color: lighten($primaryColor, 3%);
+  //background-image: url("./assets/img/simple_dashed/simple_dashed.png");
 
 }
 
@@ -23,7 +24,6 @@
   }
 
   .news-title {
-    font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-size: 60px;
     margin-bottom: 60px;
@@ -45,7 +45,6 @@
     color: darken($textColor, 30%);
     width: 370px;
     min-height: 460px;
-    font-family: 'Montserrat', sans-serif;
     transition: .2s;
     margin-right: 40px;
 
