@@ -4,12 +4,6 @@ import APIkey from "./googleMapApiKey";
 // Import Google Map component
 import GoogleMapComponentWithMarker from './Map';
 
-// Some default styles
-const styles = {
-    width: '60%',
-    height: '100%',
-};
-
 // Wrapper with Google Map component
 class MapWrapper extends React.PureComponent {
     clickHandler = (e) => {
@@ -24,7 +18,7 @@ class MapWrapper extends React.PureComponent {
     render() {
         console.log(this.props.userPosition);
         return (
-            <section style={ styles }>
+            <section className='retailers-map-wrapper'>
                 <GoogleMapComponentWithMarker
                     googleMapURL={ `https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${ APIkey }` }
                     loadingElement={ <div style={ { height: `100%` } } /> }

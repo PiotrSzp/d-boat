@@ -24,6 +24,13 @@ class RetailersList extends Component {
                     { this.props.retailers.map(el => {
                         return <RetailerItem key={ el.id } retailer={el}/>
                     }) }
+                    {/*//dev below*/}
+                    { this.props.retailers.map(el => {
+                        return <RetailerItem key={ el.id } retailer={el}/>
+                    }) }
+                    { this.props.retailers.map(el => {
+                    return <RetailerItem key={ el.id } retailer={el}/>
+                }) }
                 </ul>
             </section>
         );
