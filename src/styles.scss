@@ -6,6 +6,7 @@
 @import "sass/mainpagetext.scss";
 @import "sass/news.scss";
 @import "sass/findretailer";
+@import "sass/singlePost";
 
 //font-family: 'Lora', serif;
 //font-family: 'Open Sans Condensed', sans-serif;
@@ -18,8 +19,8 @@
 }
 
 body{
-  background-color: $primaryColor;
+  //background-color: $primaryColor;
+  background-color: lighten($primaryColor, 3%);
   //background-image: url("./assets/img/simple_dashed/simple_dashed.png");
-  //background-size: cover;
   color: $textColor;
 }
