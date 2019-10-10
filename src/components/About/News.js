@@ -29,14 +29,15 @@ class NewsSection extends Component {
                 url
               }
               date
-              postType{
-                type
+              gallery { 
+                url 
               }  
             }
           }
         `
             })
             .then(res => {
+                console.log(res);
                 this.setState({
                     posts: res.data.posts
                 });
