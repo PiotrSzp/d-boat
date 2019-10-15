@@ -6,14 +6,6 @@ import GoogleMapComponentWithMarker from './Map';
 
 // Wrapper with Google Map component
 class MapWrapper extends React.PureComponent {
-    // clickHandler = (e) => {
-    //     e.stopPropagation();
-    //     e.preventDefault();
-    // };
-
-    latitude = this.props.centerPosition ? this.props.centerPosition.latitude : 52.2330269;
-    longitude = this.props.centerPosition ? this.props.centerPosition.longitude : 20.7810081;
-
     render() {
         return (
             <section className='retailers-map-wrapper'>
@@ -26,12 +18,11 @@ class MapWrapper extends React.PureComponent {
                     centerPosition={ this.props.centerPosition }
                     zoom={ this.props.zoom }
                     clickHandler={ this.clickHandler }
-                    markerClick={this.props.markerClick}
+                    markerClick={ this.props.markerClick }
                 />
             </section>
         );
     }
 }
-
 
 export default MapWrapper;

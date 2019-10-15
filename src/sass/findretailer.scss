@@ -26,7 +26,7 @@ $inputHeight: 40px;
     align-items: center;
     border: 1px solid $textColor;
     background-color: rgba($textColor, .05);
-    
+
     @media (max-width: 768px) {
       width: 90%;
       height: 90%;
@@ -65,7 +65,7 @@ $inputHeight: 40px;
           min-width: $inputHeight;
           height: $inputHeight;
           border: none;
-          background-color:  $textColor;
+          background-color: $textColor;
           background-image: url("./assets/icons/search.svg");
           background-size: contain;
           background-repeat: no-repeat;

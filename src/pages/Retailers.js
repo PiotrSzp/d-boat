@@ -3,7 +3,6 @@ import MapWrapper from "../components/RetailersMap/MapWrapper";
 import RetailersList from "../components/RetailersList/RetailiersList";
 import client from "../components/ApolloClient";
 import gql from "graphql-tag";
-import { ScrollTo } from 'react-scroll-to'
 
 class Retailers extends Component {
     state = {
@@ -25,8 +24,8 @@ class Retailers extends Component {
     };
 
     markerClick = (ref) => {
-        console.log(ref.current);
-        // ScrollTo({ref: ref.current});
+        let list = document.getElementsByClassName('retailers-list-wrapper')[0];
+        list.scrollTo({ top: ref.current.offsetTop, behavior: "smooth" })
     };
 
     componentDidMount() {
@@ -66,7 +65,7 @@ class Retailers extends Component {
 
     render() {
         return (
-            <ScrollTo>
+            <>
                 <div style={ { 'height': '60px' } } />
                 {/* menu bar clear*/ }
                 <section className='retailers-wrapper'>
@@ -82,7 +81,7 @@ class Retailers extends Component {
                         setCenter={ this.setCenter }
                     />
                 </section>
-            </ScrollTo>
+            </>
         );
     }
 }

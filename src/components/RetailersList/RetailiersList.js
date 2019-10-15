@@ -22,7 +22,7 @@ class RetailersList extends Component {
                 </header>
                 <ul className='retailers-list'>
                     { this.props.retailers.map(el => {
-                        return <RetailerItem key={ el.id } retailer={ el } setCenter={this.props.setCenter}/>
+                        return <RetailerItem key={ el.id } retailer={ el } setCenter={ this.props.setCenter } />
                     }) }
                 </ul>
             </section>

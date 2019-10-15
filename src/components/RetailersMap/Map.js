@@ -35,7 +35,7 @@ const GoogleMapComponentWithMarker = withScriptjs(
                             lat: retailer.location.latitude, // latitude to position the marker
                             lng: retailer.location.longitude // longitude to position the marker
                         } }
-                        onClick={ () => this.props.markerClick(retailer.ref) }
+                        onClick={ () => props.markerClick(retailer.ref) }
                         title={ retailer.name }
                     />
                 )
