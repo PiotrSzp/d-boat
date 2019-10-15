@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import Post from "./Post";
 import client from "../ApolloClient";
 import gql from 'graphql-tag';
-import {Switch, Route, Link} from "react-router-dom";
+import Slider from "./postSlider";
 
 
 class NewsSection extends Component {
     state = {
-        posts: []
+        posts: [],
+        activeModal: null
     };
 
     componentDidMount() {
@@ -19,6 +19,7 @@ class NewsSection extends Component {
             posts {
               id
               title
+              subinfo
               content{
                 html
                 text
@@ -37,70 +38,58 @@ class NewsSection extends Component {
         `
             })
             .then(res => {
-                console.log(res);
+                console.log(res.data.posts);
                 this.setState({
-                    posts: res.data.posts
+                    posts: res.data.posts,
                 });
             })
             .catch(error => console.error(error));
     }
 
-    textLimit = (text) => {
-        const limit = 180;
-        const dots = '...';
-        if (text.length > limit) {
-            text = text.substring(0, limit) + dots;
-        }
-        return text
-    };
-
-    linkFix = (link) => {
-        return link.toLocaleLowerCase().replace(/ /g, '-');
+    modalSlide = (id) => {
+        this.setState({
+            activeModal: id
+        })
     };
 
     render() {
 
         return (
             <>
-                <Switch>
-                    <Route exact path='/news'>
-                        <div className="news-container">
-                            <section className="news-section">
-                                <h1 className="news-title">News & Events</h1>
-                                <div className="post-container">
-                                    {this.state.posts.map(el => {
-                                        return (
-                                            <article key={el.id} className="post">
-                                                <div className="img-container">
-                                                    <Link to={`/news/${this.linkFix(el.title)}`}>
-                                                        <img src={el.image.url}
-                                                             alt="post-img"
-                                                             className="post-img"/>
-                                                    </Link>
-                                                </div>
-                                                <p className="post-date">{el.date}</p>
-                                                <h4 className="post-title">{el.title}</h4>
-                                                <div className="post-text">
-                                                    {this.textLimit(el.content.text)}
-                                                </div>
-                                                <button className="post-button">
-                                                    <Link to={`/news/${this.linkFix(el.title)}`}>Read More</Link>
-                                                </button>
-                                            </article>
-                                        )
-                                    })}
-                                </div>
-                            </section>
+                <div className="news-container">
+                    <section className="news-section">
+                        <h1 className="news-title">News & Events</h1>
+                        <div className="post-container">
+                            {this.state.posts.map(el => {
+                                return (
+                                    <article key={el.id}
+                                             onClick={() => this.modalSlide(el.id)}
+                                             className={`post ${this.state.activeModal === el.id ? 'active' : null}`}
+                                             style={{backgroundImage: `url(${el.image.url})`}}>
+                                        <div className={`filter ${this.state.activeModal === el.id ? 'active' : null}`}>
+                                            <p className="post-date">{el.date}</p>
+                                            <h4 className="post-title">{el.title}</h4>
+                                            <div className="bar"/>
+                                            <p className="post-text">{el.subinfo}
+                                            </p>
+                                        </div>
+                                        {this.state.activeModal === el.id ? <div className="post-content">
+                                            <div className="content-details">
+                                                <p className="content-date">{el.date}</p>
+                                                <h1 className="content-title">{el.title}</h1>
+                                                <div className="bar"/>
+                                                <p className="content-text">{el.content.text}</p>
+                                            </div>
+                                            <div className="gallery">
+                                                {el.gallery?<Slider images={el.gallery}/>:null}
+                                            </div>
+                                        </div> : null}
+                                    </article>
+                                )
+                            })}
                         </div>
-                    </Route>
-                    {this.state.posts.map((el,i) => {
-                        return (
-                            <Route key={el.id} path={`/news/${this.linkFix(el.title)}`} >
-                                <Post key={el.id} post={el}/>
-                            </Route>
-                        )
-                    })}
-                </Switch>
+                    </section>
+                </div>
             </>
         )
 

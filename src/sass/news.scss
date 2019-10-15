@@ -43,102 +43,59 @@
 
   .post {
     position: relative;
-    color: darken($textColor, 30%);
-    width: 370px;
-    min-height: 460px;
+    width: 33%;
+    min-height: 420px;
+    max-height: 420px;
     transition: .2s;
-    margin-right: 40px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
 
-    &:nth-child(3n) {
-      margin: 0;
-    }
 
-    .img-container {
-      width: 100%;
-      overflow: hidden;
-      height: 200px;
-
-      @media (max-width: 850px) {
-        height: auto;
-      }
-    }
-
-    .post-img {
-
+    .filter{
+      position: absolute;
+      padding: 30px 20px;
+      background-image: linear-gradient(#00000044,#00000044,#00000000);
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      transition: transform .7s ease-in-out;
-      cursor: pointer;
-
-      &:hover {
-        transform: scale(1.1);
+      transition: .2s;
+      
+      &:hover{
+        background-color: #00000099;
       }
-
-      @media (max-width: 850px) {
-
+      &:hover .post-title{
+        color:lighten($secondaryColor,20%);
       }
     }
 
     .post-title {
       width: 100%;
-      font-weight: 400;
-      text-transform: uppercase;
-      font-size: 17px;
+      font-weight: 800;
+      font-size: 40px;
       margin: 10px 0;
       transition: .2s;
-      color: darken($textColor, 10%);
-      word-break:break-all;
-      cursor:default;
-      &:hover {
-        color: darken($textColor, 40%);
-      }
-
     }
 
     .post-date {
-      font-size: 12px;
-      margin-top: 20px;
+      font-size: 16px;
+      font-weight: 800;
+
+    }
+    .bar{
+      width: 30px;
+      height: 2px;
+      background-color: lighten($secondaryColor,20%);
+      margin-bottom: 10px;
 
     }
 
     .post-text {
       font-size: 14px;
-      height: 100px;
       line-height: 1.5em;
       overflow: hidden;
-      text-overflow: ellipsis;
       margin-bottom: 40px;
-
-    }
-
-    .post-button {
-      display: block;
-      transform: translate(0,-30%);
-      background-color: inherit;
-      text-transform: uppercase;
-      cursor: pointer;
-      outline: none;
-      border: none;
-      a{
-        display: block;
-        width: 100%;
-        height: 100%;
-        padding: 7px 20px;
-        color: darken($textColor, 10%);
-        border: 1px solid darken($textColor, 10%);
-        text-decoration: none;
-        transition: .2s;
-
-        &:hover{
-          color: darken($textColor, 50%);
-          border-color: darken($textColor, 50%);
-
-
-        }
-      }
-
-
+      font-weight: 800;
 
     }
 
@@ -158,4 +115,56 @@
       height: auto;
     }
   }
+  .active{
+    margin-bottom: 50vh;
+  }
+
+  // Content Modal
+  .post-content{
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    position: absolute;
+    padding: 30px;
+    bottom: 0;
+    transform: translate(0,100%);
+    height: 50vh;
+    width: 300%;
+    background-color:$textColor;
+    z-index: 999;
+  }
+  .post:nth-child(3n+2) .post-content{
+    left: -100%;
+  }
+  .post:nth-child(3n+3) .post-content{
+    left: -200%;
+  }
+
+  .content-details{
+    width: 40%;
+    .content-date{
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .content-title{
+      font-size: 30px;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+    .content-text{
+      font-size: 14px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+  }
+
+
+
+  .gallery{
+    width: 60%;
+  }
+
+
+
 }
