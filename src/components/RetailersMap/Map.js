@@ -1,15 +1,21 @@
 import React from 'react';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+import { ScrollTo } from 'react-scroll-to';
 import mapMarker from '../../assets/icons/marker.svg';
 import styles from './GoogleMapStyles.json';
 
 const GoogleMapComponentWithMarker = withScriptjs(
     withGoogleMap(props => {
+        let defaultCenter = {
+            lat: 52.2285735,
+            lng: 21.004782
+        };
+
         return (<GoogleMap
-            defaultZoom={ 9 }
-            defaultCenter={ {
-                lat: 52.2330269, // latitude for the center of the map
-                lng: 20.7810081 // longitude for the center of the map
+            zoom={ props.zoom }
+            center={ {
+                lat: props.centerPosition.latitude ? props.centerPosition.latitude : defaultCenter.lat,
+                lng: props.centerPosition.longitude ? props.centerPosition.longitude : defaultCenter.lng
             } }
             defaultOptions={ {
                 disableDefaultUI: true, // disable default map UI
@@ -29,7 +35,7 @@ const GoogleMapComponentWithMarker = withScriptjs(
                             lat: retailer.location.latitude, // latitude to position the marker
                             lng: retailer.location.longitude // longitude to position the marker
                         } }
-                        onClick={ () => console.log(retailer) }
+                        onClick={ () => this.props.markerClick(retailer.ref) }
                         title={ retailer.name }
                     />
                 )

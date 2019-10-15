@@ -1,6 +1,8 @@
 .retailers-wrapper {
   display: flex;
   height: calc(100vh - 60px);
+  max-width: 1600px;
+  margin: auto;
 
   .retailers-map-wrapper {
     width: 70%;
@@ -14,16 +16,70 @@
     .retailers-header {
       padding: 5px;
       padding-bottom: 30px;
-      border-bottom: 2px solid $textColor;
+      border-bottom: 2px solid $secondaryColor;
+
+      h1 {
+        color: $secondaryColor;
+        font-size: 2em;
+        font-weight: 400;
+      }
     }
 
     .retailer-list-item {
       padding: 15px;
-      border-bottom: 1px solid $textColor;
+      border-bottom: 1px solid $secondaryColor;
+      transition: background-color 0.5s;
 
-      // DEV DEV DEV
-      &:nth-of-type(3) {
-        background-color: lighten($primaryColor, 40%);
+      &.expanded {
+        background-color: lighten($primaryColor, 10%);
+      }
+
+      .retailer-header {
+        position: relative;
+
+        h2 {
+          color: $secondaryColor;
+          font-weight: 400;
+        }
+
+        a {
+          font-weight: 700;
+        }
+
+        .dropdown-btn {
+          width: 25px;
+          height: 25px;
+          background-color: lighten($primaryColor, 20%);
+          border: 2px solid $secondaryColor;
+          border-radius: 50%;
+          position: absolute;
+          right: 0;
+          top: 0;
+          transition: .5s;
+
+          &.expanded {
+            transform: rotateX(180deg);
+          }
+
+          &::before, &::after {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 2px;
+            background-color: $textColor;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+          }
+
+          &::before {
+            transform: translate(-80%, -0%) rotate(45deg);
+          }
+
+          &::after {
+            transform: translate(-20%, -0%) rotate(-45deg);
+          }
+        }
       }
 
       .link {
@@ -31,20 +87,35 @@
         color: $textColor;
       }
 
-      .link-phone {
-        font-weight: 700;
-      }
+      .retailer-btns {
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .5s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-      .link-btn {
-        border: 1px solid $textColor;
-        display: block;
-        margin: 5px 0 5px 0;
-        padding: 5px;
-        background-color: lighten($primaryColor, 10%);
+        &.expanded {
+          max-height: 150px;
+        }
 
-        &:hover {
-          background-color: lighten($primaryColor, 30%);
+        .link-phone {
+          font-weight: 700;
+        }
 
+        .link-btn {
+          width: 50%;
+          border: 2px solid $secondaryColor;
+          display: block;
+          margin: 5px 0 5px 0;
+          padding: 5px 10px;
+          background: lighten($primaryColor, 20%);
+          transition: background-color .8s;
+
+          &:hover {
+            background-color: lighten($primaryColor, 30%);
+          }
         }
       }
     }
