@@ -64,21 +64,22 @@ class NewsSection extends Component {
                                 return (
                                     <article key={el.id}
                                              onClick={() => this.modalSlide(el.id)}
-                                             className={`post ${this.state.activeModal === el.id ? 'active' : null}`}
+                                             className={`post ${this.state.activeModal === el.id ? 'active' : ''}`}
                                              style={{backgroundImage: `url(${el.image.url})`}}>
-                                        <div className={`filter ${this.state.activeModal === el.id ? 'active' : null}`}>
+                                        <div className={`filter ${this.state.activeModal === el.id ? 'active' : ''}`}>
                                             <p className="post-date">{el.date}</p>
                                             <h4 className="post-title">{el.title}</h4>
                                             <div className="bar"/>
                                             <p className="post-text">{el.subinfo}
                                             </p>
+
                                         </div>
                                         {this.state.activeModal === el.id ? <div className="post-content">
                                             <div className="content-details">
                                                 <p className="content-date">{el.date}</p>
                                                 <h1 className="content-title">{el.title}</h1>
                                                 <div className="bar"/>
-                                                <p className="content-text">{el.content.text}</p>
+                                                <div className="content-text" dangerouslySetInnerHTML={{__html:el.content.html}} />
                                             </div>
                                             <div className="gallery">
                                                 {el.gallery?<Slider images={el.gallery}/>:null}

@@ -19,7 +19,7 @@
 
   }
   @media (max-width: 850px) {
-    width: 80%;
+    width: 100%;
 
   }
 
@@ -44,28 +44,29 @@
   .post {
     position: relative;
     width: 33%;
-    min-height: 420px;
-    max-height: 420px;
-    transition: .2s;
+    min-height: 400px;
+    max-height: 400px;
+    transition: background-color .2s;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
 
 
-    .filter{
+    .filter {
       position: absolute;
       padding: 30px 20px;
-      background-image: linear-gradient(#00000044,#00000044,#00000000);
+      background-image: linear-gradient(#00000044, #00000044, #00000000);
       width: 100%;
       height: 100%;
       transition: .2s;
-      
-      &:hover{
+
+      &:hover {
         background-color: #00000099;
       }
-      &:hover .post-title{
-        color:lighten($secondaryColor,20%);
+
+      &:hover .post-title {
+        color: lighten($secondaryColor, 20%);
       }
     }
 
@@ -82,10 +83,11 @@
       font-weight: 800;
 
     }
-    .bar{
+
+    .bar {
       width: 30px;
       height: 2px;
-      background-color: lighten($secondaryColor,20%);
+      background-color: lighten($secondaryColor, 20%);
       margin-bottom: 10px;
 
     }
@@ -100,6 +102,17 @@
     }
 
     @media (max-width: 1200px) {
+      min-height: 250px;
+      max-height: 250px;
+      .post-date {
+        font-size: 12px;
+      }
+      .post-title {
+        font-size: 25px;
+      }
+      .post-text {
+        font-size: 12px;
+      }
       &:nth-child(2n) {
         margin: 0;
       }
@@ -107,64 +120,155 @@
     }
 
     @media (max-width: 850px) {
-      &:nth-child(1n) {
-        margin: 0 0 30px 0;
-
+      .post-date {
+        font-size: 3vw;
+      }
+      .post-title {
+        font-size: 7vw;
+      }
+      .post-text {
+        font-size: 3vw;
+      }
+      .bar{
+        height: 4px;
+        width: 40px;
       }
       width: 100%;
-      height: auto;
+      min-height: 60vw;
+      max-height: 60vw;
     }
+
+
   }
-  .active{
-    margin-bottom: 50vh;
+
+  .active {
+    margin-bottom: 500px;
+
+    @media (max-width: 1200px) {
+      margin-bottom: 700px;
+    }
   }
 
   // Content Modal
-  .post-content{
+  .post-content {
     display: flex;
     justify-content: space-between;
     color: black;
     position: absolute;
     padding: 30px;
-    bottom: 0;
-    transform: translate(0,100%);
-    height: 50vh;
+    top: 100%;
+    height: 500px;
     width: 300%;
-    background-color:$textColor;
+    overflow: hidden;
+    background-color: $textColor;
     z-index: 999;
+    @media (max-width: 1200px) {
+      flex-direction: column;
+      align-items: center;
+      height: 700px;
+    }
+    @media (max-width: 850px) {
+      width: 100%;
+      padding: 10px;
+    }
+
+
   }
-  .post:nth-child(3n+2) .post-content{
+
+  .post:nth-child(3n+2) .post-content {
     left: -100%;
+    @media (max-width: 850px) {
+      left:0
+    }
   }
-  .post:nth-child(3n+3) .post-content{
+
+  .post:nth-child(3n+3) .post-content {
     left: -200%;
+    @media (max-width: 850px) {
+      left:0
+    }
   }
 
-  .content-details{
+  .content-details {
     width: 40%;
-    .content-date{
+    padding-right: 20px;
+
+    .content-date {
       margin-bottom: 10px;
       font-size: 14px;
+      font-weight: 800;
+
     }
-    .content-title{
-      font-size: 30px;
-      font-weight: 300;
+
+    .content-title {
+      font-size: 40px;
+      font-weight: 400;
       margin-bottom: 10px;
     }
-    .content-text{
+
+    .content-text {
       font-size: 14px;
-      overflow: hidden;
-      margin-bottom: 10px;
+      font-weight: 600;
+      line-height: 1.6em;
+      margin-top: 20px;
+
+      p {
+        margin-bottom: 15px;
+      }
+
+    }
+
+    @media (max-width: 1200px) {
+      width: 100%;
+      height: 40%;
+      order: 2;
+      padding: 0;
+      .content-date{
+        margin-bottom: 0;
+        margin-top: 10px;
+        font-size: 12px;
+        font-weight: 400;
+      }
+      .content-title{
+        margin-top: 5px;
+        font-size: 30px;
+      }
+      .content-text{
+        font-size: 13px;
+      }
+
+    }
+    @media (max-width: 850px) {
+      width: 100%;
+      height: auto;
+
+      .content-text{
+        font-weight: 400;
+      }
     }
 
   }
-
-
-
-  .gallery{
+  .gallery {
     width: 60%;
-  }
+    padding-left: 20px;
 
+    img {
+      width: 100% !important;
+    }
+
+    @media (max-width: 1200px) {
+      width: 100%;
+      height: 60%;
+      padding: 0;
+
+    }
+    @media (max-width: 850px) {
+      width: 100%;
+      height: auto;
+      padding: 0;
+    }
+
+  }
 
 
 }
