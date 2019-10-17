@@ -12,7 +12,11 @@ class Burger extends Component {
       this.setState(prev=>({
           isOn: !prev.isOn
       }))
-
+    };
+    handleOnLink = ()=>{
+        this.setState(prev=>({
+            isOn: false
+        }))
     };
     render() {
         return (
@@ -26,7 +30,7 @@ class Burger extends Component {
 
                 {/*//Slide Menu*/}
         {this.state.isOn?<ul className='burger-list'>{this.props.list.map(el=>{
-            return  <li key={el.id} className='burger-el'><NavLink to={el.link} className='burger-link'>{el.text}</NavLink></li>
+            return  <li onClick={this.handleOnLink} key={el.id} className='burger-el'><NavLink to={el.link} className='burger-link'>{el.text}</NavLink></li>
         })}</ul>:null}
         </>
         )

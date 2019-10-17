@@ -1,3 +1,4 @@
+//Main container
 .news-container {
   padding-top: 60px;
   max-width: 100%;
@@ -5,15 +6,12 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  //background-color: lighten($primaryColor, 3%);
-  //background-image: url("./assets/img/simple_dashed/simple_dashed.png");
-
 }
 
 .news-section {
   margin-top: 60px;
   width: 1200px;
-
+  //Media for section with news
   @media (max-width: 1200px) {
     width: 780px;
 
@@ -22,7 +20,7 @@
     width: 100%;
 
   }
-
+  //Main title
   .news-title {
     font-weight: 300;
     font-size: 60px;
@@ -36,6 +34,7 @@
 
   }
 
+  // Single news/post styling
   .post-container {
     display: flex;
     flex-wrap: wrap;
@@ -101,6 +100,7 @@
 
     }
 
+    // Media for  single post
     @media (max-width: 1200px) {
       min-height: 250px;
       max-height: 250px;
@@ -113,10 +113,6 @@
       .post-text {
         font-size: 12px;
       }
-      &:nth-child(2n) {
-        margin: 0;
-      }
-
     }
 
     @media (max-width: 850px) {
@@ -129,27 +125,31 @@
       .post-text {
         font-size: 3vw;
       }
-      .bar{
+      .bar {
         height: 4px;
         width: 40px;
       }
-      width: 100%;
-      min-height: 60vw;
-      max-height: 60vw;
+      width: 95%;
+      margin: 0 auto;
+      min-height: 70vw;
+      max-height: 70vw;
     }
 
 
   }
 
+  // Active class given after click on post
   .active {
     margin-bottom: 500px;
+    background-color: #00000099;
+
 
     @media (max-width: 1200px) {
       margin-bottom: 700px;
     }
   }
 
-  // Content Modal
+  // Content Modal styling
   .post-content {
     display: flex;
     justify-content: space-between;
@@ -161,7 +161,10 @@
     width: 300%;
     overflow: hidden;
     background-color: $textColor;
-    z-index: 999;
+    z-index: 10;
+    cursor: auto;
+
+    //Media for every modal
     @media (max-width: 1200px) {
       flex-direction: column;
       align-items: center;
@@ -170,6 +173,7 @@
     @media (max-width: 850px) {
       width: 100%;
       padding: 10px;
+      justify-content: flex-start;
     }
 
 
@@ -178,14 +182,14 @@
   .post:nth-child(3n+2) .post-content {
     left: -100%;
     @media (max-width: 850px) {
-      left:0
+      left: 0
     }
   }
 
   .post:nth-child(3n+3) .post-content {
     left: -200%;
     @media (max-width: 850px) {
-      left:0
+      left: 0
     }
   }
 
@@ -208,9 +212,10 @@
 
     .content-text {
       font-size: 14px;
-      font-weight: 600;
       line-height: 1.6em;
       margin-top: 20px;
+      margin-bottom: 20px;
+      overflow: hidden;
 
       p {
         margin-bottom: 15px;
@@ -218,22 +223,23 @@
 
     }
 
+    // Modal content media
     @media (max-width: 1200px) {
       width: 100%;
-      height: 40%;
+      max-height: 60%;
       order: 2;
       padding: 0;
-      .content-date{
+      .content-date {
         margin-bottom: 0;
         margin-top: 10px;
         font-size: 12px;
         font-weight: 400;
       }
-      .content-title{
+      .content-title {
         margin-top: 5px;
         font-size: 30px;
       }
-      .content-text{
+      .content-text {
         font-size: 13px;
       }
 
@@ -241,13 +247,25 @@
     @media (max-width: 850px) {
       width: 100%;
       height: auto;
+      order: 0;
 
-      .content-text{
-        font-weight: 400;
+    }
+    @media (max-width: 400px) {
+      .content-date{
+        font-size: 11px;
       }
+      .content-title {
+        font-size: 26px;
+      }
+      .content-text{
+        font-size: 12px;
+      }
+
     }
 
   }
+
+  //Modal slide gallery
   .gallery {
     width: 60%;
     padding-left: 20px;
@@ -264,8 +282,9 @@
     }
     @media (max-width: 850px) {
       width: 100%;
-      height: auto;
+      max-height: 40%;
       padding: 0;
+
     }
 
   }

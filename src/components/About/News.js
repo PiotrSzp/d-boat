@@ -38,22 +38,32 @@ class NewsSection extends Component {
         `
             })
             .then(res => {
-                console.log(res.data.posts);
+                const posts = res.data.posts.map(el => {
+                    return {...el, ref: React.createRef()}
+                });
                 this.setState({
-                    posts: res.data.posts,
+                    posts: posts,
                 });
             })
             .catch(error => console.error(error));
     }
 
-    modalSlide = (id) => {
-        this.setState({
-            activeModal: id
-        })
+    modalSlide = (id, ref) => {
+        this.setState(
+            {
+                activeModal: this.state.activeModal === id ? null : id
+            },
+            () => {
+                console.log(ref);
+                if (this.state.activeModal === id) {
+                    window.scrollTo({
+                        top: ref.current.offsetTop + ref.current.offsetParent.offsetTop - 100,
+                        behavior: 'smooth'
+                    })
+                }
+            })
     };
-
     render() {
-
         return (
             <>
                 <div className="news-container">
@@ -63,10 +73,10 @@ class NewsSection extends Component {
                             {this.state.posts.map(el => {
                                 return (
                                     <article key={el.id}
-                                             onClick={() => this.modalSlide(el.id)}
                                              className={`post ${this.state.activeModal === el.id ? 'active' : ''}`}
                                              style={{backgroundImage: `url(${el.image.url})`}}>
-                                        <div className={`filter ${this.state.activeModal === el.id ? 'active' : ''}`}>
+                                        <div onClick={() => this.modalSlide(el.id, el.ref)}
+                                             className={`filter ${this.state.activeModal === el.id ? 'active' : ''}`}>
                                             <p className="post-date">{el.date}</p>
                                             <h4 className="post-title">{el.title}</h4>
                                             <div className="bar"/>
@@ -74,15 +84,16 @@ class NewsSection extends Component {
                                             </p>
 
                                         </div>
-                                        {this.state.activeModal === el.id ? <div className="post-content">
+                                        {this.state.activeModal === el.id ? <div ref={el.ref} className="post-content">
                                             <div className="content-details">
                                                 <p className="content-date">{el.date}</p>
                                                 <h1 className="content-title">{el.title}</h1>
                                                 <div className="bar"/>
-                                                <div className="content-text" dangerouslySetInnerHTML={{__html:el.content.html}} />
+                                                <div className="content-text"
+                                                     dangerouslySetInnerHTML={{__html: el.content.html}}/>
                                             </div>
                                             <div className="gallery">
-                                                {el.gallery?<Slider images={el.gallery}/>:null}
+                                                {el.gallery ? <Slider images={el.gallery}/> : null}
                                             </div>
                                         </div> : null}
                                     </article>
