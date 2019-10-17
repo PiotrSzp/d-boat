@@ -14,14 +14,43 @@
     overflow-y: scroll;
 
     .retailers-header {
-      padding: 5px;
-      padding-bottom: 30px;
-      border-bottom: 2px solid $secondaryColor;
+      padding: 15px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid $secondaryColor;
+      position: relative;
 
       h1 {
         color: $secondaryColor;
         font-size: 2em;
-        font-weight: 400;
+        font-weight: 700;
+        padding-bottom: 10px;
+      }
+
+      p {
+        padding-bottom: 20px;
+      }
+
+      .location-btn {
+        background: $primaryColor;
+        transition: background-color .2s;
+        border: 1px solid $textColor;
+        padding: 5px 8px 5px 5px;
+        color: inherit;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 0 auto;
+
+        &:hover {
+          background: lighten($primaryColor, 10%);
+        }
+
+        svg {
+          height: 15px;
+          padding-right: 5px;
+          fill: $secondaryColor;
+        }
       }
     }
 
@@ -40,10 +69,26 @@
         h2 {
           color: $secondaryColor;
           font-weight: 400;
+          margin-bottom: 10px;
+          cursor:pointer;
         }
 
-        a {
+        p {
+          margin-bottom: 5px;
+        }
+
+        .link-phone {
           font-weight: 700;
+          display: flex;
+          margin-bottom: 5px;
+
+          &:hover {
+            color: $secondaryColor;
+          }
+
+          svg {
+            height: 1rem;
+          }
         }
 
         .dropdown-btn {
@@ -56,6 +101,7 @@
           right: 0;
           top: 0;
           transition: .5s;
+          cursor: pointer;
 
           &.expanded {
             transform: rotateX(180deg);
@@ -91,33 +137,41 @@
         padding: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height .5s;
+        transition: max-height .5s ease-out;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
         &.expanded {
-          max-height: 150px;
-        }
-
-        .link-phone {
-          font-weight: 700;
+          max-height: 185px;
         }
 
         .link-btn {
-          width: 50%;
+          font-size: .85em;
+          width: 60%;
           border: 2px solid $secondaryColor;
-          display: block;
           margin: 5px 0 5px 0;
           padding: 5px 10px;
           background: lighten($primaryColor, 20%);
           transition: background-color .8s;
+          display: flex;
 
           &:hover {
             background-color: lighten($primaryColor, 30%);
+          }
+
+          @media (max-width: 800px) {
+            width: 100%;
+          }
+
+          svg {
+            height: 15px;
+            padding-right: 5px;
+            fill: $secondaryColor;
           }
         }
       }
     }
   }
+
 }

@@ -9,6 +9,7 @@ class Retailers extends Component {
         retailers: [],
         centerPosition: {},
         zoom: 10,
+        expandedItemId: undefined,
     };
 
     getLocation = () => {
@@ -23,9 +24,10 @@ class Retailers extends Component {
         this.setState({ centerPosition: { latitude: lat, longitude: lng }, zoom: 13 });
     };
 
-    markerClick = (ref) => {
+    markerClick = (ref, id) => {
         let list = document.getElementsByClassName('retailers-list-wrapper')[0];
-        list.scrollTo({ top: ref.current.offsetTop, behavior: "smooth" })
+        list.scrollTo({ top: ref.current.offsetTop, behavior: "smooth" });
+        this.setState({ expandedItemId: id });
     };
 
     componentDidMount() {
@@ -55,7 +57,6 @@ class Retailers extends Component {
                     ...dealer,
                     ref: React.createRef()
                 }));
-
                 this.setState({
                     retailers: dealers
                 });
@@ -79,6 +80,7 @@ class Retailers extends Component {
                         retailers={ this.state.retailers }
                         getLocation={ this.getLocation }
                         setCenter={ this.setCenter }
+                        expandedItemId={ this.state.expandedItemId }
                     />
                 </section>
             </>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-
 import copy from "../../copy";
+import PropTypes from "prop-types";
+import {Phone, Directions, Link, Mail} from '@material-ui/icons';
+
 
 class RetailerItem extends Component {
     state = {
@@ -19,6 +21,11 @@ class RetailerItem extends Component {
         e.stopPropagation();
     };
 
+    componentDidUpdate(prevProps) {
+        if (this.props.isExpanded !== prevProps.isExpanded) {
+            this.setState({expanded: this.props.isExpanded})
+        }
+    }
 
     render() {
         return (
@@ -28,14 +35,15 @@ class RetailerItem extends Component {
             >
                 <header className="retailer-header">
                     <h2>{ this.props.retailer.name }</h2>
+                    <p>{ this.props.retailer.address }</p>
                     <a
                         className='link link-phone'
                         href={ `tel:${ this.props.retailer.phone }` }
                         onClick={ this.clickOnLink }
                     >
+                        <Phone/>
                         { this.props.retailer.phone }
                     </a>
-                    <p>{ this.props.retailer.address }</p>
                     <div className={ this.state.expanded ? 'dropdown-btn expanded' : 'dropdown-btn' } />
                 </header>
                 <section
@@ -48,6 +56,7 @@ class RetailerItem extends Component {
                         rel="noopener noreferrer"
                         onClick={ this.clickOnLink }
                     >
+                        <Directions/>
                         { copy.English.retailersPage.mapsButton }
                     </a>
                     { this.props.retailer.website ?
@@ -58,6 +67,7 @@ class RetailerItem extends Component {
                             rel="noopener noreferrer"
                             onClick={ this.clickOnLink }
                         >
+                            <Link/>
                             { copy.English.retailersPage.webButton }
                         </a> : null
                     }
@@ -70,6 +80,7 @@ class RetailerItem extends Component {
                                 rel="noopener noreferrer"
                                 onClick={ this.clickOnLink }
                             >
+                                <Mail/>
                                 { copy.English.retailersPage.mailButton }
                             </a> : null
                     }
@@ -78,5 +89,10 @@ class RetailerItem extends Component {
         );
     }
 }
+
+RetailerItem.propTypes = {
+    retailer: PropTypes.object.isRequired,
+    isExpanded: PropTypes.bool.isRequired,
+};
 
 export default RetailerItem;
