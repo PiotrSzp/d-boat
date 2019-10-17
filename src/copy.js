@@ -3,7 +3,8 @@ const copy = {
         menu: [
             {text: 'models', link: '#',id:1},
             {text: 'news',link:'/news',id:2},
-            {text: 'Find My Dealer',link:'/retailers', id:3}
+            {text: 'About us',link:'/about', id:3},
+            {text: 'Contact',link:'/retailers', id:4}
         ],
         header:{
             title:'Modern Luxury Boats',
