@@ -12,6 +12,9 @@ import Slider from "./components/Slider/Slider";
 import NewsSection from "./components/About/News";
 import FindRetailer from "./components/FindRetailer";
 import Retailers from "./pages/Retailers";
+import About from "./components/About/About";
+
+
 
 
 function App() {
@@ -30,6 +33,9 @@ function App() {
                 </Route>
                 <Route path='/news'>
                     <NewsSection/>
+                </Route>
+                <Route path='/about'>
+                    <About/>
                 </Route>
             </Switch>
         </Router>
