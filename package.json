@@ -21,7 +21,8 @@
     "react-google-maps": "^9.4.5",
     "react-images": "^1.0.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-slide-toggle": "^0.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
