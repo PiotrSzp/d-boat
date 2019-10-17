@@ -1,6 +1,8 @@
 .retailers-wrapper {
   display: flex;
   height: calc(100vh - 60px);
+  max-width: 1600px;
+  margin: auto;
 
   .retailers-map-wrapper {
     width: 70%;
@@ -12,18 +14,118 @@
     overflow-y: scroll;
 
     .retailers-header {
-      padding: 5px;
-      padding-bottom: 30px;
-      border-bottom: 2px solid $textColor;
+      padding: 15px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid $secondaryColor;
+      position: relative;
+
+      h1 {
+        color: $secondaryColor;
+        font-size: 2em;
+        font-weight: 700;
+        padding-bottom: 10px;
+      }
+
+      p {
+        padding-bottom: 20px;
+      }
+
+      .location-btn {
+        background: $primaryColor;
+        transition: background-color .2s;
+        border: 1px solid $textColor;
+        padding: 5px 8px 5px 5px;
+        color: inherit;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 0 0 auto;
+
+        &:hover {
+          background: lighten($primaryColor, 10%);
+        }
+
+        svg {
+          height: 15px;
+          padding-right: 5px;
+          fill: $secondaryColor;
+        }
+      }
     }
 
     .retailer-list-item {
       padding: 15px;
-      border-bottom: 1px solid $textColor;
+      border-bottom: 1px solid $secondaryColor;
+      transition: background-color 0.5s;
 
-      // DEV DEV DEV
-      &:nth-of-type(3) {
-        background-color: lighten($primaryColor, 40%);
+      &.expanded {
+        background-color: lighten($primaryColor, 10%);
+      }
+
+      .retailer-header {
+        position: relative;
+
+        h2 {
+          color: $secondaryColor;
+          font-weight: 400;
+          margin-bottom: 10px;
+          cursor:pointer;
+        }
+
+        p {
+          margin-bottom: 5px;
+        }
+
+        .link-phone {
+          font-weight: 700;
+          display: flex;
+          margin-bottom: 5px;
+
+          &:hover {
+            color: $secondaryColor;
+          }
+
+          svg {
+            height: 1rem;
+          }
+        }
+
+        .dropdown-btn {
+          width: 25px;
+          height: 25px;
+          background-color: lighten($primaryColor, 20%);
+          border: 2px solid $secondaryColor;
+          border-radius: 50%;
+          position: absolute;
+          right: 0;
+          top: 0;
+          transition: .5s;
+          cursor: pointer;
+
+          &.expanded {
+            transform: rotateX(180deg);
+          }
+
+          &::before, &::after {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 2px;
+            background-color: $textColor;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+          }
+
+          &::before {
+            transform: translate(-80%, -0%) rotate(45deg);
+          }
+
+          &::after {
+            transform: translate(-20%, -0%) rotate(-45deg);
+          }
+        }
       }
 
       .link {
@@ -31,22 +133,45 @@
         color: $textColor;
       }
 
-      .link-phone {
-        font-weight: 700;
-      }
+      .retailer-btns {
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .5s ease-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-      .link-btn {
-        border: 1px solid $textColor;
-        display: block;
-        margin: 5px 0 5px 0;
-        padding: 5px;
-        background-color: lighten($primaryColor, 10%);
+        &.expanded {
+          max-height: 185px;
+        }
 
-        &:hover {
-          background-color: lighten($primaryColor, 30%);
+        .link-btn {
+          font-size: .85em;
+          width: 60%;
+          border: 2px solid $secondaryColor;
+          margin: 5px 0 5px 0;
+          padding: 5px 10px;
+          background: lighten($primaryColor, 20%);
+          transition: background-color .8s;
+          display: flex;
 
+          &:hover {
+            background-color: lighten($primaryColor, 30%);
+          }
+
+          @media (max-width: 800px) {
+            width: 100%;
+          }
+
+          svg {
+            height: 15px;
+            padding-right: 5px;
+            fill: $secondaryColor;
+          }
         }
       }
     }
   }
+
 }
