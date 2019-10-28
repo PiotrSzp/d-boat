@@ -20,21 +20,24 @@ import About from "./components/About/About";
 function App() {
     return (
         <Router>
-            <Nav />
             <Switch>
                 <Route exact path='/'>
+                    <Nav color='black'/>
                     <IntroPage />
                     <MainpageText texts={ copy.English.mainpageText } />
                     <Slider slides={ copy.English.slider } autoSlideTime={ 4000 } />
                     <FindRetailer texts={ copy.English.findRetailer } />
                 </Route>
                 <Route path='/retailers'>
+                    <Nav color='white'/>
                     <Retailers/>
                 </Route>
                 <Route path='/news'>
+                    <Nav color='white'/>
                     <NewsSection/>
                 </Route>
                 <Route path='/about'>
+                    <Nav color='white'/>
                     <About/>
                 </Route>
             </Switch>

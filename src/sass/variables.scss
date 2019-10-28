@@ -8,5 +8,6 @@
           format('opentype');
 }
 $primaryColor: #000;
-$secondaryColor:#c19434;
+//#c19434;
+$secondaryColor:lighten(#c19434, 20%);
 $textColor: #eee;

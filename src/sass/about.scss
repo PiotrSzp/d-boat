@@ -1,43 +1,14 @@
 .about-section{
-
-  .about-history{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 60px;
-    width: 100vw;
-    height: 100vh;
-    max-width:100%;
-    background-image: linear-gradient(#00000022,  #00000099),url("./assets/img/about-back.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    img{
-      width: 300px;
-      object-fit: contain;
-      margin-bottom: 50px;
-    }
-
-
-    .history-text{
-      width: 50%;
-      font-size: 34px;
-      text-align: center;
-      line-height: 1.5em;
-      font-family: 'Lora', serif;
-      //color: lighten($secondaryColor,20%);
-    }
-  }
-
+padding-top:80px ;
   .about-team{
     display: flex;
     height: 100vh;
-    width:100%;
-    //background-color: #fff;
+    width:80%;
+    margin: 0 auto;
 
 
     .team-photo{
-      width:60%;
+      width:50%;
       height: 100%;
       object-fit: cover;
     }
@@ -51,8 +22,8 @@
       .team-title{
         font-family: 'Lora', serif;
         font-weight: 400;
-        color: lighten($secondaryColor,20%);
-        font-size: 80px;
+        color: $secondaryColor;
+        font-size: 6vw;
 
       }
 
@@ -60,20 +31,39 @@
         width: 15%;
         height: 1px;
         margin: 20px 0;
-        background-color: lighten($secondaryColor,20%);
+        background-color: $secondaryColor;
 
 
       }
       .team-describe{
-        font-size: 30px;
+        font-size:calc(8px + 1.2vw);
         width: 80%;
         text-align: center;
-        //color: black;
         font-family: 'Lora', serif;
         line-height: 1.5em;
 
       }
     }
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      align-items: center;
+
+      .team-photo{
+        padding-top: 20px;
+        height: 50%;
+        width: 90%;
+      }
+      .team-content{
+        margin-top: 40px;
+
+        .team-describe{
+          font-size:calc(10px + 1.2vw);
+
+        }
+      }
+
+    }
+
   }
 
 }
