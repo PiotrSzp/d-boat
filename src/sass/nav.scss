@@ -1,7 +1,7 @@
 .wrapper {
   position: relative;
   height: 100%;
-  max-width: 1000px;
+  max-width: 1230px;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
@@ -13,6 +13,7 @@
   position: fixed;
   width: 100%;
   z-index: 999;
+  //transition: height .3s;
   .wrapper {
     justify-content: space-between;
     align-items: center;
@@ -27,6 +28,9 @@
     background-repeat: no-repeat;
     background-position: left;
     margin-left: 20px;
+  }
+  .logo-white{
+    background-image: url("./assets/img/logo2.svg");
   }
 
   .nav-menu {
@@ -60,6 +64,9 @@
           color: darken($textColor, 40%);
         }
       }
+      .black{
+        color: #000;
+      }
     }
 
     @media (max-width: 1000px) {
@@ -68,6 +75,15 @@
   }
 
 }
+.scroll-black{
+  background-color: transparent;
+  height: 80px;
+}
+.scroll-white{
+  background-color: #F3F3F3;
+  height: 80px;
+}
+
 
 
 
