@@ -14,8 +14,12 @@
     background-color: $textColor;
 
   }
+
   @media (min-width: 1001px) {
     display: none;
+  }
+  .black{
+    background-color: #000;
   }
 }
 
@@ -71,6 +75,7 @@
       font-size: 1.5em;
     }
   }
+
 }
 
 @keyframes slide {

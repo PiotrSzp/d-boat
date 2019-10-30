@@ -8,8 +8,14 @@ import Burger from "./BurgerMenu";
 class Nav extends Component {
     state = {
         isTop: true,
+        activeBurger:false
     };
 
+    activeSwitcher=()=>{
+        this.setState(prev=>({
+            activeBurger: !prev.activeBurger
+        }))
+    };
     componentDidMount() {
         document.addEventListener('scroll', () => {
             let height = window.innerHeight;
@@ -27,10 +33,10 @@ class Nav extends Component {
     }
     render() {
         return (
-            <nav className={this.state.isTop?`nav scroll-${this.props.color}`:'nav'}>
+            <nav className={this.state.isTop?`nav scroll-${this.props.color}`:'nav'} style={this.state.activeBurger && this.props.color==='black'?{backgroundColor:'#000'}:null}>
                 <div className='wrapper nav-wrapper'>
                     <a href="/" className={this.state.isTop?`nav-logo logo-${this.props.color}`:'nav-logo'}/>
-                    <Burger list={copy.English.menu}/>
+                    <Burger switcher={this.activeSwitcher} color={this.props.color} top={this.state.isTop} list={copy.English.menu}/>
                     <NavMenu top={this.state.isTop} color={this.props.color}/>
                 </div>
             </nav>
