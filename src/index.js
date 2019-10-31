@@ -13,6 +13,7 @@ import NewsSection from "./components/About/News";
 import FindRetailer from "./components/FindRetailer";
 import Retailers from "./pages/Retailers";
 import About from "./components/About/About";
+import ContactForm from "./components/Contact/Contact";
 
 
 
@@ -39,6 +40,10 @@ function App() {
                 <Route path='/about'>
                     <Nav color='white'/>
                     <About/>
+                </Route>
+                <Route path='/contact'>
+                    {/*<Nav color='white'/>*/}
+                    <ContactForm/>
                 </Route>
             </Switch>
         </Router>

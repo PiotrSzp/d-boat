@@ -10,7 +10,6 @@ class Burger extends Component {
 
     handleOnClick = ()=>{
         this.props.switcher();
-
         this.setState(prev=>({
           isOn: !prev.isOn
       }))
