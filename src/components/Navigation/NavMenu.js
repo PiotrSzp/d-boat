@@ -46,7 +46,7 @@ function NavMenu() {
                                                         { subEl.text }
                                                     </NavLink>
                                                 </li>
-                                            )S
+                                            )
                                         })
                                     }
                                 </ul> : null
