@@ -10,6 +10,7 @@ class ContactForm extends Component {
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value});
     };
+
     handleSubmit = async (e) => {
         e.preventDefault();
         const {name, email, message} = this.state;
@@ -19,6 +20,7 @@ class ContactForm extends Component {
             message
         })
     };
+
 
     render() {
         return (
