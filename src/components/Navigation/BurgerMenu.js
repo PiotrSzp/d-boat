@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
+
 class Burger extends Component {
-    state = {
-        isOn: false
+    state={
+      isOn: false
     };
 
-    handleOnClick = () => {
-        this.setState(prev => ({
-            isOn: !prev.isOn
-        }))
+    handleOnClick = ()=>{
+        this.props.switcher();
+
+        this.setState(prev=>({
+          isOn: !prev.isOn
+      }))
     };
 
-    handleOnLink = () => {
-        this.setState(prev => ({
+    handleOnLink = ()=>{
+        this.props.switcher();
+        this.setState(prev=>({
             isOn: false
         }))
     };
