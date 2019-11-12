@@ -42,7 +42,7 @@ function App() {
                     <About/>
                 </Route>
                 <Route path='/contact'>
-                    {/*<Nav color='white'/>*/}
+                    <Nav color='white'/>
                     <ContactForm/>
                 </Route>
             </Switch>
