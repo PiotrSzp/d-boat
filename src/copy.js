@@ -7,13 +7,13 @@ const copy = {
                         text: 'DIAMOND 550',
                         link: '/diamond-550',
                         id: 1.1,
-                        img: '../../assets/slider-images/sample-boat-slide.png'
+                        img: 'sample-boat-slide.png'
                     },
                     {
                         text: 'Coming soon',
                         link: '/diamond-550',
                         id: 1.2,
-                        img: '../../assets/slider-images/sample-boat-slide.png'
+                        img: 'sample-boat-slide.png'
                     }
                 ]
             },

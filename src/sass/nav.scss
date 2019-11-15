@@ -71,28 +71,38 @@
 
       //DROPDOWN models submenu styles:
       .nav-menu-submenu {
-        border: 1px solid red;
         position: absolute;
-        top: 60px;
+        top: 65px;
         left: 50%;
         transform: translate(-50%);
-        width: 200px;
+        width: 400px;
         display: flex;
         flex-direction: column;
 
         .nav-menu-subel {
-          border: 1px solid red;
+          background-color: rgba($primaryColor, 0.95);
+          border: 2px solid $textColor;
+          margin-bottom: 10px;
+          transition: background-color .5s, color .5s;
+          color: $secondaryColor;
+
+          &:hover {
+            background-color: darken(rgba($textColor, 0.95), 10%);
+            color: $primaryColor;
+          }
 
           .nav-menu-sublink {
-            height: 100px;
+            height: 200px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-end;
+            align-items: bottom;
+            padding: 10px;
             background-repeat: no-repeat;
             background-position: center center;
             background-size: contain;
-            background-color: lighten($primaryColor, 10%);
+            text-decoration: none;
+            color: inherit;
           }
         }
       }
