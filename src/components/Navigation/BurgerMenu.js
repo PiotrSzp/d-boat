@@ -29,9 +29,9 @@ class Burger extends React.Component {
                 {/*Burger*/ }
                 <button onClick={ this.handleOnClick }
                         className={ `burger-menu ${ this.state.isOn ? 'burger-active' : null }` }>
-                    <div className='burger-line' />
-                    <div className='burger-line' />
-                    <div className='burger-line' />
+                    <div className={this.props.color==='white' && this.props.top?'burger-line black':'burger-line'}/>
+                    <div className={this.props.color==='white' && this.props.top?'burger-line black':'burger-line'}/>
+                    <div className={this.props.color==='white' && this.props.top?'burger-line black':'burger-line'}/>
                 </button>
                 {/*Slide Menu*/ }
                 { this.state.isOn ? <ul className='burger-list'>
