@@ -10,10 +10,9 @@ class Burger extends React.Component {
 
     handleOnClick = () => {
         this.props.switcher();
-
-        this.setState(prev => ({
-            isOn: !prev.isOn
-        }))
+        this.setState(prev=>({
+          isOn: !prev.isOn
+      }))
     };
 
     handleOnLink = () => {
@@ -34,7 +33,7 @@ class Burger extends React.Component {
                     <div className={this.props.color==='white' && this.props.top?'burger-line black':'burger-line'}/>
                 </button>
                 {/*Slide Menu*/ }
-                { this.state.isOn ? <ul className='burger-list'>
+                { this.state.isOn ? <ul className='burger-list' style={this.props.color==='white' && this.props.top?{marginTop: '20px'}>
                     { this.props.list.map(el => {
                         // if element HAS NO submenu
                         if (!el.submenu) {

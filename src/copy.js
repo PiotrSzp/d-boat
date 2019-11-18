@@ -19,7 +19,7 @@ const copy = {
             },
             { text: 'News', link: '/news', id: 2 },
             { text: 'About us', link: '/about', id: 3 },
-            { text: 'Contact', link: '/retailers', id: 4 }
+            { text: 'Contact', link: '/contact', id: 4 }
         ],
         header: {
             title: 'Modern Luxury Boats',
@@ -51,6 +51,14 @@ const copy = {
                 description: 'This is desc of slide 4',
             },
         ],
+        form: {
+            name:'Name',
+            email:'Email Address',
+            country:'Country',
+            city:'City',
+            boat:'Do You own our Boat?',
+            message:'Message'
+        },
         mainpageText: {
             title: 'This is a title. Like seriously.',
             paragraphs: ['First paragraph! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quibusdam, ullam. Ad, architecto cumque deleniti, deserunt eos ex exercitationem illo neque.', 'Second paragraph! Bcaecati perferendis possimus quod suscipit temporibus! Deleniti, porro provident.']
