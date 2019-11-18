@@ -13,8 +13,7 @@ import NewsSection from "./components/About/News";
 import FindRetailer from "./components/FindRetailer";
 import Retailers from "./pages/Retailers";
 import About from "./components/About/About";
-
-
+import Model from "./pages/Model"
 
 
 function App() {
@@ -22,24 +21,35 @@ function App() {
         <Router>
             <Switch>
                 <Route exact path='/'>
-                    <Nav color='black'/>
+                    <Nav color='black' />
                     <IntroPage />
                     <MainpageText texts={ copy.English.mainpageText } />
                     <Slider slides={ copy.English.slider } autoSlideTime={ 4000 } />
                     <FindRetailer texts={ copy.English.findRetailer } />
                 </Route>
                 <Route path='/retailers'>
-                    <Nav color='white'/>
-                    <Retailers/>
+                    <Nav color='white' />
+                    <Retailers />
                 </Route>
                 <Route path='/news'>
-                    <Nav color='white'/>
-                    <NewsSection/>
+                    <Nav color='white' />
+                    <NewsSection />
                 </Route>
                 <Route path='/about'>
-                    <Nav color='white'/>
-                    <About/>
+                    <Nav color='white' />
+                    <About />
                 </Route>
+                {
+                    copy.English.menu[0].submenu.map(model => {
+                        return <Route
+                            path={ model.link }
+                            key={ model.id }
+                        >
+                            <Nav color='black' />
+                            <Model modelLink={ model.link } />
+                        </Route>
+                    })
+                }
             </Switch>
         </Router>
     )
