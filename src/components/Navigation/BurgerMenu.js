@@ -31,7 +31,7 @@ class Burger extends Component {
             </button>
 
                 {/*//Slide Menu*/}
-        {this.state.isOn?<ul className='burger-list' style={this.props.color==='white'?{marginTop: '20px'}:null}>{this.props.list.map(el=>{
+        {this.state.isOn?<ul className='burger-list' style={this.props.color==='white' && this.props.top?{marginTop: '20px'}:null}>{this.props.list.map(el=>{
             return  <li onClick={this.handleOnLink} key={el.id} className='burger-el'><NavLink to={el.link}  className='burger-link'>{el.text}</NavLink></li>
         })}</ul>:null}
         </>
