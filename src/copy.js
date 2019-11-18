@@ -1,14 +1,29 @@
 const copy = {
     English: {
         menu: [
-            {text: 'models', link: '#',id:1},
-            {text: 'news',link:'/news',id:2},
-            {text: 'About us',link:'/about', id:3},
-            {text: 'Contact',link:'/contact', id:4}
+            {
+                text: 'models', link: '#', id: 1, submenu: [
+                    {
+                        text: 'DIAMOND 550',
+                        link: '/diamond-550',
+                        id: 1.1,
+                        img: 'sample-boat-slide.png'
+                    },
+                    {
+                        text: 'Coming soon',
+                        link: '/diamond-550',
+                        id: 1.2,
+                        img: 'sample-boat-slide.png'
+                    }
+                ]
+            },
+            { text: 'News', link: '/news', id: 2 },
+            { text: 'About us', link: '/about', id: 3 },
+            { text: 'Contact', link: '/contact', id: 4 }
         ],
-        header:{
-            title:'Modern Luxury Boats',
-            msg:'Elevate Your Escape'
+        header: {
+            title: 'Modern Luxury Boats',
+            msg: 'Elevate Your Escape'
         },
         slider: [
             {
@@ -96,7 +111,7 @@ const copy = {
         buttton: {
             submit: 'SUBMIT',
         },
-        otther:{},
+        otther: {},
     },
 };
 
