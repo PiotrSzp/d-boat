@@ -14,23 +14,19 @@ import FindRetailer from "./components/FindRetailer";
 import Retailers from "./pages/Retailers";
 import About from "./components/About/About";
 import ContactForm from "./components/Contact/Contact";
-<<<<<<< HEAD
+import Model from "./pages/Model"
 import Footer from "./components/Footer";
 import ScrollTop from "./components/ScrollTop";
 
 const polish = copy.Polski;
 const english = copy.English;
-=======
-import Model from "./pages/Model"
 
 
->>>>>>> develop
 
 function App() {
     return (
         <Router>
             <Switch>
-<<<<<<< HEAD
                 <ScrollTop>
                     <Route exact path='/'>
                         <Nav color='black'/>
@@ -60,43 +56,18 @@ function App() {
                         <ContactForm/>
                         <Footer links={english.footer}/>
                     </Route>
+                        {
+                            copy.English.menu[0].submenu.map(model => {
+                                return <Route
+                                    path={ model.link }
+                                    key={ model.id }
+                                >
+                                    <Nav color='black' />
+                                    <Model modelLink={ model.link } />
+                                </Route>
+                            })
+                        }
                 </ScrollTop>
-=======
-                <Route exact path='/'>
-                    <Nav color='black'/>
-                    <IntroPage />
-                    <MainpageText texts={ copy.English.mainpageText } />
-                    <Slider slides={ copy.English.slider } autoSlideTime={ 4000 } />
-                    <FindRetailer texts={ copy.English.findRetailer } />
-                </Route>
-                <Route path='/retailers'>
-                    <Nav color='white'/>
-                    <Retailers/>
-                </Route>
-                <Route path='/news'>
-                    <Nav color='white'/>
-                    <NewsSection/>
-                </Route>
-                <Route path='/about'>
-                    <Nav color='white'/>
-                    <About/>
-                </Route>
-                <Route path='/contact'>
-                    <Nav color='white'/>
-                    <ContactForm/>
-                </Route>
-                {
-                    copy.English.menu[0].submenu.map(model => {
-                        return <Route
-                            path={ model.link }
-                            key={ model.id }
-                        >
-                            <Nav color='black' />
-                            <Model modelLink={ model.link } />
-                        </Route>
-                    })
-                }
->>>>>>> develop
             </Switch>
         </Router>
     )
