@@ -1,9 +1,9 @@
 .about-section{
-padding-top:80px ;
+padding: 100px 0 20px 0;
   .about-team{
     display: flex;
     height: 100vh;
-    width:80%;
+    width:90%;
     margin: 0 auto;
 
 
@@ -11,6 +11,7 @@ padding-top:80px ;
       width:50%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
     }
 
     .team-content{
@@ -23,7 +24,7 @@ padding-top:80px ;
         font-family: 'Lora', serif;
         font-weight: 400;
         color: $secondaryColor;
-        font-size: 6vw;
+        font-size: 3vw;
 
       }
 
@@ -36,11 +37,11 @@ padding-top:80px ;
 
       }
       .team-describe{
-        font-size:calc(8px + 1.2vw);
+        font-size:calc(8px + 0.5vw);
         width: 80%;
         text-align: center;
         font-family: 'Lora', serif;
-        line-height: 1.5em;
+        line-height: 2em;
 
       }
     }

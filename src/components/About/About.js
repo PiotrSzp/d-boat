@@ -1,17 +1,21 @@
 import React from "react";
-import logo from "../../assets/img/logo.svg"
-import ceo from "../../assets/img/CEO.jpg"
+import ceo from "../../assets/img/history.jpg"
 
-function About() {
-
+function About(props) {
+    console.log(props);
     return (
         <section className='about-section'>
             <article className="about-team">
                 <img className='team-photo' src={ceo} alt=""/>
                 <section className="team-content">
-                    <h1 className="team-title">Our team</h1>
+                    <h1 className="team-title">{props.content.title}</h1>
                     <div className="team-line"></div>
-                    <p className="team-describe">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto asperiores consectetur cum debitis dolore eius, eligendi ipsa labore nulla numquam perferendis ratione recusandae sint, veniam. Cumque facilis nostrum temporibus?</p>
+                    <p className="team-describe">
+                        {props.content.first}
+                        <br/>
+                        <br/>
+                        {props.content.text}
+                    </p>
                 </section>
             </article>
         </section>

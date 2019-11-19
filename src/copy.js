@@ -51,6 +51,15 @@ const copy = {
                 description: 'This is desc of slide 4',
             },
         ],
+        mainPageContent:{
+
+        },
+        history:{
+          title: 'Our Story',
+          first: 'D-BOATS is the story of two enthusiasts who, out of love to spend time on the water, design and adrenaline - created a brand of unique motor yachts.'  ,
+          text: `At the begining we’ve uncompromisingly stated that our boats have to delight, impress with their functionality and ride best in their class. We have created a team whose members have over 30 years of experience in the production, design and assembly of boats. Experience combined with the latest technology and unique design has resulted in our first model completing the statements above. Diamond550 impresses with its design, impressive functionality and best-in-class ride, which has been appreciated by customers and industry professionals. The production of D-BOAT boats takes place in the shipyard where yachts have been produced for over 20 years. Each boat undergoes rigorous testing at every stage of production, thanks to which our products are CE certified and are the highest quality products.
+`
+        },
         form: {
             name:'Name',
             email:'Email Address',
@@ -75,7 +84,16 @@ const copy = {
             mapsButton: 'See on Google Maps',
             webButton: 'Visit website',
             mailButton: 'Write to retailer',
-        }
+        },
+        footer:[
+            {text:'About',link:'/about',id:1},
+            {text:'Contact',link:'/contact',id:2},
+            {text:'News',link:'/news',id:3},
+            {text:'Retailers',link:'/retailers',id:4},
+            {text:'Privacy Policy',link:'/',id:5}
+        ]
+
+
     },
     Polski: {
         menu: {
