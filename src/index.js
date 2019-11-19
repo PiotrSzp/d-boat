@@ -34,27 +34,23 @@ function App() {
                         <MainpageText texts={copy.English.mainpageText}/>
                         <Slider slides={copy.English.slider} autoSlideTime={4000}/>
                         <FindRetailer texts={copy.English.findRetailer}/>
-                        <Footer links={english.footer}/>
+
                     </Route>
                     <Route path='/retailers'>
                         <Nav color='white'/>
                         <Retailers/>
-                        <Footer links={english.footer}/>
                     </Route>
                     <Route path='/news'>
                         <Nav color='white'/>
                         <NewsSection/>
-                        <Footer links={english.footer}/>
                     </Route>
                     <Route path='/about'>
                         <Nav color='white'/>
                         <About content={english.history}/>
-                        <Footer links={english.footer}/>
                     </Route>
                     <Route path='/contact'>
                         <Nav color='white'/>
                         <ContactForm/>
-                        <Footer links={english.footer}/>
                     </Route>
                         {
                             copy.English.menu[0].submenu.map(model => {
@@ -67,6 +63,7 @@ function App() {
                                 </Route>
                             })
                         }
+                    <Footer links={english.footer}/>
                 </ScrollTop>
             </Switch>
         </Router>
