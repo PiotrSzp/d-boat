@@ -14,11 +14,14 @@ import FindRetailer from "./components/FindRetailer";
 import Retailers from "./pages/Retailers";
 import About from "./components/About/About";
 import ContactForm from "./components/Contact/Contact";
+
+import Model from "./pages/Model"
 import Footer from "./components/Footer";
 import ScrollTop from "./components/ScrollTop";
 
 const polish = copy.Polski;
 const english = copy.English;
+
 
 function App() {
     return (
@@ -53,6 +56,17 @@ function App() {
                         <ContactForm/>
                         <Footer links={english.footer}/>
                     </Route>
+                  {
+                    copy.English.menu[0].submenu.map(model => {
+                        return <Route
+                            path={ model.link }
+                            key={ model.id }
+                        >
+                            <Nav color='black' />
+                            <Model modelLink={ model.link } />
+                        </Route>
+                    })
+                }
                 </ScrollTop>
             </Switch>
         </Router>
