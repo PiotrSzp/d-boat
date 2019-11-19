@@ -19,6 +19,7 @@ class NewsSection extends Component {
             posts {
               id
               title
+              titleEng
               subinfo
               content{
                 html
