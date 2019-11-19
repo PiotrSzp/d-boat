@@ -14,7 +14,7 @@ import FindRetailer from "./components/FindRetailer";
 import Retailers from "./pages/Retailers";
 import About from "./components/About/About";
 import ContactForm from "./components/Contact/Contact";
-
+import Model from "./pages/Model"
 
 
 
@@ -45,6 +45,17 @@ function App() {
                     <Nav color='white'/>
                     <ContactForm/>
                 </Route>
+                {
+                    copy.English.menu[0].submenu.map(model => {
+                        return <Route
+                            path={ model.link }
+                            key={ model.id }
+                        >
+                            <Nav color='black' />
+                            <Model modelLink={ model.link } />
+                        </Route>
+                    })
+                }
             </Switch>
         </Router>
     )

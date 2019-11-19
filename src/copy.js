@@ -11,7 +11,7 @@ const copy = {
                     },
                     {
                         text: 'Coming soon',
-                        link: '/diamond-550',
+                        link: '#',
                         id: 1.2,
                         img: 'sample-boat-slide.png'
                     }
