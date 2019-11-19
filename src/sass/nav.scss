@@ -72,19 +72,27 @@
       //DROPDOWN models submenu styles:
       .nav-menu-submenu {
         position: absolute;
-        top: 65px;
+        top: calc(100% + 15px);
         left: 50%;
         transform: translate(-50%);
         width: 400px;
+        //width: 50vw;
         display: flex;
         flex-direction: column;
+        background-color: rgba($primaryColor, 0.98);
+        //margin-top: -20vh;
+        //padding-top: 20vh;
 
         .nav-menu-subel {
-          background-color: rgba($primaryColor, 0.95);
-          border: 2px solid $textColor;
-          margin-bottom: 10px;
+          //background-color: rgba($primaryColor, 0.95);
+          //border: 2px solid $textColor;
+          //margin-bottom: 10px;
           transition: background-color .5s, color .5s;
           color: $secondaryColor;
+
+          &:last-of-type {
+            margin-bottom: 100vh;
+          }
 
           &:hover {
             background-color: darken(rgba($textColor, 0.95), 10%);
