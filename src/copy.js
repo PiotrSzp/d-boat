@@ -75,7 +75,16 @@ const copy = {
             mapsButton: 'See on Google Maps',
             webButton: 'Visit website',
             mailButton: 'Write to retailer',
-        }
+        },
+        footer:[
+            {text:'About',link:'/about',id:1},
+            {text:'Contact',link:'/contact',id:2},
+            {text:'News',link:'/news',id:3},
+            {text:'Retailers',link:'/retailers',id:4},
+            {text:'Privacy Policy',link:'/',id:5}
+        ]
+
+
     },
     Polski: {
         menu: {
