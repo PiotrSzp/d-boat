@@ -6,6 +6,7 @@ import copy from "../../copy";
 
 
 function IntroPage() {
+
     return (
         <header className='header-video'>
             <Video imgSrc={video} muted={true}/>

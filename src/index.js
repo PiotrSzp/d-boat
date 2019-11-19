@@ -45,7 +45,7 @@ function App() {
                     </Route>
                     <Route path='/about'>
                         <Nav color='white'/>
-                        <About/>
+                        <About content={english.history}/>
                         <Footer links={english.footer}/>
                     </Route>
                     <Route path='/contact'>
