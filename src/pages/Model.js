@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import copy from "../copy";
 import PropTypes from "prop-types";
 import Video from "../components/VideoStart/Video";
-import modelVideo from "../assets/movie/IntroConv.mp4";
 import client from "../components/ApolloClient";
 import gql from "graphql-tag";
+import Features from "../components/ModelComponents/Features";
 
 class Model extends Component {
     state = {
@@ -17,8 +16,14 @@ class Model extends Component {
             },
             highlightsPl: {
                 html: ''
-            }
+            },
+            featuresImg: {
+                url: ''
+            },
+            featuresEn: {},
+            featuresPl: {}
         },
+        videoSrc: '',
     };
 
     componentDidMount() {
@@ -37,6 +42,11 @@ class Model extends Component {
                         highlightsPl {
                             html
                         }
+                        featuresImg {
+                            url
+                        }
+                        featuresEn
+                        featuresPl
                   }
                 }
                `
@@ -44,6 +54,11 @@ class Model extends Component {
             .then(res => {
                 this.setState({
                     model: res.data.models[0],
+                }, () => {
+                    this.setState(() => {
+                        const videoSrc = require('../assets/movie/' + this.state.model.videoFileName);
+                        return { videoSrc };
+                    })
                 });
             })
             .catch(error => console.error(error));
@@ -54,7 +69,7 @@ class Model extends Component {
         return (
             <>
                 <section className='header-video'>
-                    <Video imgSrc={ modelVideo } muted={ true } />
+                    <Video imgSrc={ this.state.videoSrc } muted={ true } />
                     <div className="header-text">
                         <h4 className="header-title">
                             Model
@@ -65,7 +80,14 @@ class Model extends Component {
                         </h1>
                     </div>
                 </section>
-                <section className='highlights' dangerouslySetInnerHTML={ { __html: this.state.model.highlightsEn.html } } />
+                <section className='highlights'
+                         dangerouslySetInnerHTML={ { __html: this.state.model.highlightsEn.html } } />
+                {
+                    this.state.model.featuresEn ? <Features
+                        text={ this.state.model.featuresEn.features }
+                        imgSrc={ this.state.model.featuresImg.url }
+                    /> : null
+                }
             </>
         )
     }
