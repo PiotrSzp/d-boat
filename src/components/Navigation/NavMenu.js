@@ -41,6 +41,8 @@ class NavMenu extends React.Component {
                                 <NavLink
                                     to={ el.link }
                                     className={ this.props.color === 'white' && this.props.top ? 'nav-menu-link black' : 'nav-menu-link' }
+                                    // onClick to avoid scrolling to top when dropping dropdown submenu
+                                    onClick={(e) => {if (el.submenu) {e.preventDefault();}}}
                                 >
                                     { el.text }
                                 </NavLink>

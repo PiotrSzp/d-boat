@@ -64,6 +64,7 @@ function App() {
                                 >
                                     <Nav color='black' />
                                     <Model modelLink={ model.link } />
+                                    <Footer links={english.footer}/>
                                 </Route>
                             })
                         }
