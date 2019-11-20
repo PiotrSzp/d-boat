@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
@@ -22,52 +22,64 @@ const polish = copy.Polski;
 const english = copy.English;
 
 
+class App extends Component {
+    state={
+      language:polish
+    };
 
-function App() {
-    return (
-        <Router>
-            <Switch>
-                <ScrollTop>
-                    <Route exact path='/'>
-                        <Nav color='black'/>
-                        <IntroPage/>
-                        <MainpageText texts={copy.English.mainpageText}/>
-                        <Slider slides={copy.English.slider} autoSlideTime={4000}/>
-                        <FindRetailer texts={copy.English.findRetailer}/>
 
-                    </Route>
-                    <Route path='/retailers'>
-                        <Nav color='white'/>
-                        <Retailers/>
-                    </Route>
-                    <Route path='/news'>
-                        <Nav color='white'/>
-                        <NewsSection/>
-                    </Route>
-                    <Route path='/about'>
-                        <Nav color='white'/>
-                        <About content={english.history}/>
-                    </Route>
-                    <Route path='/contact'>
-                        <Nav color='white'/>
-                        <ContactForm/>
-                    </Route>
+    languageChange =(lang) => {
+      this.setState({
+          language: lang==='polish'?polish:english
+      })
+    };
+
+    render() {
+        return (
+            <Router>
+                <Switch>
+                    <ScrollTop>
+                        <Route exact path='/'>
+                            <Nav language={this.languageChange} list={this.state.language} color='black'/>
+                            <IntroPage/>
+                            <MainpageText texts={this.state.language.mainpageText}/>
+                            <Slider slides={this.state.language.slider} autoSlideTime={4000}/>
+                            <FindRetailer texts={this.state.language.findRetailer}/>
+
+                        </Route>
+                        <Route path='/retailers'>
+                            <Nav language={this.languageChange} list={this.state.language} color='white'/>
+                            <Retailers/>
+                        </Route>
+                        <Route path='/news'>
+                            <Nav language={this.languageChange} list={this.state.language} color='white'/>
+                            <NewsSection language={this.state.language===polish?'pl':'eng'}/>
+                        </Route>
+                        <Route path='/about'>
+                            <Nav language={this.languageChange} list={this.state.language} color='white'/>
+                            <About content={this.state.language.history}/>
+                        </Route>
+                        <Route path='/contact'>
+                            <Nav language={this.languageChange} list={this.state.language} color='white'/>
+                            <ContactForm language={this.state.language}/>
+                        </Route>
                         {
                             copy.English.menu[0].submenu.map(model => {
                                 return <Route
-                                    path={ model.link }
-                                    key={ model.id }
+                                    path={model.link}
+                                    key={model.id}
                                 >
-                                    <Nav color='black' />
-                                    <Model modelLink={ model.link } />
+                                    <Nav language={this.languageChange} list={this.state.language} color='black'/>
+                                    <Model modelLink={model.link}/>
                                 </Route>
                             })
                         }
-                    <Footer links={english.footer}/>
-                </ScrollTop>
-            </Switch>
-        </Router>
-    )
+                        <Footer links={this.state.language.footer}/>
+                    </ScrollTop>
+                </Switch>
+            </Router>
+        )
+    }
 }
 
 

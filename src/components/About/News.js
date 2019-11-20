@@ -21,7 +21,13 @@ class NewsSection extends Component {
               title
               titleEng
               subinfo
+              subInfoEng
               content{
+                html
+                text
+                markdown
+              }
+              contentEng{
                 html
                 text
                 markdown
@@ -79,19 +85,19 @@ class NewsSection extends Component {
                                         <div onClick={() => this.modalSlide(el.id, el.ref)}
                                              className={`filter ${this.state.activeModal === el.id ? 'active' : ''}`}>
                                             <p className="post-date">{el.date}</p>
-                                            <h4 className="post-title">{el.title}</h4>
+                                            <h4 className="post-title">{this.props.language==='pl'?el.title:el.titleEng}</h4>
                                             <div className="bar"/>
-                                            <p className="post-text">{el.subinfo}
+                                            <p className="post-text">{this.props.language==='pl'?el.subinfo:el.subInfoEng}
                                             </p>
 
                                         </div>
                                         {this.state.activeModal === el.id ? <div ref={el.ref} className="post-content">
                                             <div className="content-details">
                                                 <p className="content-date">{el.date}</p>
-                                                <h1 className="content-title">{el.title}</h1>
+                                                <h1 className="content-title">{this.props.language==='pl'?el.title:el.titleEng}</h1>
                                                 <div className="bar"/>
                                                 <div className="content-text"
-                                                     dangerouslySetInnerHTML={{__html: el.content.html}}/>
+                                                     dangerouslySetInnerHTML={this.props.language==='pl'?{__html: el.content.html}:{__html: el.contentEng.html}}/>
                                             </div>
                                             <div className="gallery">
                                                 {el.gallery ? <Slider images={el.gallery}/> : null}
