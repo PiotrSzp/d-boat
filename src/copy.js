@@ -170,7 +170,7 @@ const copy = {
             email: 'Adres Email',
             country: 'Kraj',
             city: 'Miasto',
-            boat: 'Czy posiadasz naszą łódź',
+            boat: 'Czy posiadasz naszą łódź?',
             message: 'Wiadomość',
             button: 'Wyślij'
         },

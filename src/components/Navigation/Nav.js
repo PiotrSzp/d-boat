@@ -20,8 +20,8 @@ class Nav extends Component {
 
     componentDidMount() {
         document.addEventListener('scroll', () => {
-            let height = window.innerHeight;
-            this.props.color === 'black' ? height = window.innerHeight : height = 100;
+            let height = window.innerHeight - 300;
+            this.props.color === 'black' ? height = window.innerHeight - 300 : height = 100;
             if (this.props.color === 'black') {
                 window.addEventListener('resize', function () {
                     height = window.innerHeight;
