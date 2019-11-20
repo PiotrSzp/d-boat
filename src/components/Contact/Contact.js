@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import copy from "../../copy";
 import SocialIcons from "../SocialIcons";
 
-const polish = copy.Polski;
-const english = copy.English;
 
 class ContactForm extends Component {
     state = {
@@ -14,7 +11,7 @@ class ContactForm extends Component {
         boat: '',
         city: '',
         country: '',
-        language: english
+        model: ''
     };
 
     handleChange = (e) => {
@@ -23,7 +20,7 @@ class ContactForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const {name, email, message, city, boat, country} = this.state;
+        const {name, email, message, city, boat, country, model} = this.state;
         (async function send() {
             const form = await axios.post('/api/form', {
                 name,
@@ -31,7 +28,8 @@ class ContactForm extends Component {
                 message,
                 city,
                 boat,
-                country
+                country,
+                model
             });
         })();
         this.setState({
@@ -41,6 +39,7 @@ class ContactForm extends Component {
             boat: '',
             city: '',
             country: '',
+            model: ''
         })
     };
 
@@ -58,7 +57,7 @@ class ContactForm extends Component {
                                         d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                     <polyline points="22,6 12,13 2,6"></polyline>
                                 </svg>
-                                <a href='mailto:info@d-boats.com' className="contact-email">info@d-boats.com</a>
+                                <p className="contact-email">info@d-boats.com</p>
                             </div>
                             <div className="phone">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"
@@ -91,14 +90,14 @@ class ContactForm extends Component {
                     <form className='contact-form' onSubmit={this.handleSubmit} id="contact-form" method="POST">
                         <div className="row">
                             <div className="one-row">
-                                <label htmlFor="name">{this.state.language.form.name}</label>
-                                <input onChange={this.handleChange} value={this.state.name} type="text"
+                                <label htmlFor="name">{this.props.language.form.name}</label>
+                                <input autoComplete="off" onChange={this.handleChange} value={this.state.name} type="text"
                                        className="form-control"
                                        name='name' id="name"/>
                             </div>
                             <div className="one-row">
-                                <label htmlFor="exampleInputEmail1">{this.state.language.form.email}</label>
-                                <input onChange={this.handleChange} value={this.state.email} type="email"
+                                <label htmlFor="exampleInputEmail1">{this.props.language.form.email}</label>
+                                <input  autoComplete="off" onChange={this.handleChange} value={this.state.email} type="email"
                                        className="form-control"
                                        name='email' id="email"
                                 />
@@ -106,30 +105,39 @@ class ContactForm extends Component {
                         </div>
                         <div className="row">
                             <div className="one-row">
-                                <label htmlFor="country">{this.state.language.form.country}</label>
-                                <input onChange={this.handleChange} value={this.state.country} type="text"
+                                <label htmlFor="country">{this.props.language.form.country}</label>
+                                <input  autoComplete="off" onChange={this.handleChange} value={this.state.country} type="text"
                                        className="form-control"
                                        name='country' id="country"/>
                             </div>
                             <div className="one-row">
-                                <label htmlFor="city">{this.state.language.form.city}</label>
-                                <input onChange={this.handleChange} value={this.state.city} type="text"
+                                <label htmlFor="city">{this.props.language.form.city}</label>
+                                <input  autoComplete="off" onChange={this.handleChange} value={this.state.city} type="text"
                                        className="form-control"
                                        name='city' id="city"/>
                             </div>
                         </div>
                         <div className="row">
                             <div className="one-row">
-                                <label htmlFor="message">{this.state.language.form.boat}</label>
-                                <input onChange={this.handleChange} value={this.state.boat} type="text"
-                                       className="form-control"
-                                       name='boat' id="boat"/>
+                                <label htmlFor="boat">{this.props.language.form.boat}</label>
+                                <select onChange={this.handleChange} value={this.state.boat} className="form-control"
+                                        name='boat' id="boat">
+                                    <option disabled selected value=''>{this.props.select === 'pl' ? '-- wybierz opcję -- ' : '-- select an option -- '} </option>
+                                    <option value={this.props.select === 'pl'? 'Tak' : 'Yes'}>{this.props.select === 'pl' ? 'Tak' : 'Yes'}</option>
+                                    <option  value={this.props.select === 'pl'? 'Nie' : 'No'}>{this.props.select === 'pl' ? 'Nie' : 'No'}</option>
+                                </select>
                             </div>
+                            {this.state.boat==='Yes' || this.state.boat==='Tak'?<div className="one-row">
+                                <label htmlFor="model">{this.props.language.form.model}</label>
+                                <input  autoComplete="off" onChange={this.handleChange} value={this.props.model} type="text"
+                                       className="form-control"
+                                       name='model' id="model"/>
+                            </div>:null}
                         </div>
 
                         <div className="row">
                             <div className="one-row message">
-                                <label htmlFor="message">{this.state.language.form.message}</label>
+                                <label htmlFor="message">{this.props.language.form.message}</label>
                                 <textarea onChange={this.handleChange} value={this.state.message}
                                           className="form-control"
                                           rows="5"
@@ -137,7 +145,7 @@ class ContactForm extends Component {
                             </div>
                         </div>
 
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-primary">{this.props.language.form.button}</button>
                     </form>
                 </section>
             </main>

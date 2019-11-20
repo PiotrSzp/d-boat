@@ -36,12 +36,13 @@
   .header-text {
     text-align: center;
     animation: fadeIn ease-in-out 2s;
+    width: 60%;
 
     .header-title {
       width: 50%;
       font-weight: 400;
       text-transform: uppercase;
-      font-size: 2vw;
+      font-size:2.5vw;
       letter-spacing: 1px;
       margin: 0 auto;
     }
@@ -56,7 +57,7 @@
     .header-msg {
       font-family: 'Lora', serif;
       font-weight: 400;
-      font-size: 6vw;
+      font-size: 3vw;
 
     }
   }

@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import copy from "../../copy";
 import SlideToggle from 'react-slide-toggle';
+import pl from "../../assets/img/polish.png";
+import eng from "../../assets/img/english.png";
 
 class NavMenu extends React.Component {
     state = {
@@ -20,7 +21,7 @@ class NavMenu extends React.Component {
     render() {
         return (
             <ul className="nav-menu">
-                { copy.English.menu.map(el => {
+                { this.props.list.menu.map(el => {
                     return <SlideToggle
                         key={ el.id }
                         duration={ 500 }
@@ -77,6 +78,10 @@ class NavMenu extends React.Component {
                         ) }
                     />
                 }) }
+                <div className="language-change">
+                    <img onClick={()=>this.props.language('polish')} className="polish" src={pl} alt='change to polish'/>
+                    <img onClick={()=>this.props.language('english')} className="english" src={eng} alt='change to english'/>
+                </div>
             </ul>
         )
     }
