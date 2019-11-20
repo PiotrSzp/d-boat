@@ -48,6 +48,10 @@ padding: 100px 0 20px 0;
     @media (max-width: 1024px) {
       flex-direction: column;
       align-items: center;
+      min-height: 100vh;
+      height: auto;
+
+
 
       .team-photo{
         padding-top: 20px;
@@ -56,6 +60,10 @@ padding: 100px 0 20px 0;
       }
       .team-content{
         margin-top: 40px;
+
+        .team-title{
+          font-size: 30px;
+        }
 
         .team-describe{
           font-size:calc(10px + 1.2vw);
