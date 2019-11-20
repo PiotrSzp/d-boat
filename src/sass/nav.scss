@@ -48,6 +48,10 @@
       margin-left: 20px;
       position: relative;
 
+      &:last-of-type{
+        margin-right: 15px;
+      }
+
       .nav-menu-link {
         padding: 0 15px;
         display: flex;
@@ -60,6 +64,8 @@
         font-family: 'Panton', sans-serif;
         font-size: 15px;
         transition: .3s;
+
+
 
         &:hover {
           color: darken($textColor, 40%);
@@ -131,6 +137,18 @@
   background-color: #F3F3F3;
   height: 80px;
 }
+.language-change{
+  img{
+    border-radius: 50%;
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+  }
+  .polish{
+    margin-right: 7px;
+  }
+}
+
 
 
 
