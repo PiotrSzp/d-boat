@@ -71,6 +71,7 @@ class App extends Component {
                                 >
                                     <Nav language={this.languageChange} list={this.state.language} color='black'/>
                                     <Model modelLink={model.link}/>
+                                    <Footer links={english.footer}/>
                                 </Route>
                             })
                         }

@@ -81,7 +81,8 @@ class Model extends Component {
                     </div>
                 </section>
                 <section className='highlights'
-                         dangerouslySetInnerHTML={ { __html: this.state.model.highlightsEn.html } } />
+                         dangerouslySetInnerHTML={ { __html: this.state.model.highlightsEn.html } }
+                />
                 {
                     this.state.model.featuresEn ? <Features
                         text={ this.state.model.featuresEn.features }
