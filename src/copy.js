@@ -65,7 +65,8 @@ const copy = {
             city: 'City',
             boat: 'Do You own our Boat?',
             message: 'Message',
-            button: 'Submit'
+            button: 'Submit',
+            model: 'What model?'
         },
         mainpageText: {
             title: 'Born out of passion - crafted with soul, Shaped by experience - with uncompromising quality',
@@ -172,7 +173,8 @@ const copy = {
             city: 'Miasto',
             boat: 'Czy posiadasz naszą łódź?',
             message: 'Wiadomość',
-            button: 'Wyślij'
+            button: 'Wyślij',
+            model: 'Jaki model?'
         },
         mainpageText: {
             title: 'Na nowo zdefiniowaliśmy pojęcie daycruiser, aby zapewnić Ci prawdziwe wrażenia premium.',

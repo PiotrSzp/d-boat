@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 import NavMenu from "./NavMenu";
 import Burger from "./BurgerMenu";
-import pl from '../../assets/img/polish.png'
-import eng from '../../assets/img/english.png'
+
 
 
 class Nav extends Component {

@@ -3,7 +3,6 @@ import axios from 'axios';
 import SocialIcons from "../SocialIcons";
 
 
-
 class ContactForm extends Component {
     state = {
         name: '',
@@ -11,7 +10,8 @@ class ContactForm extends Component {
         message: '',
         boat: '',
         city: '',
-        country: ''
+        country: '',
+        model: ''
     };
 
     handleChange = (e) => {
@@ -20,17 +20,18 @@ class ContactForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const {name, email, message, city, boat, country} = this.state;
-        (async function send() {
-            const form = await axios.post('/api/form', {
-                name,
-                email,
-                message,
-                city,
-                boat,
-                country
-            });
-        })();
+        const {name, email, message, city, boat, country, model} = this.state;
+        // (async function send() {
+        //     const form = await axios.post('/api/form', {
+        //         name,
+        //         email,
+        //         message,
+        //         city,
+        //         boat,
+        //         country,
+        //         model
+        //     });
+        // })();
         this.setState({
             name: '',
             email: '',
@@ -38,6 +39,7 @@ class ContactForm extends Component {
             boat: '',
             city: '',
             country: '',
+            model: ''
         })
     };
 
@@ -89,13 +91,13 @@ class ContactForm extends Component {
                         <div className="row">
                             <div className="one-row">
                                 <label htmlFor="name">{this.props.language.form.name}</label>
-                                <input onChange={this.handleChange} value={this.state.name} type="text"
+                                <input autoComplete="off" onChange={this.handleChange} value={this.state.name} type="text"
                                        className="form-control"
                                        name='name' id="name"/>
                             </div>
                             <div className="one-row">
                                 <label htmlFor="exampleInputEmail1">{this.props.language.form.email}</label>
-                                <input onChange={this.handleChange} value={this.props.email} type="email"
+                                <input  autoComplete="off" onChange={this.handleChange} value={this.state.email} type="email"
                                        className="form-control"
                                        name='email' id="email"
                                 />
@@ -104,13 +106,13 @@ class ContactForm extends Component {
                         <div className="row">
                             <div className="one-row">
                                 <label htmlFor="country">{this.props.language.form.country}</label>
-                                <input onChange={this.handleChange} value={this.props.country} type="text"
+                                <input  autoComplete="off" onChange={this.handleChange} value={this.state.country} type="text"
                                        className="form-control"
                                        name='country' id="country"/>
                             </div>
                             <div className="one-row">
                                 <label htmlFor="city">{this.props.language.form.city}</label>
-                                <input onChange={this.handleChange} value={this.props.city} type="text"
+                                <input  autoComplete="off" onChange={this.handleChange} value={this.state.city} type="text"
                                        className="form-control"
                                        name='city' id="city"/>
                             </div>
@@ -118,16 +120,26 @@ class ContactForm extends Component {
                         <div className="row">
                             <div className="one-row">
                                 <label htmlFor="message">{this.props.language.form.boat}</label>
-                                <input onChange={this.handleChange} value={this.props.boat} type="text"
-                                       className="form-control"
-                                       name='boat' id="boat"/>
+                                <select onChange={this.handleChange} value={this.state.boat} className="form-control"
+                                        name='boat' id="boat">
+                                    <option
+                                        value={this.props.select === 'pl' ? 'Tak' : 'Yes'}>{this.props.select === 'pl' ? 'Tak' : 'Yes'}</option>
+                                    <option selected
+                                            value={this.props.select === 'pl' ? 'Nie' : 'No'}>{this.props.select === 'pl' ? 'Nie' : 'No'}</option>
+                                </select>
                             </div>
+                            {this.state.boat==='Yes' || this.state.boat==='Tak'?<div className="one-row">
+                                <label htmlFor="model">{this.props.language.form.model}</label>
+                                <input  autoComplete="off" onChange={this.handleChange} value={this.props.model} type="text"
+                                       className="form-control"
+                                       name='model' id="model"/>
+                            </div>:null}
                         </div>
 
                         <div className="row">
                             <div className="one-row message">
                                 <label htmlFor="message">{this.props.language.form.message}</label>
-                                <textarea onChange={this.handleChange} value={this.props.message}
+                                <textarea onChange={this.handleChange} value={this.state.message}
                                           className="form-control"
                                           rows="5"
                                           name='message' id="message"/>

@@ -24,7 +24,7 @@ const english = copy.English;
 
 class App extends Component {
     state={
-      language:polish
+      language:english
     };
 
 
@@ -61,7 +61,7 @@ class App extends Component {
                         </Route>
                         <Route path='/contact'>
                             <Nav language={this.languageChange} list={this.state.language} color='white'/>
-                            <ContactForm language={this.state.language}/>
+                            <ContactForm language={this.state.language} select={this.state.language===polish?'pl':'eng'}/>
                         </Route>
                         {
                             copy.English.menu[0].submenu.map(model => {
