@@ -21,17 +21,17 @@ class ContactForm extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const {name, email, message, city, boat, country, model} = this.state;
-        // (async function send() {
-        //     const form = await axios.post('/api/form', {
-        //         name,
-        //         email,
-        //         message,
-        //         city,
-        //         boat,
-        //         country,
-        //         model
-        //     });
-        // })();
+        (async function send() {
+            const form = await axios.post('/api/form', {
+                name,
+                email,
+                message,
+                city,
+                boat,
+                country,
+                model
+            });
+        })();
         this.setState({
             name: '',
             email: '',
@@ -119,13 +119,12 @@ class ContactForm extends Component {
                         </div>
                         <div className="row">
                             <div className="one-row">
-                                <label htmlFor="message">{this.props.language.form.boat}</label>
+                                <label htmlFor="boat">{this.props.language.form.boat}</label>
                                 <select onChange={this.handleChange} value={this.state.boat} className="form-control"
                                         name='boat' id="boat">
-                                    <option
-                                        value={this.props.select === 'pl' ? 'Tak' : 'Yes'}>{this.props.select === 'pl' ? 'Tak' : 'Yes'}</option>
-                                    <option selected
-                                            value={this.props.select === 'pl' ? 'Nie' : 'No'}>{this.props.select === 'pl' ? 'Nie' : 'No'}</option>
+                                    <option disabled selected value=''>{this.props.select === 'pl' ? '-- wybierz opcję -- ' : '-- select an option -- '} </option>
+                                    <option value={this.props.select === 'pl'? 'Tak' : 'Yes'}>{this.props.select === 'pl' ? 'Tak' : 'Yes'}</option>
+                                    <option  value={this.props.select === 'pl'? 'Nie' : 'No'}>{this.props.select === 'pl' ? 'Nie' : 'No'}</option>
                                 </select>
                             </div>
                             {this.state.boat==='Yes' || this.state.boat==='Tak'?<div className="one-row">
