@@ -79,8 +79,8 @@ const copy = {
             button: 'See all retailers',
         },
         retailersPage: {
-            title: 'D-Retailers nearby',
-            paragraph: "Find closest dealer and get your D-Boat today! Don't wait.",
+            title: 'Retailers nearby',
+            paragraph: "Find closest dealer and get your D-Boat today! Don't wait. Click on a dealer in the list below to center map on it's location.",
             locationBtn: 'Use my location',
             mapsButton: 'See on Google Maps',
             webButton: 'Visit website',
@@ -107,7 +107,7 @@ const copy = {
                         img: 'sample-boat-slide.png'
                     },
                     {
-                        text: 'Coming soon',
+                        text: 'Już w krótce...',
                         link: '#',
                         id: 1.2,
                         img: 'sample-boat-slide.png'
@@ -182,17 +182,17 @@ const copy = {
             'D-BOATS to emocje.']
         },
         findRetailer: {
-            title: 'Find closest retailer',
-            placeholder: 'Type in city name...',
-            button: 'See all retailers',
+            title: 'Znajdź najbliższego dealera',
+            placeholder: 'Wpisz nazwę miasta...',
+            button: 'Zobacz wszystkich dealerów',
         },
         retailersPage: {
-            title: 'D-Retailers nearby',
-            paragraph: "Find closest dealer and get your D-Boat today! Don't wait.",
-            locationBtn: 'Use my location',
-            mapsButton: 'See on Google Maps',
-            webButton: 'Visit website',
-            mailButton: 'Write to retailer',
+            title: 'Dealerzy w okolicy',
+            paragraph: "Znajdź najbliższego dystrybutora D-BOAT i stań się posiadaczem jachtu Twoich marzeń już dziś! Kliknij w element listy poniżej, aby wycentrować mapę na danym dystrybutorze.",
+            locationBtn: 'Moja lokalizacja',
+            mapsButton: 'Przejdź do Google Maps',
+            webButton: 'Strona dealera',
+            mailButton: 'Wyślij maila do dealera',
         },
         footer: [
             {text: 'O nas', link: '/about', id: 1},

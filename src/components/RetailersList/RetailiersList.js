@@ -15,12 +15,12 @@ class RetailersList extends Component {
         return (
             <section className='retailers-list-wrapper'>
                 <header className='retailers-header'>
-                    <h1>{ copy.English.retailersPage.title }</h1>
-                    <p>{ copy.English.retailersPage.paragraph }</p>
+                    <h1>{ this.props.list.retailersPage.title }</h1>
+                    <p>{ this.props.list.retailersPage.paragraph }</p>
                     <button
                         className='location-btn'
                         onClick={ this.props.getLocation }
-                    ><MyLocationIcon/>{ copy.English.retailersPage.locationBtn }</button>
+                    ><MyLocationIcon/>{ this.props.list.retailersPage.locationBtn }</button>
                 </header>
                 <ul className='retailers-list'>
                     { this.props.retailers.map(el => {
@@ -42,6 +42,7 @@ RetailersList.propTypes = {
     getLocation: PropTypes.func.isRequired,
     setCenter: PropTypes.func.isRequired,
     expandedItemId: PropTypes.string,
+    list: PropTypes.object.isRequired
 };
 
 export default RetailersList;
