@@ -10,6 +10,7 @@ class Retailers extends Component {
         centerPosition: {},
         zoom: 10,
         expandedItemId: undefined,
+        clearfix: '60px'
     };
 
     getLocation = () => {
@@ -62,14 +63,22 @@ class Retailers extends Component {
                 });
             })
             .catch(error => console.error(error));
+
+
+        const navBar = document.getElementsByClassName('nav')[0];
+        console.log(navBar);
+        if (navBar) {
+            const navClearHeight = window.getComputedStyle(navBar).height;
+            this.setState({ clearfix: navClearHeight })
+        }
     }
 
     render() {
         return (
             <>
-                <div style={ { 'height': '60px' } } />
+                <div style={ { 'height': this.state.clearfix } } />
                 {/* menu bar clear*/ }
-                <section className='retailers-wrapper'>
+                <section className='retailers-wrapper' style={ { 'height': `calc(100vh - ${ this.state.clearfix }` } }>
                     <MapWrapper
                         retailers={ this.state.retailers }
                         centerPosition={ this.state.centerPosition }
@@ -80,6 +89,7 @@ class Retailers extends Component {
                         retailers={ this.state.retailers }
                         getLocation={ this.getLocation }
                         setCenter={ this.setCenter }
+                        list={ this.props.list }
                         expandedItemId={ this.state.expandedItemId }
                     />
                 </section>

@@ -19,7 +19,7 @@ class Features extends Component {
         if (this.props.text && this.props.imgSrc) {
             return (
                 <section className='features'>
-                    <h2 className='features-title'>Features</h2>
+                    {/*<h2 className='features-title'>Features</h2>*/}
                     {/* ======== THIS IS DEFAULT VERISON ========= */ }
                     {/*<div className='features-img-container'>*/ }
                     {/*    <div className='features-img-wrapper'>*/ }

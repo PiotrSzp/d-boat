@@ -24,13 +24,15 @@ const english = copy.English;
 
 class App extends Component {
     state={
-      language:english
+      language:english,
+        langName: 'english'
     };
 
 
     languageChange =(lang) => {
       this.setState({
-          language: lang==='polish'?polish:english
+          language: lang==='polish'?polish:english,
+          langName: lang==='polish'?'polish':'english'
       })
     };
 
@@ -49,7 +51,7 @@ class App extends Component {
                         </Route>
                         <Route path='/retailers'>
                             <Nav language={this.languageChange} list={this.state.language} color='white'/>
-                            <Retailers/>
+                            <Retailers list={this.state.language}/>
                         </Route>
                         <Route path='/news'>
                             <Nav language={this.languageChange} list={this.state.language} color='white'/>
@@ -64,13 +66,13 @@ class App extends Component {
                             <ContactForm language={this.state.language} select={this.state.language===polish?'pl':'eng'}/>
                         </Route>
                         {
-                            copy.English.menu[0].submenu.map(model => {
+                            this.state.language.menu[0].submenu.map(model => {
                                 return <Route
                                     path={model.link}
                                     key={model.id}
                                 >
                                     <Nav language={this.languageChange} list={this.state.language} color='black'/>
-                                    <Model modelLink={model.link}/>
+                                    <Model modelLink={model.link} lang={ this.state.langName }/>
                                 </Route>
                             })
                         }
