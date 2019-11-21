@@ -86,7 +86,7 @@ class ContactForm extends Component {
                     </div>
                 </section>
                 <section className="contact-form-container">
-                    <h1 className="contact-title">Contact Us</h1>
+                    <h1 className="contact-title">{this.props.language.form.title}</h1>
                     <form className='contact-form' onSubmit={this.handleSubmit} id="contact-form" method="POST">
                         <div className="row">
                             <div className="one-row">

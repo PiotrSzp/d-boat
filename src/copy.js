@@ -21,6 +21,7 @@ const copy = {
             {text: 'About us', link: '/about', id: 3},
             {text: 'Contact', link: '/contact', id: 4}
         ],
+        news: 'News & Evenets',
         header: {
             title: 'D-BOATS',
             msg: 'An exquisite piece of engineering with a captivating presence.'
@@ -59,6 +60,7 @@ const copy = {
 `
         },
         form: {
+            title: 'Contact Us',
             name: 'Name',
             email: 'Email Address',
             country: 'Country',
@@ -118,6 +120,7 @@ const copy = {
             {text: 'O nas', link: '/about', id: 3},
             {text: 'Kontakt', link: '/contact', id: 4}
         ],
+        news: 'Aktualności',
         header: {
             title: 'D-BOATS',
             msg: 'An exquisite piece of engineering with a captivating presence.'
@@ -167,6 +170,7 @@ const copy = {
                'produkty mają certyfikację CE oraz są produktami najwyższej jakości.'
         },
         form: {
+            title: 'Napisz do Nas',
             name: 'Imię',
             email: 'Adres Email',
             country: 'Kraj',
@@ -198,7 +202,7 @@ const copy = {
             {text: 'O nas', link: '/about', id: 1},
             {text: 'Kontakt', link: '/contact', id: 2},
             {text: 'News', link: '/news', id: 3},
-            {text: 'Sprzedawcy', link: '/retailers', id: 4},
+            {text: 'Dystrybutorzy', link: '/retailers', id: 4},
             {text: 'Polityka Prywatności', link: '/', id: 5}
         ]
     }

@@ -75,7 +75,7 @@ class NewsSection extends Component {
             <>
                 <div className="news-container">
                     <section className="news-section">
-                        <h1 className="news-title">News & Events</h1>
+                        <h1 className="news-title">{this.props.title}</h1>
                         <div className="post-container">
                             {this.state.posts.map(el => {
                                 return (

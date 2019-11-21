@@ -24,7 +24,7 @@ const english = copy.English;
 
 class App extends Component {
     state={
-      language:english
+      language:polish
     };
 
 
@@ -53,7 +53,7 @@ class App extends Component {
                         </Route>
                         <Route path='/news'>
                             <Nav language={this.languageChange} list={this.state.language} color='white'/>
-                            <NewsSection language={this.state.language===polish?'pl':'eng'}/>
+                            <NewsSection language={this.state.language===polish?'pl':'eng'} title={this.state.language.news}/>
                         </Route>
                         <Route path='/about'>
                             <Nav language={this.languageChange} list={this.state.language} color='white'/>
