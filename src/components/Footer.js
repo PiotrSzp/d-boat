@@ -6,7 +6,7 @@ import funds from '../assets/img/funds.png';
 
 function Footer(props) {
     return (
-        <footer className='footer'>
+        <footer className='footer' style={props.color?{backgroundColor: "black"}:null}>
             <div className="wrapper">
                 <div className="upper-footer">
                     <div className="footer-links-container">

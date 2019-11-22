@@ -15,13 +15,13 @@
     ),
     url('./assets/img/maintext-bck.jpg');
     position: absolute;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
     width: 100%;
     min-height: 100vh;
-    filter: blur(3px);
-    -webkit-filter: blur(3x);
+    //filter: blur(3px);
+    //-webkit-filter: blur(3x);
 
   }
   .main-text-container{

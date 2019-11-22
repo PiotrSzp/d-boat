@@ -1,34 +1,37 @@
-.about-section{
-padding: 100px 0 20px 0;
-  .about-team{
+.about-section {
+  padding: 100px 0 20px 0;
+
+  .about-team {
     display: flex;
-    height: 100vh;
-    width:90%;
+    height: 85vh;
+    width: 80%;
     margin: 0 auto;
 
 
-    .team-photo{
-      width:50%;
+    .team-photo {
+      width: 50%;
       height: 100%;
       object-fit: cover;
       object-position: center;
     }
 
-    .team-content{
+    .team-content {
       display: flex;
-      justify-content:center ;
+      justify-content: center;
       align-items: center;
       flex-direction: column;
+      background-color: #d3d3d3;
 
-      .team-title{
-        font-family: 'Lora', serif;
-        font-weight: 400;
+      .team-title {
+        font-family: 'Panton', serif;
+        text-transform: uppercase;
+        font-weight: 800;
         color: $secondaryColor;
         font-size: 3vw;
 
       }
 
-      .team-line{
+      .team-line {
         width: 15%;
         height: 1px;
         margin: 20px 0;
@@ -36,15 +39,17 @@ padding: 100px 0 20px 0;
 
 
       }
-      .team-describe{
-        font-size:calc(8px + 0.5vw);
+
+      .team-describe {
+        font-size: calc(8px + 0.5vw);
         width: 80%;
         text-align: center;
-        font-family: 'Lora', serif;
-        line-height: 2em;
+        font-family: 'Titillium Web', sans-serif;
+        line-height: 1.5em;
 
       }
     }
+
     @media (max-width: 1024px) {
       flex-direction: column;
       align-items: center;
@@ -52,20 +57,20 @@ padding: 100px 0 20px 0;
       height: auto;
 
 
-
-      .team-photo{
+      .team-photo {
         padding-top: 20px;
         height: 50%;
         width: 90%;
       }
-      .team-content{
+      .team-content {
         margin-top: 40px;
 
-        .team-title{
+        .team-title {
           font-size: 30px;
         }
-        .team-describe{
-          font-size:calc(10px + 1.2vw);
+
+        .team-describe {
+          font-size: calc(10px + 1.2vw);
         }
       }
 

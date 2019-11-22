@@ -26,6 +26,7 @@
     font-size: 60px;
     margin-bottom: 60px;
     text-align: center;
+    //font-family: 'Panton', sans-serif;
     //color: $secondaryColor;
 
     @media (max-width: 850px) {
@@ -51,6 +52,7 @@
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+    color: $greyColor;
 
 
     .filter {
@@ -65,22 +67,20 @@
         background-color: #00000099;
       }
 
-      &:hover .post-title {
-        color:  $secondaryColor;
-      }
     }
 
     .post-title {
       width: 100%;
-      font-weight: 800;
+      font-weight: 600;
       font-size: 40px;
       margin: 10px 0;
       transition: .2s;
+
     }
 
     .post-date {
       font-size: 16px;
-      font-weight: 800;
+      font-weight: 600;
 
     }
 
@@ -88,17 +88,17 @@
       width: 30px;
       height: 2px;
       //background-color: lighten($secondaryColor, 20%);
-      background-color: $secondaryColor;
+      background-color: $greyColor;
       margin-bottom: 10px;
 
     }
 
     .post-text {
-      font-size: 14px;
+      font-size: 18px;
       line-height: 1.5em;
       overflow: hidden;
       margin-bottom: 40px;
-      font-weight: 800;
+      font-weight: 400;
 
     }
 
@@ -155,14 +155,14 @@
   .post-content {
     display: flex;
     justify-content: space-between;
-    color: black;
     position: absolute;
     padding: 30px;
     top: 100%;
     height: 500px;
     width: 300%;
     overflow: hidden;
-    background-color: $textColor;
+    background-color: $primaryColor;
+    color: $textColor;
     z-index: 10;
     cursor: auto;
 
@@ -202,7 +202,9 @@
     .content-date {
       margin-bottom: 10px;
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 400;
+      color: $secondaryColor;
+
 
     }
 
@@ -210,6 +212,7 @@
       font-size: 40px;
       font-weight: 400;
       margin-bottom: 10px;
+      color: $secondaryColor;
     }
 
     .content-text {

@@ -44,26 +44,27 @@ class App extends Component {
                         <Route exact path='/'>
                             <Nav language={this.languageChange} list={this.state.language} color='black'/>
                             <IntroPage/>
-                            <MainpageText texts={this.state.language.mainpageText}/>
-                            <Slider slides={this.state.language.slider} autoSlideTime={4000}/>
-                            <FindRetailer texts={this.state.language.findRetailer}/>
-
+                            <Footer links={this.state.language.footer} color='black'/>
                         </Route>
                         <Route path='/retailers'>
                             <Nav language={this.languageChange} list={this.state.language} color='white'/>
                             <Retailers list={this.state.language}/>
+                            <Footer links={this.state.language.footer}/>
                         </Route>
                         <Route path='/news'>
                             <Nav language={this.languageChange} list={this.state.language} color='white'/>
                             <NewsSection language={this.state.language===polish?'pl':'eng'}/>
+                            <Footer links={this.state.language.footer}/>
                         </Route>
                         <Route path='/about'>
                             <Nav language={this.languageChange} list={this.state.language} color='white'/>
                             <About content={this.state.language.history}/>
+                            <Footer links={this.state.language.footer}/>
                         </Route>
                         <Route path='/contact'>
                             <Nav language={this.languageChange} list={this.state.language} color='white'/>
                             <ContactForm language={this.state.language} select={this.state.language===polish?'pl':'eng'}/>
+                            <Footer links={this.state.language.footer}/>
                         </Route>
                         {
                             this.state.language.menu[0].submenu.map(model => {
@@ -73,10 +74,10 @@ class App extends Component {
                                 >
                                     <Nav language={this.languageChange} list={this.state.language} color='black'/>
                                     <Model modelLink={model.link} lang={ this.state.langName }/>
+                                    <Footer links={this.state.language.footer}/>
                                 </Route>
                             })
                         }
-                        <Footer links={this.state.language.footer}/>
                     </ScrollTop>
                 </Switch>
             </Router>
