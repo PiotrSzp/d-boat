@@ -4,6 +4,8 @@ import Video from "../components/VideoStart/Video";
 import client from "../components/ApolloClient";
 import gql from "graphql-tag";
 import Features from "../components/ModelComponents/Features";
+import Carousel from "../components/ModelComponents/Carousel";
+
 
 class Model extends Component {
     state = {
@@ -59,9 +61,9 @@ class Model extends Component {
     componentDidMount() {
         // Fetch GraphQL data and set to this.state.model
         client
-            .query({
-                query: gql`
-                 query {
+        .query({
+            query: gql`
+                query {
                     models(where: {url: "${ this.props.modelLink }"}) {
                         name
                         url
@@ -77,28 +79,28 @@ class Model extends Component {
                         }
                         featuresEn
                         featuresPl
-                  }
+                    }
                 }
-               `
+            `
+        })
+        .then(res => {
+            this.setState({
+                model: res.data.models[0],
+            });
+        })
+        .then(() => {
+            this.setState(state => {
+                const videoSrc = require('../assets/movie/' + state.model.videoFileName);
+                return { videoSrc };
             })
-            .then(res => {
-                this.setState({
-                    model: res.data.models[0],
-                });
-            })
-            .then(() => {
-                this.setState(state => {
-                    const videoSrc = require('../assets/movie/' + state.model.videoFileName);
-                    return { videoSrc };
-                })
-            })
-            .then(() => {
-                this.updateLangContent();
-            })
-            .then(() => {
-                this.setState({ isDataFetched: true })
-            })
-            .catch(error => console.error(error));
+        })
+        .then(() => {
+            this.updateLangContent();
+        })
+        .then(() => {
+            this.setState({ isDataFetched: true })
+        })
+        .catch(error => console.error(error));
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -131,6 +133,7 @@ class Model extends Component {
                         text={ this.state.langContent.features.features }
                         imgSrc={ this.state.model.featuresImg.url }
                     />
+                    <Carousel   />
                 </>
             )
         } else return null;

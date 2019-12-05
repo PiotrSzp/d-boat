@@ -105,6 +105,7 @@ class Features extends Component {
                                 this.props.text.map((feature, idx) => {
                                     return (
                                         <div
+                                            key={ feature.title }
                                             className={this.state.activeFeature === idx ? 'nav-dot active' : 'nav-dot'}
                                             onMouseEnter={ () => this.activateFeature(idx) }
                                             title={ feature.title }
