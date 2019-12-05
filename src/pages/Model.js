@@ -90,7 +90,7 @@ class Model extends Component {
         })
         .then(() => {
             this.setState(state => {
-                const videoSrc = require('../assets/movie/' + state.model.videoFileName);
+                const videoSrc = require(`../assets/movie/${state.model.videoFileName}`);
                 return { videoSrc };
             })
         })
