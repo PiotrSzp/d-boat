@@ -90,7 +90,7 @@ class Model extends Component {
         })
         .then(() => {
             this.setState(state => {
-                const videoSrc = require(`../assets/movie/${state.model.videoFileName}`);
+                const videoSrc = require(`../assets/movie/${ state.model.videoFileName }`);
                 return { videoSrc };
             })
         })
@@ -133,10 +133,12 @@ class Model extends Component {
                         text={ this.state.langContent.features.features }
                         imgSrc={ this.state.model.featuresImg.url }
                     />
-                    <Carousel   />
+                    <Carousel />
                 </>
             )
-        } else return null;
+        } else {
+            return <div style={ { 'height': '100vh' } } />
+        }
     }
 }
 
