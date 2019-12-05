@@ -81,26 +81,26 @@ class Model extends Component {
                         featuresPl
                     }
                 }
-            `
-        })
-        .then(res => {
-            this.setState({
-                model: res.data.models[0],
-            });
-        })
-        .then(() => {
-            this.setState(state => {
-                const videoSrc = require(`../assets/movie/${ state.model.videoFileName }`);
-                return { videoSrc };
+               `
             })
-        })
-        .then(() => {
-            this.updateLangContent();
-        })
-        .then(() => {
-            this.setState({ isDataFetched: true })
-        })
-        .catch(error => console.error(error));
+            .then(res => {
+                this.setState({
+                    model: res.data.models[0],
+                });
+            })
+            .then(() => {
+                this.setState(state => {
+                    const videoSrc = require('../assets/movie/' + state.model.videoFileName);
+                    return { videoSrc };
+                })
+            })
+            .then(() => {
+                this.updateLangContent();
+            })
+            .then(() => {
+                this.setState({ isDataFetched: true })
+            })
+            .catch(error => console.error(error));
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {

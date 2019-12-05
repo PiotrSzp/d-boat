@@ -37,7 +37,7 @@ class Nav extends Component {
     render() {
         return (
             <nav className={ this.state.isTop ? `nav scroll-${ this.props.color }` : 'nav' }
-                 style={ this.state.activeBurger && this.props.color === 'black' ? { backgroundColor: '#000' } : null }>
+                 style={ this.state.activeBurger && this.props.color === 'black' ? { backgroundColor: '#a9a9a9' } : null }>
                 <div className='wrapper nav-wrapper'>
                     <NavLink to="/" className={ this.state.isTop ? `nav-logo logo-${ this.props.color }` : 'nav-logo' } />
                     <Burger language={this.props.language} switcher={this.activeSwitcher } color={ this.props.color } top={ this.state.isTop }
