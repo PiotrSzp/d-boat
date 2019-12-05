@@ -86,7 +86,7 @@ class Carousel extends Component {
             [url]: !Boolean(this.state.showVideo[url])
         };
         this.setState({
-            // showVideo: this.state.showVideo
+            // showVideo: this.state.showVideo  
             showVideo: newState
         });
 
