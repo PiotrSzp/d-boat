@@ -38,6 +38,12 @@
     text-align: center;
     animation: fadeIn ease-in-out 2s;
     width: 60%;
+    color: $greyColor;
+
+    .header-title {
+      font-weight: 400;
+      font-size: 2vw;
+    }
 
     .header-logo {
       width: 50%;
