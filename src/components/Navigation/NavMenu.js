@@ -63,7 +63,7 @@ class NavMenu extends React.Component {
                                                             to={ subEl.link }
                                                             className='nav-menu-sublink'
                                                             style={ {
-                                                                backgroundImage: `url(${ require(`../../assets/slider-images/${ subEl.img }`) })`,
+                                                                backgroundImage: `url(${ require(`../../assets/models-submenu/${ subEl.img }`) })`,
                                                             } }
                                                         >
                                                             { subEl.text }
