@@ -8,7 +8,8 @@
 }
 
 .nav {
-  background-color: $primaryColor;
+  //background-color: darken($primaryColor, 30%);
+  background-color:$greyColor;
   height: 60px;
   position: fixed;
   width: 100%;
@@ -60,7 +61,7 @@
         width: 100%;
         text-decoration: none;
         text-transform: uppercase;
-        color: $textColor;
+        color: $greyColor;
         font-family: 'Panton', sans-serif;
         font-size: 15px;
         transition: .3s;
@@ -72,6 +73,10 @@
         }
       }
       .black{
+        color: #000;
+      }
+
+      .white {
         color: #000;
       }
 
@@ -103,6 +108,7 @@
           &:hover {
             background-color: darken(rgba($textColor, 0.95), 10%);
             color: $primaryColor;
+            //filter: invert(1);
           }
 
           .nav-menu-sublink {
@@ -132,10 +138,13 @@
 .scroll-black{
   background-color: transparent;
   height: 80px;
+  color: black;
+
 }
 .scroll-white{
   background-color: #F3F3F3;
   height: 80px;
+
 }
 .language-change{
   img{

@@ -13,19 +13,29 @@
 @import "sass/footer";
 @import "sass/model";
 @import "sass/footer";
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
 
-
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700,900&display=swap&subset=latin-ext');
 //font-family: 'Lora', serif;
 //font-family: 'Open Sans Condensed', sans-serif;
 //font-family: 'Roboto Mono', monospace;
+
+//font-family: 'Lato', sans-serif;
+//font-family: 'Raleway', sans-serif;
+//font-family: 'Titillium Web', sans-serif;
+//font-family: 'Quicksand', sans-serif;
+//font-family: 'Abel', sans-serif;
+//font-family: 'Yanone Kaffeesatz', sans-serif;
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
+
 }
 //#263238
 body{
-  background-color: lighten($primaryColor, 5%);
+  //background-color: lighten($primaryColor, 5%);
+  background-color: #f3f3f3;
   color: $textColor;
 }

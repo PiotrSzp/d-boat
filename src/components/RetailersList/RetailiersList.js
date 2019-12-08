@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MyLocationIcon from '@material-ui/icons/MyLocation';
 import PropTypes from 'prop-types';
-import copy from "../../copy";
+// import copy from "../../copy";
 
 import RetailerItem from "./RetailerItem";
 

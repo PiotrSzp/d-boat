@@ -7,13 +7,13 @@ const copy = {
                         text: 'DIAMOND 550',
                         link: '/diamond-550',
                         id: 1.1,
-                        img: 'sample-boat-slide.png'
+                        img: 'diamond-550.png'
                     },
                     {
                         text: 'Coming soon',
                         link: '#',
                         id: 1.2,
-                        img: 'sample-boat-slide.png'
+                        img: 'diamond-550.png'
                     }
                 ]
             },
@@ -104,13 +104,13 @@ const copy = {
                         text: 'DIAMOND 550',
                         link: '/diamond-550',
                         id: 1.1,
-                        img: 'sample-boat-slide.png'
+                        img: 'diamond-550.png'
                     },
                     {
-                        text: 'Już w krótce...',
+                        text: 'Już wkrótce...',
                         link: '#',
                         id: 1.2,
-                        img: 'sample-boat-slide.png'
+                        img: 'diamond-550.png'
                     }
                 ]
             },
