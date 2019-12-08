@@ -104,6 +104,7 @@
           &:hover {
             background-color: darken(rgba($textColor, 0.95), 10%);
             color: $primaryColor;
+            //filter: invert(1);
           }
 
           .nav-menu-sublink {
