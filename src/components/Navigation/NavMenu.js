@@ -1,15 +1,22 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import SlideToggle from 'react-slide-toggle';
-import pl from "../../assets/img/polish.png";
-import eng from "../../assets/img/english.png";
+import selectArrow from '../../assets/img/select-language.png'
 
 class NavMenu extends React.Component {
     state = {
         collapseEvent: 0,
+        value: 'EN'
     };
 
     body = document.querySelector('body');
+
+    handleOnChange = (e) => {
+        this.props.language(e.target.value);
+        this.setState({
+            value: e.target.value === 'polish'?'PL':'EN'
+        })
+    };
 
     collapseClickOnBody = e => {
         this.setState({
@@ -21,57 +28,67 @@ class NavMenu extends React.Component {
     render() {
         return (
             <ul className="nav-menu">
-                <div className="language-change">
-                    <img onClick={()=>this.props.language('polish')} className="polish" src={pl} alt='change to polish'/>
-                    <img onClick={()=>this.props.language('english')} className="english" src={eng} alt='change to english'/>
+                <div className="select-wrapper">
+                    <select onChange={this.handleOnChange}  className="language-change">
+                        <option value="polish">Polski</option>
+                        <option value="english" selected>English</option>
+                    </select>
+                    <div className="lang-value">
+                        {this.state.value}
+                        <img src={selectArrow}/>
+                    </div>
                 </div>
                 <div className="nav-vertical-bar"/>
-                { this.props.list.menu.map(el => {
+                {this.props.list.menu.map(el => {
                     return <SlideToggle
-                        key={ el.id }
-                        duration={ 500 }
-                        collapseEvent={ this.state.collapseEvent }
+                        key={el.id}
+                        duration={500}
+                        collapseEvent={this.state.collapseEvent}
                         collapsed
-                        render={ ({ toggle, setCollapsibleElement }) => (
+                        render={({toggle, setCollapsibleElement}) => (
                             <li
                                 className='nav-menu-el'
-                                onClick={ () => {
+                                onClick={() => {
                                     if (Date.now() - this.state.collapseEvent > 20 && el.submenu) {
                                         this.body.addEventListener('click', this.collapseClickOnBody);
                                         toggle();
                                     } else {
                                         this.body.removeEventListener('click', this.collapseClickOnBody);
                                     }
-                                } }
+                                }}
                             >
                                 <NavLink
-                                    to={ el.link }
+                                    to={el.link}
                                     className='nav-menu-link'
                                     // onClick to avoid scrolling to top when dropping dropdown submenu
-                                    onClick={(e) => {if (el.submenu) {e.preventDefault();}}}
+                                    onClick={(e) => {
+                                        if (el.submenu) {
+                                            e.preventDefault();
+                                        }
+                                    }}
                                 >
-                                    { el.text }
+                                    {el.text}
                                 </NavLink>
                                 {
                                     el.submenu ? <ul
-                                        ref={ setCollapsibleElement }
+                                        ref={setCollapsibleElement}
                                         className='nav-menu-submenu'
                                     >
                                         {
                                             el.submenu.map(subEl => {
                                                 return (
                                                     <li
-                                                        key={ subEl.id }
+                                                        key={subEl.id}
                                                         className='nav-menu-subel'
                                                     >
                                                         <NavLink
-                                                            to={ subEl.link }
+                                                            to={subEl.link}
                                                             className='nav-menu-sublink'
-                                                            style={ {
-                                                                backgroundImage: `url(${ require(`../../assets/models-submenu/${ subEl.img }`) })`,
-                                                            } }
+                                                            style={{
+                                                                backgroundImage: `url(${require(`../../assets/models-submenu/${subEl.img}`)})`,
+                                                            }}
                                                         >
-                                                            { subEl.text }
+                                                            {subEl.text}
                                                         </NavLink>
                                                     </li>
                                                 )
@@ -80,9 +97,9 @@ class NavMenu extends React.Component {
                                     </ul> : null
                                 }
                             </li>
-                        ) }
+                        )}
                     />
-                }) }
+                })}
             </ul>
         )
     }

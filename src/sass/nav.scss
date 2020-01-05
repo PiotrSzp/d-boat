@@ -15,6 +15,7 @@
   width: 100%;
   z-index: 999;
   transition: height .3s;
+
   .wrapper {
     justify-content: space-between;
     align-items: center;
@@ -38,7 +39,59 @@
     font-weight: 800;
     display: flex;
     align-items: center;
-    
+    position: relative;
+
+    .select-wrapper {
+      margin-right: 30px;
+
+      .language-change {
+        opacity: 0;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+        width: 100px;
+        background-color: $nav;
+        color: $textColor;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        font-size: 18px;
+        border:1px solid red;
+        outline:0px;
+
+        &:focus {
+          border:1px solid red;
+          outline: none !important;
+        }
+        option {
+          text-align: center;
+        }
+        option:checked {
+          background-color: lighten($nav, 20%);
+        }
+        option:focus {
+          outline: none !important;
+        }
+      }
+
+      .lang-value {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        font-size: 20px;
+        font-weight: 400;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          height: 18px;
+          margin-left: 7px;
+        }
+      }
+    }
+
     .nav-vertical-bar {
       width: 1px;
       height: 90px;
@@ -52,7 +105,7 @@
       margin-left: 20px;
       position: relative;
 
-      &:last-of-type{
+      &:last-of-type {
         margin-right: 15px;
       }
 
@@ -70,19 +123,11 @@
         font-size: 18px;
         transition: .3s;
 
-
-
         &:hover {
           color: darken($textColor, 40%);
         }
       }
-      .black{
-        color: #000;
-      }
 
-      .white {
-        color: #000;
-      }
 
       //DROPDOWN models submenu styles:
       .nav-menu-submenu {
@@ -139,28 +184,19 @@
   }
 
 }
-.scroll-black{
+
+.scroll-black {
   background-color: transparent;
   height: 80px;
   color: black;
 
 }
-.scroll-white{
+
+.scroll-white {
   background-color: #F3F3F3;
   height: 80px;
+}
 
-}
-.language-change{
-  img{
-    border-radius: 50%;
-    cursor: pointer;
-    height: 22px;
-    width: 22px;
-  }
-  .polish{
-    margin-right: 7px;
-  }
-}
 
 
 

@@ -23,17 +23,17 @@ const english = copy.English;
 
 
 class App extends Component {
-    state={
-      language:english,
+    state = {
+        language: english,
         langName: 'english'
     };
 
 
-    languageChange =(lang) => {
-      this.setState({
-          language: lang==='polish'?polish:english,
-          langName: lang==='polish'?'polish':'english'
-      })
+    languageChange = (lang) => {
+        this.setState({
+            language: lang === 'polish' ? polish : english,
+            langName: lang === 'polish' ? 'polish' : 'english'
+        })
     };
 
     render() {
@@ -53,7 +53,7 @@ class App extends Component {
                         </Route>
                         <Route path='/news'>
                             <Nav language={this.languageChange} list={this.state.language} color='white'/>
-                            <NewsSection language={this.state.language===polish?'pl':'eng'}/>
+                            <NewsSection language={this.state.language === polish ? 'pl' : 'eng'}/>
                             <Footer links={this.state.language.footer}/>
                         </Route>
                         <Route path='/about'>
@@ -63,7 +63,8 @@ class App extends Component {
                         </Route>
                         <Route path='/contact'>
                             <Nav language={this.languageChange} list={this.state.language} color='white'/>
-                            <ContactForm language={this.state.language} select={this.state.language===polish?'pl':'eng'}/>
+                            <ContactForm language={this.state.language}
+                                         select={this.state.language === polish ? 'pl' : 'eng'}/>
                             <Footer links={this.state.language.footer}/>
                         </Route>
                         {
@@ -73,7 +74,7 @@ class App extends Component {
                                     key={model.id}
                                 >
                                     <Nav language={this.languageChange} list={this.state.language} color='black'/>
-                                    <Model modelLink={model.link} lang={ this.state.langName }/>
+                                    <Model modelLink={model.link} lang={this.state.langName}/>
                                     <Footer links={this.state.language.footer}/>
                                 </Route>
                             })
