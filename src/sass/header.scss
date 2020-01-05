@@ -11,7 +11,7 @@
 
   #myVideo {
     position: absolute;
-    top: 0;
+    top: 150px;
     left: 0;
     min-width: 100%;
     max-width: 100%;
@@ -28,10 +28,12 @@
     width: 100%;
     height: 100%;
     //background: linear-gradient(
-    //                rgba($primaryColor, 0.1),
-    //                rgba($primaryColor, 0),
-    //                rgba($primaryColor, .1)
+    //                rgba(darken($primaryColor,30%), .0),
+    //                rgba(darken($primaryColor,30%), .0),
+    //                rgba(darken($primaryColor,30%), .0)
     //)
+    background-color:darken($primaryColor,20%);
+    opacity: .8;
   }
 
   .header-text {
@@ -46,28 +48,28 @@
     }
 
     .header-logo {
-      width: 50%;
+      width: 80%;
       margin-bottom: 15px;
 
     }
 
-    hr {
-      background: #fff;
-      border: 0;
-      height: 1px;
-      width: 70%;
-      margin: 10px auto;
+    .hr {
+      background-image: url("./assets/img/bar-header.svg");
+      background-size: contain;
+      height: 2px;
+      width: 60%;
+      margin: 20px auto;
     }
 
     .header-msg {
-      font-family: 'Titillium Web', sans-serif;
-      font-weight: 200;
-      font-size: 3vw;
+      font-family: "Inria Serif", sans-serif;
+      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: 15px;
+      font-size: 1.4vw;
       color: #fff;
-
     }
   }
-
 }
 
 @keyframes fadeIn {

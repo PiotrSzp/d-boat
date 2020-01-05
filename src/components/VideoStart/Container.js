@@ -15,7 +15,7 @@ function IntroPage() {
             <div className="gradient"></div>
             <div className="header-text">
                 <img src={logo} alt="" className="header-logo"/>
-                    <hr/>
+                    <div className='hr'/>
                 <h1 className="header-msg">{copy.English.header.msg}</h1>
             </div>
         </header>

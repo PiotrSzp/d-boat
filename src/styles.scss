@@ -15,22 +15,15 @@
 @import "sass/footer";
 @import "~react-image-gallery/styles/scss/image-gallery.scss";
 
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700,900&display=swap&subset=latin-ext');
-//font-family: 'Lora', serif;
-//font-family: 'Open Sans Condensed', sans-serif;
-//font-family: 'Roboto Mono', monospace;
-
-//font-family: 'Lato', sans-serif;
-//font-family: 'Raleway', sans-serif;
-//font-family: 'Titillium Web', sans-serif;
-//font-family: 'Quicksand', sans-serif;
-//font-family: 'Abel', sans-serif;
-//font-family: 'Yanone Kaffeesatz', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Inria+Serif|PT+Sans:400,700|Source+Sans+Pro:400,700&display=swap&subset=latin-ext');
+//font-family: 'Inria Serif', serif;
+//font-family: 'PT Sans', sans-serif;
+//font-family: 'Source Sans Pro', sans-serif;
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: 'PT Sans', sans-serif;
 
 }
 //#263238

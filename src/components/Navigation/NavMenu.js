@@ -21,6 +21,11 @@ class NavMenu extends React.Component {
     render() {
         return (
             <ul className="nav-menu">
+                <div className="language-change">
+                    <img onClick={()=>this.props.language('polish')} className="polish" src={pl} alt='change to polish'/>
+                    <img onClick={()=>this.props.language('english')} className="english" src={eng} alt='change to english'/>
+                </div>
+                <div className="nav-vertical-bar"/>
                 { this.props.list.menu.map(el => {
                     return <SlideToggle
                         key={ el.id }
@@ -41,7 +46,7 @@ class NavMenu extends React.Component {
                             >
                                 <NavLink
                                     to={ el.link }
-                                    className={ this.props.color === 'white' || (this.props.color === 'black' && !this.props.top) ? 'nav-menu-link black' : 'nav-menu-link' }
+                                    className='nav-menu-link'
                                     // onClick to avoid scrolling to top when dropping dropdown submenu
                                     onClick={(e) => {if (el.submenu) {e.preventDefault();}}}
                                 >
@@ -78,10 +83,6 @@ class NavMenu extends React.Component {
                         ) }
                     />
                 }) }
-                <div className="language-change">
-                    <img onClick={()=>this.props.language('polish')} className="polish" src={pl} alt='change to polish'/>
-                    <img onClick={()=>this.props.language('english')} className="english" src={eng} alt='change to english'/>
-                </div>
             </ul>
         )
     }

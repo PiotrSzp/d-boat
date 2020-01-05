@@ -9,9 +9,9 @@
 
 .nav {
   //background-color: darken($primaryColor, 30%);
-  background-color:$greyColor;
-  height: 60px;
-  position: fixed;
+  background-color: $nav;
+  height: 150px;
+  //position: fixed;
   width: 100%;
   z-index: 999;
   transition: height .3s;
@@ -22,16 +22,13 @@
 
   .nav-logo {
     height: 100%;
-    width: 115px;
+    width: 150px;
     display: block;
     background-image: url("./assets/img/logo.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left;
     margin-left: 20px;
-  }
-  .logo-white{
-    background-image: url("./assets/img/logo2.svg");
   }
 
   .nav-menu {
@@ -41,6 +38,12 @@
     font-weight: 800;
     display: flex;
     align-items: center;
+    
+    .nav-vertical-bar {
+      width: 1px;
+      height: 90px;
+      background-color: $textColor;
+    }
 
     .nav-menu-el {
       height: 100%;
@@ -61,9 +64,10 @@
         width: 100%;
         text-decoration: none;
         text-transform: uppercase;
-        color: $greyColor;
-        font-family: 'Panton', sans-serif;
-        font-size: 15px;
+        color: $textColor;
+        font-family: "Source Sans Pro - Black", sans-serif;
+        font-weight: 800;
+        font-size: 18px;
         transition: .3s;
 
 
