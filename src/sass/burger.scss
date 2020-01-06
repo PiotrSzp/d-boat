@@ -50,7 +50,7 @@
   width: 100%;
   padding-top: 10vh;
   background-color: $nav;
-  top: 60px;
+  top: 150px;
   right: 0;
   display: flex;
   flex-direction: column;
@@ -118,6 +118,17 @@
       display: block;
       width: 100%;
       text-transform: uppercase;
+    }
+  }
+}
+
+.burger-list {
+  .select-wrapper{
+    margin: 0;
+
+    .language-list {
+      top: 40px;
+      background-color: lighten($nav,10%);
     }
   }
 }

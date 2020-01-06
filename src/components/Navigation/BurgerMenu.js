@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SlideToggle from 'react-slide-toggle';
-import pl from "../../assets/img/polish.png";
-import eng from "../../assets/img/english.png";
+import LanguageChange from "./LanguageChange";
 
 
 class Burger extends React.Component {
@@ -100,10 +99,8 @@ class Burger extends React.Component {
                             />)
                         }
                     }) }
-                    <div className="language-change">
-                        <img onClick={()=>this.props.language('polish')} className="polish" src={pl} alt='change to polish'/>
-                        <img onClick={()=>this.props.language('english')} className="english" src={eng} alt='change to english'/>
-                    </div></ul> : null
+                    <LanguageChange language={this.props.language}/>
+                </ul> : null
                 }
             </>
         )

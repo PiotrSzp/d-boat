@@ -1,22 +1,16 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import SlideToggle from 'react-slide-toggle';
-import selectArrow from '../../assets/img/select-language.png'
+import LanguageChange from "./LanguageChange";
 
 class NavMenu extends React.Component {
     state = {
         collapseEvent: 0,
-        value: 'EN'
+
     };
 
     body = document.querySelector('body');
 
-    handleOnChange = (e) => {
-        this.props.language(e.target.value);
-        this.setState({
-            value: e.target.value === 'polish'?'PL':'EN'
-        })
-    };
 
     collapseClickOnBody = e => {
         this.setState({
@@ -28,16 +22,7 @@ class NavMenu extends React.Component {
     render() {
         return (
             <ul className="nav-menu">
-                <div className="select-wrapper">
-                    <select onChange={this.handleOnChange}  className="language-change">
-                        <option value="polish">Polski</option>
-                        <option value="english" selected>English</option>
-                    </select>
-                    <div className="lang-value">
-                        {this.state.value}
-                        <img src={selectArrow}/>
-                    </div>
-                </div>
+                <LanguageChange language={this.props.language}/>
                 <div className="nav-vertical-bar"/>
                 {this.props.list.menu.map(el => {
                     return <SlideToggle
