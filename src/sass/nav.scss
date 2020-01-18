@@ -149,6 +149,7 @@
 .select-wrapper {
   margin-right: 50px;
   position: relative;
+  font-family: 'PT Sans', sans-serif;
 
   .lang-value {
     font-size: 20px;
@@ -177,7 +178,7 @@
     text-transform: uppercase;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
-    visibility: hidden;
+    visibility: visible;
     opacity: 0;
 
     span {
