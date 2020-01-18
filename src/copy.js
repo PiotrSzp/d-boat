@@ -13,7 +13,7 @@ const copy = {
                         text: 'Coming soon',
                         link: '#',
                         id: 1.2,
-                        img: 'diamond-550.png'
+                        img: 'diamond-soon.png'
                     }
                 ]
             },
@@ -110,7 +110,7 @@ const copy = {
                         text: 'Już wkrótce...',
                         link: '#',
                         id: 1.2,
-                        img: 'diamond-550.png'
+                        img: 'diamond-soon.png'
                     }
                 ]
             },

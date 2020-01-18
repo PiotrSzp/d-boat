@@ -30,6 +30,7 @@ class NavMenu extends React.Component {
                         duration={500}
                         collapseEvent={this.state.collapseEvent}
                         collapsed
+                        offsetHeight
                         render={({toggle, setCollapsibleElement}) => (
                             <li
                                 className='nav-menu-el'

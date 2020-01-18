@@ -23,7 +23,7 @@
     height: 100%;
     width: 150px;
     display: block;
-    background-image: url("./assets/img/logo.svg");
+    background-image: url("../assets/img/logo.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left;
@@ -81,21 +81,16 @@
       //DROPDOWN models submenu styles:
       .nav-menu-submenu {
         position: absolute;
-        top: calc(100% + 15px);
+        top: calc(100% + 50px);
         left: 50%;
         transform: translate(-50%);
         width: 400px;
-        //width: 50vw;
+        height: 460px;
         display: flex;
         flex-direction: column;
-        background-color: rgba($primaryColor, 0.98);
-        //margin-top: -20vh;
-        //padding-top: 20vh;
+        background-color: $nav;
 
         .nav-menu-subel {
-          //background-color: rgba($primaryColor, 0.95);
-          //border: 2px solid $textColor;
-          //margin-bottom: 10px;
           transition: background-color .5s, color .5s;
           color: $secondaryColor;
 
@@ -104,23 +99,38 @@
           }
 
           &:hover {
-            background-color: darken(rgba($textColor, 0.95), 10%);
+            background-color: lighten($nav, 30%);
             color: $primaryColor;
             //filter: invert(1);
           }
 
           .nav-menu-sublink {
-            height: 200px;
+            height: 230px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             align-items: bottom;
             padding: 10px;
             background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
+            background-position: center bottom 100px;
+            background-size: 350px;
             text-decoration: none;
-            color: inherit;
+            padding-bottom: 50px;
+            padding-left: 30px;
+            text-transform: uppercase;
+            color: #fff;
+            position: relative;
+            
+            &:after {
+              content: '';
+              display: block;
+              position: absolute;
+              bottom: 30px;
+              left: 33px;
+              width: 330px;
+              height: 2px;
+              background-color: #fff;
+            }
           }
         }
       }
