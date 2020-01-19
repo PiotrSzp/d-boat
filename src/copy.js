@@ -21,6 +21,46 @@ const copy = {
             {text: 'About us', link: '/about', id: 3},
             {text: 'Contact', link: '/contact', id: 4}
         ],
+        modelInfo: {
+            bigText: 'Timeless design',
+            smallText: 'Design that is captivating and makes you feel',
+            special: 'special',
+            specs: {
+                Sterndrive: {
+                    title: 'Sterndrive',
+                    info: [
+                        ['overall length', `32'6"`],
+                        ['beam', `10'4"`],
+                        ['draft up', `1'11"`],
+                        ['dry weight', `~13,000 LBS.`],
+                        ['usable fuel', `166 GALLONS`],
+                        ['fresh water', `21 GALLONS`],
+                        ['waste water', `19 GALLONS`],
+                        ['deadrise', `20 DEGREES`],
+                        ['max persons/weight', `YACHT CERTIFIED`]
+                    ]
+                },
+                Outboard: {
+                    title: 'Outboard',
+                    info: [
+                        ['overall length', `34'4"`],
+                        ['beam', `10'4"`],
+                        ['draft up', `1'11"`],
+                        ['dry weight', `~12,000 LBS.`],
+                        ['usable fuel', `166 GALLONS`],
+                        ['fresh water', `21 GALLONS`],
+                        ['waste water', `19 GALLONS`],
+                        ['deadrise', `20 DEGREES`],
+                        ['max persons/weight', `YACHT CERTIFIED`]
+                    ]
+                }
+            },
+            inside: {
+                title: 'Premium Components',
+                text: 'Simrad, digital switching, italian-handcrafted steering wheel-comes as a ',
+                standard: 'standard'
+            }
+        },
         header: {
             title: 'D-BOATS',
             msg: 'An exquisite piece of engineering with a captivating presence.'
@@ -118,6 +158,46 @@ const copy = {
             {text: 'O nas', link: '/about', id: 3},
             {text: 'Kontakt', link: '/contact', id: 4}
         ],
+        modelInfo: {
+            bigText: 'Timeless design',
+            smallText: 'Design that is captivating and makes you feel',
+            special: 'special',
+            specs: {
+                Sterndrive: {
+                    title: 'Sterndrive',
+                    info: [
+                        ['overall length', `32'6"`],
+                        ['beam', `10'4"`],
+                        ['draft up', `1'11"`],
+                        ['dry weight', `~13,000 LBS.`],
+                        ['usable fuel', `166 GALLONS`],
+                        ['fresh water', `21 GALLONS`],
+                        ['waste water', `19 GALLONS`],
+                        ['deadrise', `20 DEGREES`],
+                        ['max persons/weight', `YACHT CERTIFIED`]
+                    ]
+                },
+                Outboard: {
+                    title: 'Outboard',
+                    info: [
+                        ['overall length', `34'4"`],
+                        ['beam', `10'4"`],
+                        ['draft up', `1'11"`],
+                        ['dry weight', `~12,000 LBS.`],
+                        ['usable fuel', `166 GALLONS`],
+                        ['fresh water', `21 GALLONS`],
+                        ['waste water', `19 GALLONS`],
+                        ['deadrise', `20 DEGREES`],
+                        ['max persons/weight', `YACHT CERTIFIED`]
+                    ]
+                }
+            },
+            inside: {
+                title: 'Premium Components',
+                text: 'Simrad, digital switching, italian-handcrafted steering wheel-comes as a ',
+                standard: 'standard'
+            }
+        },
         header: {
             title: 'D-BOATS',
             msg: 'An exquisite piece of engineering with a captivating presence.'
@@ -153,18 +233,18 @@ const copy = {
             title: 'Nasza Historia',
             first: 'D-BOATS to historia dwóch pasjonatów, którzy z uwielbienia do spędzania czasu na wodzie,\n' +
                 'dobrego designu oraz adrenaliny - stworzyli markę wyjątkowych jachtów motorowych.',
-           text: 'Bezkompromisowo stwierdziliśmy, że nasze łodzie mają zachwycać, imponować funkcjonalnością i\n' +
-               'pływać najlepiej w swojej klasie.\n' +
-               'Dobierając do tworzenia naszych łodzi - entuzjastów jachtingu, stworzyliśmy team, którego\n' +
-               'członkowie mają ponad 30 lat doświadczenia w produkcji, projektowaniu i tworzeniu łodzi.\n' +
-               'Doświadczenie w połączeniu z najnowszą technologią i wyjątkowym designem, spowodowało, że\n' +
-               'nasz pierwszy model spełnia założenia powyżej.\n' +
-               'Diamond550 zachwyca designem, imponuje funkcjonalnością i pływa najlepiej w swojej klasie, co\n' +
-               'docenili zarówno klienci jak i profesjonaliści branżowi.\n' +
-               '\n' +
-               'Produkcja łodzi D-BOAT odbywa się w stoczni w której produkowane są jachty od ponad 20 lat.\n' +
-               'Każda łódź przechodzi rygorystyczne testy na każdym etapie produkcji, dzięki czemu nasze\n' +
-               'produkty mają certyfikację CE oraz są produktami najwyższej jakości.'
+            text: 'Bezkompromisowo stwierdziliśmy, że nasze łodzie mają zachwycać, imponować funkcjonalnością i\n' +
+                'pływać najlepiej w swojej klasie.\n' +
+                'Dobierając do tworzenia naszych łodzi - entuzjastów jachtingu, stworzyliśmy team, którego\n' +
+                'członkowie mają ponad 30 lat doświadczenia w produkcji, projektowaniu i tworzeniu łodzi.\n' +
+                'Doświadczenie w połączeniu z najnowszą technologią i wyjątkowym designem, spowodowało, że\n' +
+                'nasz pierwszy model spełnia założenia powyżej.\n' +
+                'Diamond550 zachwyca designem, imponuje funkcjonalnością i pływa najlepiej w swojej klasie, co\n' +
+                'docenili zarówno klienci jak i profesjonaliści branżowi.\n' +
+                '\n' +
+                'Produkcja łodzi D-BOAT odbywa się w stoczni w której produkowane są jachty od ponad 20 lat.\n' +
+                'Każda łódź przechodzi rygorystyczne testy na każdym etapie produkcji, dzięki czemu nasze\n' +
+                'produkty mają certyfikację CE oraz są produktami najwyższej jakości.'
         },
         form: {
             name: 'Imię',

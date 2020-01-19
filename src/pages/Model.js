@@ -1,10 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from "prop-types";
-import Video from "../components/VideoStart/Video";
 import client from "../components/ApolloClient";
 import gql from "graphql-tag";
 import Features from "../components/ModelComponents/Features";
 import Carousel from "../components/ModelComponents/Carousel";
+import light from "../assets/img/model-high.png";
+import dark from "../assets/img/model-dark.png";
+import header from "../assets/img/model-header.png";
+import colorModel from "../assets/img/dboat-model-color.png";
+import features from "../assets/img/features.png";
+import insideBgc from "../assets/img/inside-color.jpg";
 
 
 class Model extends Component {
@@ -81,26 +86,26 @@ class Model extends Component {
                         featuresPl
                     }
                 }
-               `
+            `
+        })
+        .then(res => {
+            this.setState({
+                model: res.data.models[0],
+            });
+        })
+        .then(() => {
+            this.setState(state => {
+                const videoSrc = require('../assets/movie/' + state.model.videoFileName);
+                return {videoSrc};
             })
-            .then(res => {
-                this.setState({
-                    model: res.data.models[0],
-                });
-            })
-            .then(() => {
-                this.setState(state => {
-                    const videoSrc = require('../assets/movie/' + state.model.videoFileName);
-                    return { videoSrc };
-                })
-            })
-            .then(() => {
-                this.updateLangContent();
-            })
-            .then(() => {
-                this.setState({ isDataFetched: true })
-            })
-            .catch(error => console.error(error));
+        })
+        .then(() => {
+            this.updateLangContent();
+        })
+        .then(() => {
+            this.setState({isDataFetched: true})
+        })
+        .catch(error => console.error(error));
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -114,30 +119,68 @@ class Model extends Component {
         if (this.state.isDataFetched) {
             return (
                 <>
-                    <section className='header-video'>
-                        <Video imgSrc={ this.state.videoSrc } muted={ true } />
-                        <div className="header-text">
-                            <h4 className="header-title">
-                                Model
-                                <hr />
-                            </h4>
-                            <h1 className="header-msg">
-                                { this.state.model.name }
-                            </h1>
-                        </div>
+                    <section className="models">
+                        <section className="header-model">
+                            <img src={header}/>
+                        </section>
+                        <section className="highlights">
+                            <div className="highlights-photos">
+                                <img className='first' src={dark}/>
+                                <img className='sec' src={light}/>
+                                <img className='third' src={dark}/>
+                            </div>
+                            <div className="big-text">{this.props.content.bigText}</div>
+                            <div className="small-text">{this.props.content.smallText}
+                                <strong>{this.props.content.special}</strong></div>
+                        </section>
+                        <section className="color-model">
+                            <div className="white-bar"/>
+                            <img src={colorModel}/>
+                            <div className="white-bar"/>
+                        </section>
+                        <section className="features">
+                            <img src={features}/>
+                            <div className="specs">
+                                <div className="left-side">
+                                    <h1>{this.props.content.specs.Sterndrive.title}</h1>
+                                    {this.props.content.specs.Sterndrive.info.map((val,i )=> {
+                                       return(
+                                           <div className='info-container' key={i}>
+                                               {val.map((el,i)=>{
+                                                   return <p key={i}>{el}</p>
+                                               })}
+                                           </div>
+                                       )
+                                    })}
+                                </div>
+                                <div className="right-side">
+                                    <h1>{this.props.content.specs.Outboard.title}</h1>
+                                    {this.props.content.specs.Outboard.info.map((val,i ) => {
+                                        return(
+                                            <div className='info-container' key={i}>
+                                                {val.map((el,i)=>{
+                                                    return <p key={i}>{el}</p>
+                                                })}
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                        </section>
+                        <section className="inside">
+                            <img src={insideBgc}/>
+                            <div className="inside-info">
+                                <h1>{this.props.content.inside.title}</h1>
+                                <div className="white-bar"></div>
+                                <p className="inside-text">{this.props.content.inside.text} <strong>{this.props.content.inside.standard}</strong></p>
+                            </div>
+                        </section>
+                        <Carousel/>
                     </section>
-                    <section className='highlights'
-                             dangerouslySetInnerHTML={ { __html: this.state.langContent.highlights.html } }
-                    />
-                    <Features
-                        text={ this.state.langContent.features.features }
-                        imgSrc={ this.state.model.featuresImg.url }
-                    />
-                    <Carousel />
                 </>
             )
         } else {
-            return <div style={ { 'height': '100vh' } } />
+            return <div style={{'height': '100vh'}}/>
         }
     }
 }

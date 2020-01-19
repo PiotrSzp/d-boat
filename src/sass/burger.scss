@@ -46,8 +46,8 @@
 .burger-list{
   position: absolute;
   list-style: none;
-  height: 100vh;
   width: 100%;
+  height: 100vh ;
   padding-top: 10vh;
   background-color: $nav;
   top: 150px;
@@ -56,6 +56,7 @@
   flex-direction: column;
   align-items: center;
   animation: slide 1s ease-in-out;
+  z-index: 2;
 
   .burger-el{
     margin-bottom: 5vh;

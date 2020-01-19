@@ -22,46 +22,46 @@ class Carousel extends Component {
             videoId: '-fi5NRacpZ8',
             renderItem: this._renderVideo.bind(this)
         },
-        {
-            original: 'https://picsum.photos/id/1015/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1015/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1019/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1019/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1019/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1019/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1019/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1019/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1019/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1019/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
-        },
-        {
-            original: 'https://picsum.photos/id/1019/1000/600/',
-            thumbnail: 'https://picsum.photos/id/1019/250/150/',
-        },
+        // {
+        //     original: 'https://picsum.photos/id/1015/1000/600/',
+        //     thumbnail: 'https://picsum.photos/id/1015/250/150/',
+        // },
+        // {
+        //     original: 'https://picsum.photos/id/1019/1000/600/',
+        //     thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        // },
+        // {
+        //     original: 'https://picsum.photos/id/1019/1000/600/',
+        //     thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        // },
+        // {
+        //     original: 'https://picsum.photos/id/1019/1000/600/',
+        //     thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        // },
+        // {
+        //     original: 'https://picsum.photos/id/1019/1000/600/',
+        //     thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        // },
+        // {
+        //     original: 'https://picsum.photos/id/1019/1000/600/',
+        //     thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        // },
+        // {
+        //     original: 'https://picsum.photos/id/1019/1000/600/',
+        //     thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        // },
+        // {
+        //     original: 'https://picsum.photos/id/1019/1000/600/',
+        //     thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        // },
+        // {
+        //     original: 'https://picsum.photos/id/1019/1000/600/',
+        //     thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        // },
+        // {
+        //     original: 'https://picsum.photos/id/1019/1000/600/',
+        //     thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        // },
     ];
 
     _onSlide(index) {
@@ -151,7 +151,7 @@ class Carousel extends Component {
 
     render() {
         return (
-            <section>
+            <section className='gallery-container'>
                 <ImageGallery
                     items={ this.images }
                     showFullscreenButton={ false }
