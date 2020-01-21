@@ -50,7 +50,6 @@
     .header-logo {
       width: 80%;
       margin-bottom: 15px;
-
     }
 
     .hr {
@@ -68,6 +67,34 @@
       letter-spacing: 15px;
       font-size: 1.4vw;
       color: #fff;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .header-text {
+      .header-logo {
+        width: 100%;
+      }
+
+      .hr {
+        width: 100%;
+      }
+
+      .header-msg {
+        letter-spacing: 5px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header-text {
+      width: 80%;
+
+      .header-msg {
+        line-height: 1.4em;
+        font-size: calc(10px + 0.3vw);
+        letter-spacing: 3px;
+      }
     }
   }
 }
