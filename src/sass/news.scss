@@ -1,39 +1,47 @@
 //Main container
 .news-container {
-  padding-top: 80px;
   max-width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  color: $nav;
+
 }
 
 .news-section {
   margin-top: 60px;
   width: 1200px;
+
+
   //Media for section with news
   @media (max-width: 1200px) {
     width: 780px;
-
   }
+
   @media (max-width: 850px) {
     width: 100%;
-
   }
+
   //Main title
   .news-title {
-    font-weight: 300;
-    font-size: 60px;
+    font-weight: 800;
+    font-size: 40px;
     margin-bottom: 60px;
     text-align: center;
-    //font-family: 'Panton', sans-serif;
-    //color: $secondaryColor;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+
+    .title-hr {
+      width: 10%;
+      height: 5px;
+      background-color: $nav;
+      margin: 20px auto 0 auto;
+    }
 
     @media (max-width: 850px) {
       font-size: 40px;
-
     }
-
   }
 
   // Single news/post styling
@@ -52,7 +60,7 @@
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
-    color: $greyColor;
+    color: $nav;
 
 
     .filter {
@@ -88,7 +96,7 @@
       width: 30px;
       height: 2px;
       //background-color: lighten($secondaryColor, 20%);
-      background-color: $greyColor;
+      background-color: $nav;
       margin-bottom: 10px;
 
     }

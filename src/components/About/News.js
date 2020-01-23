@@ -75,7 +75,11 @@ class NewsSection extends Component {
             <>
                 <div className="news-container">
                     <section className="news-section">
-                        <h1 className="news-title">News & Events</h1>
+                        <h1 className="news-title">
+                            News & Events
+                            <br/>
+                            <div className='title-hr'/>
+                        </h1>
                         <div className="post-container">
                             {this.state.posts.map(el => {
                                 return (
