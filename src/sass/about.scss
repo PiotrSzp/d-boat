@@ -1,5 +1,5 @@
 .about-section {
-  padding-top: 100px;
+  padding-top: 50px;
   .about-team {
     display: flex;
     height: 85vh;
@@ -67,10 +67,18 @@
       }
 
       .team-first{
-        font-size: calc(8px + 0.5vw);
-        width: 80%;
+        width: 70%;
         line-height: 1.5em;
         color: $nav;
+        font-size: calc(10px + 0.5vw);
+        font-weight: 600;
+      }
+
+      .team-sec {
+        width: 70%;
+        padding-top: 50px;
+        padding-right: 20px;
+        font-size: calc(10px + 0.5vw);
       }
     }
 
