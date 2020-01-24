@@ -58,7 +58,7 @@ class NewsSection extends Component {
     modalSlide = (id, ref) => {
         this.setState(
             {
-                activeModal: this.state.activeModal === id ? null : id
+                activeModal: id
             },
             () => {
                 console.log(ref);
@@ -85,16 +85,14 @@ class NewsSection extends Component {
                                 return (
                                     <article key={el.id}
                                              className={`post ${this.state.activeModal === el.id ? 'active' : ''}`}
-                                             style={{backgroundImage: `url(${el.image.url})`}}>
-                                        <div onClick={() => this.modalSlide(el.id, el.ref)}
-                                             className={`filter ${this.state.activeModal === el.id ? 'active' : ''}`}>
+                                             onClick={() => this.modalSlide(el.id, el.ref)}
+                                    >
                                             <p className="post-date">{el.date}</p>
                                             <h4 className="post-title">{this.props.language==='pl'?el.title:el.titleEng}</h4>
+                                            <img src={el.image.url} className='post-background'/>
                                             <div className="bar"/>
                                             <p className="post-text">{this.props.language==='pl'?el.subinfo:el.subInfoEng}
                                             </p>
-
-                                        </div>
                                         {this.state.activeModal === el.id ? <div ref={el.ref} className="post-content">
                                             <div className="content-details">
                                                 <p className="content-date">{el.date}</p>
