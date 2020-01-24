@@ -6,16 +6,22 @@ function About(props) {
     return (
         <section className='about-section'>
             <article className="about-team">
-                <img className='team-photo' src={ceo} alt=""/>
+                <section className="team-photo">
+                    <div className="white-back"/>
+                    <div className="dark-back"/>
+                    <img className='photo' src={ceo} alt=""/>
+                </section>
                 <section className="team-content">
-                    <h1 className="team-title">{props.content.title}</h1>
-                    <div className="team-line"></div>
-                    <p className="team-describe">
-                        {props.content.first}
-                        <br/>
-                        <br/>
-                        {props.content.text}
-                    </p>
+                    <div className="white-back">
+                        <h1 className="team-title">{props.content.title}</h1>
+                        <div className="team-line"/>
+                        <p className="team-first">{props.content.first}</p>
+                    </div>
+                    <div className="dark-back">
+                        <p className="team-sec">
+                            {props.content.text}
+                        </p>
+                    </div>
                 </section>
             </article>
         </section>

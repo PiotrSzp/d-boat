@@ -13,52 +13,52 @@ class NewsSection extends Component {
     componentDidMount() {
         // Fetch GraphQL data and set to this.state.events
         client
-            .query({
-                query: gql`
-          query{
-            posts {
-              id
-              title
-              titleEng
-              subinfo
-              subInfoEng
-              content{
-                html
-                text
-                markdown
-              }
-              contentEng{
-                html
-                text
-                markdown
-              }
-              image{
-                id
-                url
-              }
-              date
-              gallery { 
-                url 
-              }  
-            }
-          }
-        `
-            })
-            .then(res => {
-                const posts = res.data.posts.map(el => {
-                    return {...el, ref: React.createRef()}
-                });
-                this.setState({
-                    posts: posts,
-                });
-            })
-            .catch(error => console.error(error));
+        .query({
+            query: gql`
+                query{
+                    posts {
+                        id
+                        title
+                        titleEng
+                        subinfo
+                        subInfoEng
+                        content{
+                            html
+                            text
+                            markdown
+                        }
+                        contentEng{
+                            html
+                            text
+                            markdown
+                        }
+                        image{
+                            id
+                            url
+                        }
+                        date
+                        gallery {
+                            url
+                        }
+                    }
+                }
+            `
+        })
+        .then(res => {
+            const posts = res.data.posts.map(el => {
+                return {...el, ref: React.createRef()}
+            });
+            this.setState({
+                posts: posts,
+            });
+        })
+        .catch(error => console.error(error));
     }
 
     modalSlide = (id, ref) => {
         this.setState(
             {
-                activeModal: id
+                activeModal: this.state.activeModal === id ? null : id
             },
             () => {
                 console.log(ref);
@@ -77,22 +77,23 @@ class NewsSection extends Component {
                     <section className="news-section">
                         <h1 className="news-title">
                             News & Events
-                            <br/>
-                            <div className='title-hr'/>
+                            <div className="title-hr"/>
                         </h1>
                         <div className="post-container">
                             {this.state.posts.map(el => {
                                 return (
                                     <article key={el.id}
                                              className={`post ${this.state.activeModal === el.id ? 'active' : ''}`}
-                                             onClick={() => this.modalSlide(el.id, el.ref)}
-                                    >
+                                             style={{backgroundImage: `url(${el.image.url})`}}>
+                                        <div onClick={() => this.modalSlide(el.id, el.ref)}
+                                             className={`filter ${this.state.activeModal === el.id ? 'active' : ''}`}>
                                             <p className="post-date">{el.date}</p>
                                             <h4 className="post-title">{this.props.language==='pl'?el.title:el.titleEng}</h4>
-                                            <img src={el.image.url} className='post-background'/>
                                             <div className="bar"/>
                                             <p className="post-text">{this.props.language==='pl'?el.subinfo:el.subInfoEng}
                                             </p>
+
+                                        </div>
                                         {this.state.activeModal === el.id ? <div ref={el.ref} className="post-content">
                                             <div className="content-details">
                                                 <p className="content-date">{el.date}</p>

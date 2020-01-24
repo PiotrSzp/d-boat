@@ -1,52 +1,76 @@
 .about-section {
-  padding: 100px 0 20px 0;
-
+  padding-top: 100px;
   .about-team {
     display: flex;
     height: 85vh;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
-
-
     .team-photo {
       width: 50%;
       height: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+
+      .white-back {
+        position: absolute;
+        width: 100%;
+        top: 0;
+      }
+
+      .dark-back {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+      }
+
+    }
+
+    .photo {
+      width: 500px;
+      height: 700px;
       object-fit: cover;
       object-position: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .white-back {
+      background-color: $textColor;
+      height: 30%;
+    }
+
+    .dark-back {
+      background-color: $nav;
+      height: 70%;
     }
 
     .team-content {
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      background-color: #d3d3d3;
+      height: 100%;
+      width: 50%;
 
       .team-title {
         font-family: 'Panton', serif;
         text-transform: uppercase;
         font-weight: 800;
-        color: $secondaryColor;
+        color: $nav;
         font-size: 3vw;
-
       }
 
       .team-line {
         width: 15%;
         height: 1px;
         margin: 20px 0;
-        background-color: $secondaryColor;
-
-
+        background-color: $nav;
       }
 
-      .team-describe {
+      .team-first{
         font-size: calc(8px + 0.5vw);
         width: 80%;
-        text-align: center;
-        font-family: 'Titillium Web', sans-serif;
         line-height: 1.5em;
-
+        color: $nav;
       }
     }
 
