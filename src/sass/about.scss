@@ -1,10 +1,21 @@
 .about-section {
   padding-top: 50px;
+
+  @media (max-width: 1024px) {
+    padding-top: 10px;
+  }
+
   .about-team {
     display: flex;
     height: 85vh;
     width: 100%;
     margin: 0 auto;
+
+    @media (max-width: 1024px) {
+      height: unset;
+      flex-grow: 1;
+    }
+
     .team-photo {
       width: 50%;
       height: 100%;
@@ -24,25 +35,49 @@
         bottom: 0;
       }
 
+      @media (max-width: 1024px) {
+        .dark-back, .white-back {
+          background-color: $textColor;
+        }
+      }
     }
 
     .photo {
       width: 500px;
-      height: 700px;
+      height: 85%;
       object-fit: cover;
       object-position: center;
       position: relative;
       z-index: 1;
+
+      @media (max-width: 1300px) {
+        width: 75%;
+      }
+
+      @media (max-width: 1024px) {
+        width: 90%;
+        height: auto;
+      }
     }
 
     .white-back {
       background-color: $textColor;
       height: 30%;
+      @media (max-width: 1024px) {
+        background-color: $nav;
+        width: 100%;
+        text-align: center;
+      }
     }
 
     .dark-back {
       background-color: $nav;
       height: 70%;
+      @media (max-width: 1024px) {
+        background-color: $nav;
+        width: 100%;
+        text-align: center;
+      }
     }
 
     .team-content {
@@ -51,34 +86,75 @@
       height: 100%;
       width: 50%;
 
+      @media (max-width: 1024px) {
+        width: 100%;
+        text-align: center;
+      }
+
+
       .team-title {
-        font-family: 'Panton', serif;
+        font-family: 'PT Sans', sans-serif;
         text-transform: uppercase;
         font-weight: 800;
         color: $nav;
         font-size: 3vw;
+
+        @media (max-width: 1024px) {
+          color: $textColor;
+        }
       }
 
       .team-line {
         width: 15%;
-        height: 1px;
+        height: 2px;
         margin: 20px 0;
         background-color: $nav;
+
+        @media (max-width: 1024px) {
+          background-color: $textColor;
+          margin: 20px auto;
+        }
       }
 
-      .team-first{
-        width: 70%;
+      .team-first {
+        width: 80%;
         line-height: 1.5em;
         color: $nav;
         font-size: calc(10px + 0.5vw);
         font-weight: 600;
+
+        @media (max-width: 1024px) {
+          color: $textColor;
+          width: 100%;
+          font-size: 18px;
+          text-align: justify;
+        }
+        @media (max-width: 425px) {
+          padding-right: 0;
+          font-size: 16px;
+          text-align: justify;
+        }
       }
 
       .team-sec {
-        width: 70%;
+        width: 80%;
+        line-height: 1.5em;
         padding-top: 50px;
         padding-right: 20px;
         font-size: calc(10px + 0.5vw);
+
+        @media (max-width: 1024px) {
+          color: $textColor;
+          width: 100%;
+          font-size: 18px;
+          text-align: justify;
+          padding-right: 0;
+        }
+
+        @media (max-width: 425px) {
+          font-size: 16px;
+          text-align: justify;
+        }
       }
     }
 
@@ -86,16 +162,22 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      height: auto;
-
 
       .team-photo {
         padding-top: 20px;
-        height: 50%;
-        width: 90%;
+        height: auto;
+        width: 100%;
       }
       .team-content {
         margin-top: 40px;
+        height: auto;
+        padding: 50px 80px;
+        background-color: $nav;
+
+        @media (max-width: 425px) {
+          padding: 20px 30px;
+          flex-grow: 1;
+        }
 
         .team-title {
           font-size: 30px;
