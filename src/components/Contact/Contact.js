@@ -86,7 +86,10 @@ class ContactForm extends Component {
                     </div>
                 </section>
                 <section className="contact-form-container">
-                    <h1 className="contact-title">Contact Us</h1>
+                    <h1 className="contact-title">
+                        Contact Us
+                        <div className="contact-hr"/>
+                    </h1>
                     <form className='contact-form' onSubmit={this.handleSubmit} id="contact-form" method="POST">
                         <div className="row">
                             <div className="one-row">
@@ -117,23 +120,23 @@ class ContactForm extends Component {
                                        name='city' id="city"/>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="one-row">
-                                <label htmlFor="boat">{this.props.language.form.boat}</label>
-                                <select onChange={this.handleChange} value={this.state.boat} className="form-control"
-                                        name='boat' id="boat">
-                                    <option disabled selected value=''>{this.props.select === 'pl' ? '-- wybierz opcję -- ' : '-- select an option -- '} </option>
-                                    <option value={this.props.select === 'pl'? 'Tak' : 'Yes'}>{this.props.select === 'pl' ? 'Tak' : 'Yes'}</option>
-                                    <option  value={this.props.select === 'pl'? 'Nie' : 'No'}>{this.props.select === 'pl' ? 'Nie' : 'No'}</option>
-                                </select>
-                            </div>
-                            {this.state.boat==='Yes' || this.state.boat==='Tak'?<div className="one-row">
-                                <label htmlFor="model">{this.props.language.form.model}</label>
-                                <input  autoComplete="off" onChange={this.handleChange} value={this.props.model} type="text"
-                                       className="form-control"
-                                       name='model' id="model"/>
-                            </div>:null}
-                        </div>
+                        {/*<div className="row">*/}
+                        {/*    <div className="one-row">*/}
+                        {/*        <label htmlFor="boat">{this.props.language.form.boat}</label>*/}
+                        {/*        <select onChange={this.handleChange} value={this.state.boat} className="form-control"*/}
+                        {/*                name='boat' id="boat">*/}
+                        {/*            <option disabled selected value=''>{this.props.select === 'pl' ? '-- wybierz opcję -- ' : '-- select an option -- '} </option>*/}
+                        {/*            <option value={this.props.select === 'pl'? 'Tak' : 'Yes'}>{this.props.select === 'pl' ? 'Tak' : 'Yes'}</option>*/}
+                        {/*            <option  value={this.props.select === 'pl'? 'Nie' : 'No'}>{this.props.select === 'pl' ? 'Nie' : 'No'}</option>*/}
+                        {/*        </select>*/}
+                        {/*    </div>*/}
+                        {/*    {this.state.boat==='Yes' || this.state.boat==='Tak'?<div className="one-row">*/}
+                        {/*        <label htmlFor="model">{this.props.language.form.model}</label>*/}
+                        {/*        <input  autoComplete="off" onChange={this.handleChange} value={this.props.model} type="text"*/}
+                        {/*               className="form-control"*/}
+                        {/*               name='model' id="model"/>*/}
+                        {/*    </div>:null}*/}
+                        {/*</div>*/}
 
                         <div className="row">
                             <div className="one-row message">

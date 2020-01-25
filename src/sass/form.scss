@@ -1,30 +1,34 @@
 .form-container {
-  min-height: 100vh;
   max-width: 100%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  color: $nav;
+  text-transform: lowercase;
 
-  @media (max-width:960px) {
+  @media (max-width: 960px) {
     flex-direction: column;
   }
 
   .contact-info {
-    width: 50%;
+    margin-left: 5%;
+    flex-grow: 1;
     padding-top: 80px;
-    background-image: url("../assets/img/notebook-1280538_1280.jpg");
+    background-image: url("../assets/img/contact-background.jpg");
     background-size: cover;
     background-position: right;
-    @media (max-width:960px) {
+    @media (max-width: 960px) {
       width: 100%;
-      height: 400px
+      height: 400px;
+      margin-left: 0;
     }
-    @media (max-width:600px) {
+    @media (max-width: 600px) {
       height: 300px
     }
-    @media (max-width:400px) {
+    @media (max-width: 400px) {
       height: 250px
     }
+
     .filter {
       display: flex;
       justify-content: center;
@@ -32,25 +36,19 @@
       flex-direction: column;
       width: 100%;
       height: 100%;
-      background-image: linear-gradient(
-                      rgba($primaryColor, 0.1),
-                      rgba($primaryColor, 0.2),
-                      rgba($primaryColor, 0.1)
-      );
-      .info-container{
-        @media (max-width:960px) {
+
+      .info-container {
+        @media (max-width: 960px) {
           display: flex;
           justify-content: center;
           width: 100%;
         }
       }
 
-      @media (max-width:960px) {
+      @media (max-width: 960px) {
         justify-content: space-around;
       }
     }
-
-
 
     .mail, .address, .phone {
       display: flex;
@@ -58,71 +56,84 @@
       justify-content: flex-start;
       align-items: center;
       margin-bottom: 30px;
-      @media (max-width:960px) {
+      @media (max-width: 960px) {
         margin-top: 20px;
         margin-bottom: 0;
       }
 
     }
 
-    .phone{
-      @media (max-width:960px) {
+    .phone {
+      @media (max-width: 960px) {
         margin-right: 40px;
         margin-left: 40px;
-
       }
     }
-
 
     svg {
       height: 80px;
       width: 80px;
       margin-bottom: 30px;
-      @media (max-width:960px) {
+      @media (max-width: 960px) {
         height: 7vw;
-        width:7vw;
+        width: 7vw;
         margin-bottom: 20px;
       }
-      @media (max-width:960px) {
+      @media (max-width: 960px) {
         height: 7vw;
-        width:7vw;
+        width: 7vw;
         margin-bottom: 20px;
       }
     }
-    p,a {
+
+    p, a {
       color: #F3F3F3;
       font-size: 22px;
       text-align: center;
       text-decoration: none;
-      @media (max-width:960px) {
+      @media (max-width: 960px) {
         font-size: 2.5vw;
       }
     }
 
   }
 
-  .contact-form-container{
+  .contact-form-container {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 150px;
-    @media (max-width:960px) {
+    padding-top: 50px;
+    @media (max-width: 960px) {
       width: 80%;
       margin: 0 auto;
-      padding-top:90px ;
+      padding-top: 90px;
     }
   }
-  .contact-title{
+
+  .contact-title {
     font-size: 50px;
-    font-weight: 300;
-   margin-bottom: 90px;
-    text-align: center;
-    @media (max-width:400px) {
+    width: 90%;
+    margin: 0 auto 90px auto;
+    font-weight: 800;
+    text-align: right;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+
+    .contact-hr {
+      height: 4px;
+      width: 30%;
+      background-color: $nav;
+      margin-left: auto;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 400px) {
       font-size: 40px;
     }
   }
+
   .contact-form {
     margin: 0 auto;
     display: flex;
@@ -132,19 +143,17 @@
     width: 90%;
 
 
-
-
-    input,select {
+    input, select {
       height: 40px;
       margin-bottom: 40px;
       font-size: 20px;
-      border-radius: 10px;
-      border: none;
+      border-radius: 20px;
+      border: 1px solid $nav;
       outline: none;
-      background-color: $nav;
+      background-color: $textColor;
       padding-left: 10px;
-      color: #F3F3F3;
-      @media (max-width:480px) {
+      color: $nav;
+      @media (max-width: 480px) {
         margin-bottom: 20px;
       }
 
@@ -154,15 +163,16 @@
     }
 
     textarea {
-      border: none;
+      border: 1px solid $nav;
       resize: none;
-      border-radius: 10px;
+      border-radius: 20px;
       font-size: 20px;
       outline: none;
       padding-left: 10px;
       padding-top: 10px;
-      background-color:  $nav;
-      color: #F3F3F3;
+      background-color: $textColor;
+      color: $nav;
+
       &::placeholder {
         color: #F3F3F3;
       }
@@ -178,7 +188,7 @@
       justify-content: space-between;
       width: 100%;
 
-      @media (max-width:480px) {
+      @media (max-width: 480px) {
         display: block;
       }
 
@@ -186,11 +196,12 @@
         display: flex;
         flex-direction: column;
         width: 49%;
-        @media (max-width:480px) {
+        @media (max-width: 480px) {
           width: 100%;
         }
       }
-      .message{
+
+      .message {
         width: 100%;
       }
     }
@@ -199,18 +210,19 @@
       width: 200px;
       margin: 50px auto 20px auto;
       height: 50px;
-      background-color: inherit;
+      background-color: $nav;
       border: 1px solid $nav;
-      border-radius: 20px;
+      border-radius: 30px;
       outline: none;
       font-size: 20px;
       cursor: pointer;
-      color: $nav;
+      color: $textColor;
       text-transform: uppercase;
       transition: .1s;
-      &:hover{
-        background-color: #444;
-        border-color: #444;
+
+      &:hover {
+        background-color: lighten($nav, 40%);
+        border-color: lighten($nav, 40%);
       }
     }
   }

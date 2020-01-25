@@ -30,7 +30,7 @@
       width: 35px;
     }
     &:hover{
-      background-color: #444;
+      background-color: lighten($nav, 40%);
     }
   }
 
