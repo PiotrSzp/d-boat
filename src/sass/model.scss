@@ -26,21 +26,25 @@
 
     img {
       width: 33%;
+      height: 60vw;
     }
 
     .first {
       position: relative;
       transform: translate(0, -40%);
+      object-fit: cover;
     }
 
     .sec {
       position: relative;
       transform: translate(0, 25%);
+      object-fit: cover;
     }
 
     .third {
       position: relative;
       transform: translate(0, 60%);
+      object-fit: cover;
     }
   }
 
@@ -81,7 +85,9 @@
     strong {
       margin-left: 5px;
     }
-
+  }
+  @media (max-width: 1024px) {
+    max-height: 500px;
   }
 }
 
@@ -125,6 +131,7 @@
   background-position: center center;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 100px 0;
 
   img {

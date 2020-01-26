@@ -130,8 +130,8 @@ const copy = {
             {text: 'About', link: '/about', id: 1},
             {text: 'Contact', link: '/contact', id: 2},
             {text: 'News', link: '/news', id: 3},
-            {text: 'Retailers', link: '/retailers', id: 4},
-            {text: 'Privacy Policy', link: '/', id: 5}
+            // {text: 'Retailers', link: '/retailers', id: 4},
+            // {text: 'Privacy Policy', link: '/', id: 5}
         ]
 
 
@@ -278,8 +278,8 @@ const copy = {
             {text: 'O nas', link: '/about', id: 1},
             {text: 'Kontakt', link: '/contact', id: 2},
             {text: 'News', link: '/news', id: 3},
-            {text: 'Sprzedawcy', link: '/retailers', id: 4},
-            {text: 'Polityka Prywatności', link: '/', id: 5}
+            // {text: 'Sprzedawcy', link: '/retailers', id: 4},
+            // {text: 'Polityka Prywatności', link: '/', id: 5}
         ]
     }
 };

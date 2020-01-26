@@ -2,7 +2,7 @@
   padding-top: 50px;
 
   @media (max-width: 1024px) {
-    padding-top: 10px;
+    padding-top: 0;
   }
 
   .about-team {
@@ -55,8 +55,8 @@
       }
 
       @media (max-width: 1024px) {
-        width: 90%;
-        height: auto;
+        width: 100%;
+        //max-height: 50vh;
       }
     }
 
@@ -164,12 +164,12 @@
       min-height: 100vh;
 
       .team-photo {
-        padding-top: 20px;
+        //padding-top: 20px;
         height: auto;
         width: 100%;
       }
       .team-content {
-        margin-top: 40px;
+        //margin-top: 40px;
         height: auto;
         padding: 50px 80px;
         background-color: $nav;
